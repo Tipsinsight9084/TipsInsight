@@ -28,7 +28,7 @@ export default function Card(props) {
     'CSK': CSK,
   }
 
-  const link = props.btn_link +'/' + data.uniqueId
+  const link = '/' + props.btn_link +'/' + data.uniqueId
   console.log("link",link)
 
   const date = new Date(data.matchDate);
@@ -115,9 +115,10 @@ export default function Card(props) {
             </div>
               <Link to={link}>
             <div>
-            <button className="my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-4 md:px-8 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-full md:w-auto">
+            <button className="my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-4 md:px-8 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-full md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
   {props.btn_des}
 </button>
+
 
 
 

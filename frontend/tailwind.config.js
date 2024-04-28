@@ -9,7 +9,8 @@ export default {
       colors: {
         customRed: '#b60d0d',
         customBrown: '#500606',
-        customyellow: '#fccf2f'
+        customyellow: '#fccf2f',
+        customgray: '#f2f2f2'
       }, fontFamily: {
         'mont': ['Montserrat', 'sans-serif'],
       },

@@ -2,6 +2,7 @@ import Heading from "./Heading"
 import { useEffect,useState } from "react";
 import Card from "./card";
 import Navbar from "./navbar";
+import Footer from "./footer";
 
 export default function Upcoming(){
 
@@ -33,6 +34,7 @@ export default function Upcoming(){
         {upcoming.map((upcoming) => ( 
                 <Card prev="false" btn_link='buy' key={upcoming.uniqueId} btn_des={view} data={upcoming}/> 
       ))}
+      <Footer/>
      
         </>
     )

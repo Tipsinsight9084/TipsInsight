@@ -14,6 +14,7 @@ import SRH from '../assets/SRH.png'
 import RR from '../assets/RR.png'
 import RCB from '../assets/RCB.png'
 import DC from '../assets/DC.png'
+import Footer from './footer.jsx';
 
 function Prediction_Page() {
 
@@ -92,6 +93,11 @@ const date = new Date(data.matchDate);
 
   var scorecard = true;
 
+  let predictiontimetoss = data.tossTime
+  let predictionmatch = data.matchwinnerTime
+  
+   time = parseInt(time)-12
+
 
   return (
     <>
@@ -109,32 +115,45 @@ const date = new Date(data.matchDate);
            {match_no}th Match
          </div>
        </div>
-       <div className="mt-4 md:mt-6 border border-black w-99/100 bg-white rounded-b-3xl flex flex-col items-center">
+       <div className="mt-4 pb-4 md:mt-6 border border-black w-99/100 bg-white rounded-b-3xl flex flex-col items-center">
        <div className="font-mont font-extrabold text-sm md:text-base mt-2 md:mt-4"> {/* Adjusted font size */}
          {weekday}, {day}{' '}{monthNames[monthIndex]}, {time +":30"+ " PM"}
          </div>
          <div className="font-bold flex flex-row items-center justify-between px-4 md:px-12 py-4 md:py-2 w-full rounded-md">
-           <div className="flex flex-col justify-between md:pt-4 w-72 md:flex-row items-center">
-             <img className="w-20 md:w-36 h-16" src={logos[data.team1]} alt="" />
-             <div className='flex flex-col justify-center items-center'>
-             <div className="font-mont font-bold md:text-2xl">{data.team1}</div>
+              <div className="flex flex-col justify-between md:pt-4 w-72 md:flex-row items-center">
+                <img className="w-20 md:w-36 h-16"src={logos[data.team1]} alt="" />
+                <div className='flex flex-col justify-center items-center'>
+                <div className="font-mont font-bold md:text-2xl">{data.team1}</div>
+               {scorecard && <div className="flex flex-col items-center font-mont font-semibold text-sm md:text-md">
+                  <span>{data.team1Run + '-' + data.team1Wicket}</span>
+                  <span>{'(' + data.team1Over + ')'}</span>
+                </div>
+}
+              </div>
+              </div>
 
-           </div>
-           </div>
+              <div className="font-mont font-bold text-2xl">vs</div>
 
-           <div className="font-mont font-bold text-2xl">vs</div>
+              <div className="flex flex-col-reverse justify-between md:pt-4 w-72 md:flex-row items-center">
+                <div className='flex flex-col justify-center items-center'>
+                <div className="font-mont font-bold md:text-2xl">{data.team2}</div>
+                {scorecard && <div className="flex flex-col items-center font-mont font-semibold text-sm md:text-md">
+                  <span>{data.team2Run + '-' + data.team2Wicket}</span>
+                  <span>{'(' + data.team2Over + ')'}</span>
+                </div>
+} 
+              </div>
+                <img className="w-20 md:w-36 h-16"src={logos[data.team2]} alt="" />
+              </div>
 
-           <div className="flex flex-col-reverse justify-between md:pt-4 w-72 md:flex-row items-center">
-             <div className='flex flex-col justify-center items-center'>
-             <div className="font-mont font-bold md:text-2xl">{data.team2}</div>
-            
-           </div>
-             <img className="w-20 md:w-36 h-16"src={logos[data.team2]} alt="" />
-           </div>
 
+            </div>
 
-         </div>
-         <div className=" my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-4 md:px-8 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown md:w-auto">
+            {scorecard && <div className="font-mont font-bold text-sm md:text-base mt-2 md:mt-4">
+              {data.highlight}
+            </div>
+}
+         {/* <div className=" my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-4 md:px-8 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown md:w-auto">
   Toss Prediction
             </div>
 
@@ -180,7 +199,7 @@ const date = new Date(data.matchDate);
                   Last Updated: 24th april, 06:00 PM
                </div>
               </div>
-            </div>
+            </div> */}
        </div>
 
       
@@ -188,6 +207,70 @@ const date = new Date(data.matchDate);
      </div>
    </div>
  </div>
+
+ <div className=" mb-4 w-11/12 md:w-4/5 lg:w-4/5 xl:w-1/2 mx-auto">
+     {/* <div className="rounded-3xl bg-gradient-to-r from-customRed to-customBrown">
+       */}
+       <div className="mt-4 px-12 md:mt-6 w-99/100 bg-customgray flex flex-col items-center">
+       
+        
+  
+         <div className=" my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-16 md:px-48 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown md:w-auto">
+  Toss Prediction
+            </div>
+
+            <div className='w-[90%] flex justify-between py-4'>
+              <div >
+             <img className="w-20 md:w-36 h-16" src={logos[data.tossWinner]} alt="" />
+              </div>
+
+              <div className='flex flex-col mx-4'>
+                <div className='text-customBrown font-bold text-2xl font-mont' >
+                  {full_names[data.tossWinner]}
+                </div>
+
+               <div className='text-gray-500 tracking-widest'>
+                 will win the toss
+               </div>
+
+               <div className='font-mont text-gray-500 font-bold text-sm'>
+                  Last Updated:  {day}{' '}{monthNames[monthIndex]}, {predictiontimetoss}
+               </div>
+              </div>
+            </div>
+
+            <div className=" my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-16 md:px-48 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown md:w-auto">
+  Match Prediction
+            </div>
+
+            <div className='w-[90%] flex flex-row-reverse justify-between py-4'>
+              <div >
+             <img className="w-20 md:w-36 h-16" src={logos[data.matchWinner]} alt="" />
+              </div>
+
+              <div className='flex flex-col mx-4'>
+                <div className='text-customBrown font-bold text-2xl font-mont'>
+                  {full_names[data.matchWinner]}
+                </div>
+
+               <div className='text-gray-500 tracking-widest'>
+                 will win the match
+               </div>
+
+               <div className='font-mont text-gray-500 font-bold text-sm'>
+                  Last Updated: {day}{' '}{monthNames[monthIndex]},{predictionmatch}
+               </div>
+              </div>
+            </div>
+       </div>
+
+      
+            
+    </div>
+  
+
+   <Footer/>
+
  </>
 );
 }
