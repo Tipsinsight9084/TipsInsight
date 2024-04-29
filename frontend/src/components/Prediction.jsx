@@ -52,7 +52,7 @@ function Prediction_Page() {
   console.log("hey2  ", uniqueId);
   useEffect(() => {
     // Fetch event details from the backend using uniqueId
-   fetch(`http://localhost:3000/matchdetails/${uniqueId}`,)
+   fetch(`https://cricket-prediction-66bh.onrender.com/matchdetails/${uniqueId}`,)
       .then((response) => response.json())
       .then((data) => setDetails(data))
       .catch((error) => console.error('Error fetching event details:', error));

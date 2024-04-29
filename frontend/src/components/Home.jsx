@@ -122,6 +122,7 @@ function Home_Page() {
 <Footer/>
 </div> */}
 
+<Footer/>
          
     </>
   );

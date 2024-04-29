@@ -29,7 +29,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(cors({
-  origin: 'https://aquamarine-daifuku-60efd4.netlify.app'
+  origin: 'https://frabjous-frangipane-d2169e.netlify.app/'
 }));
 
 app.use('/', indexRouter);

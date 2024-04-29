@@ -41,7 +41,7 @@ function MatchForm() {
 
     try {
       console.log({ ...formData, uniqueId })
-      const response = await fetch('http://localhost:3000/create', {
+      const response = await fetch('https://cricket-prediction-66bh.onrender.com/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
