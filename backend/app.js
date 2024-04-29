@@ -6,6 +6,7 @@ var logger = require('morgan');
 const cors = require('cors');
 
 
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var createRouter = require('./routes/create');
@@ -27,6 +28,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({
+  origin: 'https://aquamarine-daifuku-60efd4.netlify.app'
+}));
 
 app.use('/', indexRouter);
 app.use('/create', createRouter);

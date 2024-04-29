@@ -1,6 +1,6 @@
 import React from 'react'
 
-const heroSection = () => {
+const HeroSection = () => {
   return (
     <>
     {/* Slider */}
@@ -91,4 +91,4 @@ const heroSection = () => {
   )
 }
 
-export default heroSection
+export default HeroSection

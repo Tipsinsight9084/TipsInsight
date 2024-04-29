@@ -1,8 +1,12 @@
 import React from 'react'
-import './aboutUs.css'
+import Footer from '../footer'
+import Navbar from '../navbar'
+// import './aboutUs.css'
 
-const aboutUs = () => {
+const AboutUs = () => {
   return (
+        <>
+        <Navbar/>
     <div  className="w-full divide-y-4 font-mont">
         <div>
      <div className='md:text-4xl md:my-8 md:mx-20 font-black text-3xl my-4 mt-8 mx-4'>Welcome to ACP. </div>
@@ -70,7 +74,9 @@ const aboutUs = () => {
      </div>
 
     </div>
+    <Footer/>
+    </>
   ) 
 }
 
-export default aboutUs
+export default AboutUs

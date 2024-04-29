@@ -9,7 +9,7 @@ import RR from '../assets/RR.png'
 import RCB from '../assets/RCB.png'
 import DC from '../assets/DC.png'
 // import KKR from '../assets/KKR.jpeg'
-import './card.css'
+// import './card.css'
 import { Link } from 'react-router-dom'
 
 export default function Card(props) {
@@ -82,7 +82,7 @@ export default function Card(props) {
                 <img className="w-20 md:w-36 h-16"src={logos[data.team1]} alt="" />
                 <div className='flex flex-col justify-center items-center'>
                 <div className="font-mont font-bold md:text-2xl">{data.team1}</div>
-               {scorecard && <div className="flex flex-col items-center font-mont font-medium  text-sm md:text-md">
+               {scorecard && <div className="flex flex-col items-center font-mont font-semibold  text-sm md:text-md">
                   <span>{data.team1Run + '-' + data.team1Wicket}</span>
                   <span>{'(' + data.team1Over + ')'}</span>
                 </div>
@@ -95,7 +95,7 @@ export default function Card(props) {
               <div className="flex flex-col-reverse justify-between md:pt-4 w-72 md:flex-row items-center">
                 <div className='flex flex-col justify-center items-center'>
                 <div className="font-mont font-bold md:text-2xl">{data.team2}</div>
-                {scorecard && <div className="flex flex-col items-center font-mont font-medium text-sm md:text-md">
+                {scorecard && <div className="flex flex-col items-center font-mont font-semibold text-sm md:text-md">
                   <span>{data.team2Run + '-' + data.team2Wicket}</span>
                   <span>{'(' + data.team2Over + ')'}</span>
                 </div>
