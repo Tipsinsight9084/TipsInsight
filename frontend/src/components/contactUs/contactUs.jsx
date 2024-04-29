@@ -1,13 +1,13 @@
 import React from 'react'
-import Navbar from '../navbar'
+import NavBar from '../navbarr'
 import Footer from '../footer'
 // import './contactUs.css'
 
 const ContactUs = () => {
   return (
     <div>
-      <Navbar/>
-      <section className="bg-white dark:bg-gray-900">
+      <NavBar/>
+      <section className="bg-customgray dark:bg-gray-900">
   <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
     <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
       Get In Touch

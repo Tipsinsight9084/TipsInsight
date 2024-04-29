@@ -1,7 +1,7 @@
 import Heading from "./Heading"
 import { useEffect,useState } from "react";
 import Card from "./card";
-import Navbar from "./navbar";
+import NavBar from "./navbarr";
 import Footer from './footer'
 
 export default function Previous(){
@@ -29,7 +29,7 @@ export default function Previous(){
     // console.log(previous)
     return(
         <>
-        <Navbar />
+        <NavBar />
         <Heading heading={previous_heading}/>
         {previous.map((previous) => ( 
                 <Card prev="true" btn_link='prediction' key={previous.uniqueId} btn_des={view} data={previous}/> 

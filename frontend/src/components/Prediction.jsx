@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navbar from './navbar';
+import NavBar from './navbarr';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from 'axios'
@@ -101,7 +101,7 @@ const date = new Date(data.matchDate);
 
   return (
     <>
-    <Navbar/>
+    <NavBar/>
     <Heading heading={pred_heading}/>
     <div> {/* Adjusted padding for smaller devices */}
    

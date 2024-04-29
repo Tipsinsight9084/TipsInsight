@@ -1,12 +1,12 @@
 import React from 'react'
 import Footer from '../footer'
-import Navbar from '../navbar'
+import NavBar from '../navbarr'
 // import './aboutUs.css'
 
 const AboutUs = () => {
   return (
         <>
-        <Navbar/>
+        <NavBar/>
     <div  className="w-full divide-y-4 font-mont">
         <div>
      <div className='md:text-4xl md:my-8 md:mx-20 font-black text-3xl my-4 mt-8 mx-4'>Welcome to ACP. </div>
