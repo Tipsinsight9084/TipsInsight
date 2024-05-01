@@ -100,7 +100,7 @@ const date = new Date(data.matchDate);
   let predictiontimetoss = data.tossTime
   let predictionmatch = data.matchwinnerTime
   
-   time = parseInt(time)-12
+   time = parseInt(time)
 
 
   return (
