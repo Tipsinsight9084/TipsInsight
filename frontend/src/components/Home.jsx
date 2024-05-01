@@ -4,7 +4,7 @@ import Card from './card';
 import Heading from './Heading';
 import {Link} from 'react-router-dom'
 import Footer from './footer'
-import HeroSection from './hero/heroSection';
+import HeroSection from './hero/hero';
 import NavBar from './navbarr';
 
 function Home_Page() {
