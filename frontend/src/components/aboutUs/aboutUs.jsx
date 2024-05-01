@@ -9,7 +9,7 @@ const AboutUs = () => {
         <NavBar/>
     <div  className="w-full divide-y-4 font-mont">
         <div>
-     <div className='md:text-4xl md:my-8 md:mx-20 font-black text-3xl my-4 mt-8 mx-4'>Welcome to ACP. </div>
+     <div className='md:text-4xl md:my-8 md:mx-20 font-black text-3xl my-4 mt-8 mx-4'>Welcome to Tips Insight. </div>
      <div className='md:text-xl font-bold md:mt-4 md:mx-20 mx-4 text-xs'>Deciphering the world of Cricket prediction for you!</div>
 
      <br></br>

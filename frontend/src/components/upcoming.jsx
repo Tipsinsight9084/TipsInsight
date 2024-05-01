@@ -3,6 +3,7 @@ import { useEffect,useState } from "react";
 import Card from "./card";
 import NavBar from "./navbarr";
 import Footer from "./footer";
+import LoadingAnimation from "./Loader/Loader";
 
 export default function Upcoming(){
 
@@ -13,7 +14,7 @@ export default function Upcoming(){
       // // Function to fetch all event data from the backend
       const fetchAllupcoming = async () => {
         try {
-          const response = await fetch('https://cricket-prediction-66bh.onrender.com/upcomingmatches');
+          const response = await fetch('https://temppp-cricket.onrender.com/upcomingmatches');
           const data = await response.json();
           setUpcoming(data); // // Assuming the backend returns an array of events
         } catch (error) {
@@ -23,7 +24,15 @@ export default function Upcoming(){
   
       // Call the fetchAllEvents function
       fetchAllupcoming();
-    }, []); 
+    }, []);
+    
+    if (upcoming.length===0) {
+      return (
+        <LoadingAnimation/>
+      );
+      
+    }
+  
 
     let upcoming_heading = "UPCOMING MATCHES"
     // console.log(previous)

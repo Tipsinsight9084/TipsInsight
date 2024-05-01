@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import  {HamburgetMenuOpen} from "./Icons.jsx";
+import logo from '/logo_final.png';
 
 function NavBar() {
   const [click, setClick] = useState(false);
@@ -11,13 +12,10 @@ function NavBar() {
     <>
       <nav className="navbar">
         <div className="nav-container">
-          <NavLink exact to="/" className="nav-logo">
-            <span>AKC.</span>
+          <div className="nav-logo">
+            <img src={logo} alt="" className="w-36 h-36"/>
             {/* <i className="fas fa-code"></i> */}
-            <span className="icon">
-              <HamburgetMenuOpen />
-            </span>
-          </NavLink>
+          </div>
 
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
@@ -76,6 +74,7 @@ function NavBar() {
                 Contact Us
               </NavLink>
             </li>
+            
           </ul>
           <div className="nav-icon" onClick={handleClick}>
             {/* <i className={click ? "fas fa-times" : "fas fa-bars"}></i> */}
