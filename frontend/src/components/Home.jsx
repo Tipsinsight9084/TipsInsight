@@ -75,7 +75,7 @@ function Home_Page() {
       <FinalCarousel/>
       {/* <div className='mt-8 md:mt-1'></div> */}
       {/* Render next match data if available */}
-      <div className='mt-[30vh]'>
+      <div className='md:mt-[30vh]'>
       {nextMatch && (
         <>
          
