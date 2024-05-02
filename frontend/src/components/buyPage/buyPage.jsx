@@ -22,7 +22,7 @@ function BuyPage()  {
 
   function redirectToWhatsApp() {
     // Phone number with country code
-    const phoneNumber = "919084437496";
+    const phoneNumber = "918445659152";
     // Default message (URL encoded)
     const defaultMessage = encodeURIComponent("Hello there, I would like to talk to you");
     // Construct WhatsApp URL
