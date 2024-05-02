@@ -106,7 +106,7 @@ const date = new Date(data.matchDate);
   return (
     <>
     <NavBar/>
-    <Heading heading={pred_heading}/>
+    {/* <Heading heading={pred_heading}/> */}
     <div> {/* Adjusted padding for smaller devices */}
    
    <div className=" mb-4 w-11/12 md:w-4/5 lg:w-4/5 xl:w-1/2 mx-auto"> {/* Centered and adjusted width */}
@@ -215,13 +215,15 @@ const date = new Date(data.matchDate);
  <div className=" mb-4 w-11/12 md:w-4/5 lg:w-4/5 xl:w-1/2 mx-auto">
      {/* <div className="rounded-3xl bg-gradient-to-r from-customRed to-customBrown">
        */}
-       <div className="mt-4 px-12 md:mt-6 w-99/100 bg-customgray flex flex-col items-center">
+       <div className="mt-4 px-12 md:mt-6 w-99/100 bg-customgray flex flex-col items-center md:flex-row md:px-2">
        
-        
+        <div>
   
          <div className=" my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-16 md:px-48 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown md:w-auto">
   Toss Prediction
             </div>
+
+
 
             <div className='w-[95%] flex justify-evenly py-4'>
               <div >
@@ -242,6 +244,9 @@ const date = new Date(data.matchDate);
                </div>
               </div>
             </div>
+            </div>
+
+            <div>
 
             <div className=" my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-16 md:px-48 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown md:w-auto">
   Match Prediction
@@ -265,6 +270,7 @@ const date = new Date(data.matchDate);
                   Last Updated: {day}{' '}{monthNames[monthIndex]},{predictionmatch}
                </div>
               </div>
+            </div>
             </div>
        </div>
 
