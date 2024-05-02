@@ -212,14 +212,14 @@ const date = new Date(data.matchDate);
    </div>
  </div>
 
- <div className=" mb-4 w-11/12 md:w-4/5 lg:w-4/5 xl:w-1/2 mx-auto">
+ <div className="mb-4 w-11/12 md:w-4/5 lg:w-4/5 xl:w-full justify-center mx-auto">
      {/* <div className="rounded-3xl bg-gradient-to-r from-customRed to-customBrown">
        */}
-       <div className="mt-4 px-12 md:mt-6 w-99/100 bg-customgray flex flex-col items-center md:flex-row md:px-2">
+       <div className="mt-4 px-0 md:mt-6 w-full md:w-full bg-customgray flex flex-col justify-center gap-10 md:flex-row md:px-0 ">
        
         <div>
   
-         <div className=" my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-16 md:px-48 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown md:w-auto">
+         <div className="text-center my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-6 md:px-14 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown md:w-auto">
   Toss Prediction
             </div>
 
@@ -235,7 +235,7 @@ const date = new Date(data.matchDate);
                   {full_names[data.tossWinner]}
                 </div>
 
-               <div className='text-gray-500 text-lg md:text-2xl tracking:wide md:tracking-widest'>
+               <div className='text-gray-500 text-lg md:text-xl tracking:wide md:tracking-widest'>
                  will win the toss
                </div>
 
@@ -248,7 +248,7 @@ const date = new Date(data.matchDate);
 
             <div>
 
-            <div className=" my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-16 md:px-48 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown md:w-auto">
+            <div className="text-center my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-6 md:px-14 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown md:w-auto">
   Match Prediction
             </div>
 
@@ -262,7 +262,7 @@ const date = new Date(data.matchDate);
                   {full_names[data.matchWinner]}
                 </div>
 
-               <div className='text-gray-500 text-lg md:text-2xl tracking-wide md:tracking-widest'>
+               <div className='text-gray-500 text-lg md:text-xl tracking-wide md:tracking-widest'>
                  will win the match
                </div>
 
