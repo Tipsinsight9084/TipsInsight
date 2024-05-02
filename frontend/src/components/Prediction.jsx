@@ -125,7 +125,7 @@ const date = new Date(data.matchDate);
          </div>
          <div className="font-bold flex flex-row items-center justify-between px-4 md:px-12 py-4 md:py-2 w-full rounded-md">
               <div className="flex flex-col justify-between md:pt-4 w-72 md:flex-row items-center">
-                <img className="w-20 md:w-36 h-16"src={logos[data.team1]} alt="" />
+                <img className="w-auto h-16 md:h-32"src={logos[data.team1]} alt="" />
                 <div className='flex flex-col justify-center items-center'>
                 <div className="font-mont font-bold md:text-2xl">{data.team1}</div>
                {scorecard && <div className="flex flex-col items-center font-mont font-semibold text-sm md:text-md">
@@ -147,7 +147,7 @@ const date = new Date(data.matchDate);
                 </div>
 } 
               </div>
-                <img className="w-20 md:w-36 h-16"src={logos[data.team2]} alt="" />
+                <img className="w-auto h-16 md:h-32"src={logos[data.team2]} alt="" />
               </div>
 
 
@@ -223,17 +223,17 @@ const date = new Date(data.matchDate);
   Toss Prediction
             </div>
 
-            <div className='w-[90%] flex justify-between py-4'>
+            <div className='w-[95%] flex justify-evenly py-4'>
               <div >
-             <img className="w-20 md:w-36 h-16" src={logos[data.tossWinner]} alt="" />
+             <img className="w-auto h-24" src={logos[data.tossWinner]} alt="" />
               </div>
 
               <div className='flex flex-col mx-4'>
-                <div className='text-customBrown font-bold text-2xl font-mont' >
+                <div className='text-customBrown font-bold text-xl md:text-4xl font-mont' >
                   {full_names[data.tossWinner]}
                 </div>
 
-               <div className='text-gray-500 tracking-widest'>
+               <div className='text-gray-500 text-lg md:text-2xl tracking:wide md:tracking-widest'>
                  will win the toss
                </div>
 
@@ -247,17 +247,17 @@ const date = new Date(data.matchDate);
   Match Prediction
             </div>
 
-            <div className='w-[90%] flex flex-row-reverse justify-between py-4'>
+            <div className='w-[95%] flex flex-row-reverse justify-evenly py-4'>
               <div >
-             <img className="w-20 md:w-36 h-16" src={logos[data.matchWinner]} alt="" />
+             <img className="w-auto h-24" src={logos[data.matchWinner]} alt="" />
               </div>
 
               <div className='flex flex-col mx-4'>
-                <div className='text-customBrown font-bold text-2xl font-mont'>
+                <div className='text-customBrown font-bold text-xl md:text-4xl font-mont'>
                   {full_names[data.matchWinner]}
                 </div>
 
-               <div className='text-gray-500 tracking-widest'>
+               <div className='text-gray-500 text-lg md:text-2xl tracking-wide md:tracking-widest'>
                  will win the match
                </div>
 

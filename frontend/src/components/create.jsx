@@ -8,22 +8,22 @@ function MatchForm() {
   const [formData, setFormData] = useState({
     team1: '',
     team2: '',
-    matchDate: '',
-    time: '',
+    matchDate: '2024-03-15',
+    time: '19:30',
     venue: '',
     tossWinner: '',
-    tossDate: '',
-    tossTime: '',
+    tossDate: '2024-03-15',
+    tossTime: '17:00',
     matchWinner: '',
-    matchwinnerDate: '',
-    matchwinnerTime: '',
+    matchwinnerDate: '2024-03-15',
+    matchwinnerTime: '19:10',
     matchNumber: '',
     team1Run: '',
     team1Wicket: '',
-    team1Over: '',
+    team1Over: '20',
     team2Run: '',
     team2Wicket: '',
-    team2Over: '',
+    team2Over: '20',
     actualmatchWinner: '',
     actualtossWinner: '',
     highlight: ''
@@ -38,6 +38,7 @@ function MatchForm() {
 
     const matchNumber = formData.matchNumber.toString().padStart(2, '0');
     const uniqueId = `IPL24_${matchNumber}`;
+    console.log(formData)
 
     try {
       console.log({ ...formData, uniqueId })
