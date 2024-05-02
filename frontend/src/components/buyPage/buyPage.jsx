@@ -146,7 +146,7 @@ const date = new Date(data.matchDate);
            {/* <div className="md:mx-8 flex flex-row justify-center items-center w-full md:w-auto md:rounded-md"> Adjusted margin and width */}
              {/* <div className=" flex text-lg md:text-2xl w-full flex justify-between items-center"> */}
               <div className='basis-3/7 flex flex-col items-center  m-auto'>
-           <img src={logos[data.team1]} alt="Team 1 image" className="md:w-20 w-auto h-16" /> {/* Adjusted image size */}
+           <img src={logos[data.team1]} alt="Team 1 image" className=" w-auto h-16" /> {/* Adjusted image size */}
                <div className="md:px-4 m-auto md:text-2xl text-xs font-bold text-center">{data.team1}</div>
                </div>
 
