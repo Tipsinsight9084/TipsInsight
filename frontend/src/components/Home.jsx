@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom'
 import Footer from './footer'
 import HeroSection from './hero/hero';
 import NavBar from './navbarr';
+import FinalCarousel from './hero/finalCarousel';
 
 function Home_Page() {
   const next_heading = "Next Match";
@@ -70,7 +71,7 @@ function Home_Page() {
   return (
     <>
       <NavBar/>
-      <HeroSection/>
+      <FinalCarousel/>
       {/* <div className='mt-8 md:mt-1'></div> */}
       {/* Render next match data if available */}
       <div className=''>
