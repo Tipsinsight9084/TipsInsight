@@ -71,10 +71,11 @@ function Home_Page() {
   return (
     <>
       <NavBar/>
+      <br></br>
       <FinalCarousel/>
       {/* <div className='mt-8 md:mt-1'></div> */}
       {/* Render next match data if available */}
-      <div className=''>
+      <div className='mt-[30vh]'>
       {nextMatch && (
         <>
          

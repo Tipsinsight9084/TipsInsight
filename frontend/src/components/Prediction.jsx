@@ -109,7 +109,7 @@ const date = new Date(data.matchDate);
     {/* <Heading heading={pred_heading}/> */}
     <div> {/* Adjusted padding for smaller devices */}
    
-   <div className=" mb-4 w-11/12 md:w-4/5 lg:w-4/5 xl:w-1/2 mx-auto"> {/* Centered and adjusted width */}
+   <div className="mt-6 mb-4 w-11/12 md:w-4/5 lg:w-4/5 xl:w-1/2 mx-auto"> {/* Centered and adjusted width */}
      <div className="rounded-3xl p-1 md:p-2 bg-gradient-to-r from-customRed to-customBrown">
        <div className="text-center">
          <div className="font-mont font-extrabold text-2xl md:text-3xl text-white"> {/* Adjusted font size */}
