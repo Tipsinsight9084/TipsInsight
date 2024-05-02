@@ -10,6 +10,7 @@ import ContactUs from './components/contactUs/contactUs'
 import HeroSection from './components/hero/hero';
 // import ContactPage from './components/contactUs/contactUs';
 import Upcoming from './components/upcoming'
+import FinalCarousel from './components/hero/finalCarousel';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         {/* <Route path="/" element={<HeroSection/>} /> */}
         <Route path="/prediction" element={<Prediction_Page />} />
             {/* <Route path="/" element={<HeroSection/>} /> */}
+        {/* <Route path="/" element={<FinalCarousel/>} /> */}
         <Route path="/" element={<Home_Page/>} />
         <Route path="/prediction/:uniqueId" element={<Prediction_Page />} />
         <Route path='/about' element={<AboutUs/>}></Route>
