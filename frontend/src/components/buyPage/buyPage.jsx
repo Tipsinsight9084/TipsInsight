@@ -4,6 +4,7 @@ import Footer from '../footer'
   import { useParams } from 'react-router-dom';
 import { useEffect,useState } from 'react';
 import axios from 'axios'
+import LoadingAnimation from '../Loader/Loader';
 // import Heading from './Heading.jsx'
 import CSK from '../../assets/CSK.png'
 import MI from '../../assets/MI.png'
@@ -15,8 +16,20 @@ import SRH from '../../assets/SRH.png'
 import RR from '../../assets/RR.png'
 import RCB from '../../assets/RCB.png'
 import DC from '../../assets/DC.png'
+import NavBar from '../navbarr';
 
 function BuyPage()  {
+
+  function redirectToWhatsApp() {
+    // Phone number with country code
+    const phoneNumber = "919084437496";
+    // Default message (URL encoded)
+    const defaultMessage = encodeURIComponent("Hello there, I would like to talk to you");
+    // Construct WhatsApp URL
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${defaultMessage}`;
+    // Redirect to WhatsApp
+    window.location.href = whatsappUrl;
+  }
 
   let pred_heading = "Predicted Result"
 
@@ -52,16 +65,17 @@ function BuyPage()  {
   console.log("hey2  ", uniqueId);
   useEffect(() => {
     // Fetch event details from the backend using uniqueId
-   fetch(`https://cricket-prediction-66bh.onrender.com/matchdetails/${uniqueId}`,)
+   fetch(`https://temppp-cricket.onrender.com/matchdetails/${uniqueId}`,)
       .then((response) => response.json())
       .then((data) => setDetails(data))
       .catch((error) => console.error('Error fetching event details:', error));
   }, [uniqueId]);
 
   if (!Details) {
-    return <p>Loading...</p>;
+    return (
+      <LoadingAnimation/>
+    );
   }
-
 console.log(Details)
 const data = Details
 
@@ -95,7 +109,7 @@ const date = new Date(data.matchDate);
 
   return (
         <div className='bg-[#F2F2F2] m-0 p-0 overscroll-x-none overflow-x-hidden'> {/* Adjusted padding for smaller devices */}
-
+ <NavBar/>
 
 {/* <nav className=" bg-gradient-to-r from-customRed to-customBrown py-6 fixed top-0 border-red-600 md:w-[100%] w-[80%]">
       <div className="container mx-auto flex justify-between items-center">
@@ -116,7 +130,7 @@ const date = new Date(data.matchDate);
     </div> */}
   <div className='overscroll-x-none overflow-x-hidden'>
    
-   <div className="md:w-full mx-5 md:w-4/5 lg:w-4/5 xl:w-8/12 md:mx-auto pt-40 md:pt-60"> {/* Centered and adjusted width */}
+   <div className="md:w-full mx-5 md:w-4/5 lg:w-4/5 xl:w-8/12 md:mx-auto pt-10 md:pt-15"> {/* Centered and adjusted width */}
      <div className=" rounded-3xl bg-gradient-to-r from-customBrown via-customRed to-customBrown p-1.5">
       
        <div className="text-center my-5">
@@ -163,7 +177,7 @@ const date = new Date(data.matchDate);
             <div className='basis-1/2 md:mx-10 md:text-3xl text-sm ml-2 text-center font-semibold'>
             Toss Prediction :
             </div>
-            <button className="my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-4 md:px-12 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-full md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
+            <button onClick={redirectToWhatsApp} className="my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-2 md:px-12 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-36 md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
   Buy now
 </button>
           </div>
@@ -175,7 +189,7 @@ const date = new Date(data.matchDate);
             <div className='basis-1/2 md:mx-10 md:text-3xl text-sm ml-2 text-center font-semibold'>
               Match Prediction :
             </div>
-            <button className="my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-4 md:px-12 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-full md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
+            <button onClick={redirectToWhatsApp}className="my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-4 md:px-12 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-36 md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
   Buy now
 </button>
           </div>
@@ -187,7 +201,7 @@ const date = new Date(data.matchDate);
             <div className='basis-1/2 md:mx-10 md:text-3xl text-sm ml-2 text-center font-semibold'>
               Overall Prediction :
             </div>
-            <button className="my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-4 md:px-12 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-full md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
+            <button onClick={redirectToWhatsApp} className="my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-4 md:px-12 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-36 md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
   Buy now
 </button>
           </div>

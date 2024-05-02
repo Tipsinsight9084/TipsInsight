@@ -3,6 +3,7 @@ import { useEffect,useState } from "react";
 import Card from "./card";
 import NavBar from "./navbarr";
 import Footer from './footer'
+import LoadingAnimation from "./Loader/Loader";
 
 export default function Previous(){
 
@@ -13,7 +14,7 @@ export default function Previous(){
       // // Function to fetch all event data from the backend
       const fetchAllPrevious = async () => {
         try {
-          const response = await fetch('https://cricket-prediction-66bh.onrender.com/prevmatches');
+          const response = await fetch('https://temppp-cricket.onrender.com/prevmatches');
           const data = await response.json();
           setPrevious(data); // // Assuming the backend returns an array of events
         } catch (error) {
@@ -25,7 +26,15 @@ export default function Previous(){
       fetchAllPrevious();
     }, []); 
 
-    let previous_heading = "PREVIOUS MATCHES"
+    if (previous.length==0) {
+      return (
+        <LoadingAnimation/>
+      );
+      
+    }
+  
+
+    let previous_heading = "Previous Matches"
     // console.log(previous)
     return(
         <>

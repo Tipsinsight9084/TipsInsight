@@ -15,6 +15,7 @@ import RR from '../assets/RR.png'
 import RCB from '../assets/RCB.png'
 import DC from '../assets/DC.png'
 import Footer from './footer.jsx';
+import LoadingAnimation from './Loader/Loader.jsx';
 
 function Prediction_Page() {
 
@@ -52,14 +53,17 @@ function Prediction_Page() {
   console.log("hey2  ", uniqueId);
   useEffect(() => {
     // Fetch event details from the backend using uniqueId
-   fetch(`https://cricket-prediction-66bh.onrender.com/matchdetails/${uniqueId}`,)
+   fetch(`https://temppp-cricket.onrender.com/matchdetails/${uniqueId}`,)
       .then((response) => response.json())
       .then((data) => setDetails(data))
       .catch((error) => console.error('Error fetching event details:', error));
   }, [uniqueId]);
 
   if (!Details) {
-    return <p>Loading...</p>;
+    return (
+      <LoadingAnimation/>
+    );
+    
   }
 
 console.log(Details)
@@ -96,7 +100,7 @@ const date = new Date(data.matchDate);
   let predictiontimetoss = data.tossTime
   let predictionmatch = data.matchwinnerTime
   
-   time = parseInt(time)-12
+   time = parseInt(time)
 
 
   return (

@@ -69,17 +69,17 @@ export default function Card(props) {
       <div className=" mb-4 w-11/12 md:w-4/5 lg:w-4/5 xl:w-1/2 mx-auto"> {/* Centered and adjusted width */}
         <div className="rounded-3xl p-1 md:p-2 bg-gradient-to-r from-customRed to-customBrown">
           <div className="text-center">
-            <div className="font-mont font-extrabold text-2xl md:text-3xl text-white"> {/* Adjusted font size */}
+            <div className="font-mont font-extrabold text-xl mt-2 md:text-3xl text-white"> {/* Adjusted font size */}
               Indian Premiere League 2024
             </div>
-            <div className="font-mont text-white text-lg md:text-2xl font-semibold"> {/* Adjusted font size */}
+            <div className="font-mont text-white text-lg my-0 md:text-2xl font-semibold"> {/* Adjusted font size */}
               {match_no}th Match
             </div>
           </div>
           <div className="mt-4 md:mt-6 border border-black w-99/100 bg-white rounded-b-3xl flex flex-col items-center">
             <div className="font-bold flex flex-row items-center justify-between px-4 md:px-12 py-4 md:py-2 w-full rounded-md">
               <div className="flex flex-col justify-between md:pt-4 w-72 md:flex-row items-center">
-                <img className="w-20 md:w-36 h-16"src={logos[data.team1]} alt="" />
+                <img className="w-auto md:w-36 h-16"src={logos[data.team1]} alt="" />
                 <div className='flex flex-col justify-center items-center'>
                 <div className="font-mont font-bold md:text-2xl">{data.team1}</div>
                {scorecard && <div className="flex flex-col items-center font-mont font-semibold  text-sm md:text-md">
@@ -101,7 +101,7 @@ export default function Card(props) {
                 </div>
 } 
               </div>
-                <img className="w-20 md:w-36 h-16"src={logos[data.team2]} alt="" />
+                <img className="w-auto md:w-36 h-16"src={logos[data.team2]} alt="" />
               </div>
 
 
