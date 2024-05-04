@@ -12,7 +12,7 @@ const countdown = (props) => {
     // const CorrectDate = props.date;
     // const CorrectTime = props.time;
     
-    // const deadline = "May, 04, 2024, 19:30";
+    // const Newdeadline = "May, 10, 2023, 19:30";
     // deadline:
 
     const CorrectDate = props.date;
@@ -78,37 +78,8 @@ console.log("deadline : ", deadline); // Example output: "May 4, 2024, 19:30"
 
   return (
     <div>
-      {/* <div className="flex gap-5 w-full justify-center my-3 text-2xl font-mont font-semibold">
-  <div>
-    <span className="countdown font-mont text-2xl">
-        <span >{days<10 ? "0" + days: days}</span>
-    </span>
-    <span className='text-sm opacity-85'>
-    days
-
-    </span>
-  </div> 
-  <div>
-    <span className="countdown font-mont text-2xl">
-        <span style={{"--value":10}}>{hours<10 ? "0" + hours: hours}</span>
-    </span>
-    hours
-  </div> 
-  <div>
-    <span className="countdown font-mont text-2xl">
-      <span>{mins<10 ? "0" + mins: mins}</span>
-    </span>
-    min
-  </div> 
-  <div>
-    <span className="countdown font-mont text-2xl">
-      <span style={{"--value":8}}>{secs<10 ? "0" + secs: secs}</span>
-    </span>
-    sec
-  </div>
-</div> */}
 <div className='w-full text-center text-xl font-semibold text-black'>
-  {(days === 0 && hours === 0 && mins === 0 && secs === 0) ? "Match Already Started!!!" : "Match Starts In:"}
+  {(days === 0 && hours === 0 && mins === 0 && secs === 0) ? "Match Starts In:" : "Match Starts In:"}
 </div>
 <div className="grid grid-flow-col justify-center justify-items-center gap-5 text-center auto-cols-max text-black mb-4 mt-2">
     {/* <br></br> */}
@@ -136,6 +107,14 @@ console.log("deadline : ", deadline); // Example output: "May 4, 2024, 19:30"
     </span>
     sec
   </div>
+</div>
+<div className='w-full text-center text-xl font-semibold m-0 text-black mb-8'>
+  {(days === 0 && hours === 0 && mins === 0 && secs === 0) ? "Match Already Started!!!" : ""}
+  <br></br>
+  {/* {"Live"} */}
+  <span className='uppercase mb-6 animate-text bg-gradient-to-r from-customRed via-customBrown to-orange-500 bg-clip-text text-transparent text-2xl font-black'>
+  {(days === 0 && hours === 0 && mins === 0 && secs === 0) ? "• Watch Live Now •" : ""}
+  </span>
 </div>
     </div>
   )
