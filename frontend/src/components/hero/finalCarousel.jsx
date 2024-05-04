@@ -57,7 +57,7 @@ const finalCarousel = () => {
         {slides.map((slide, slideIndex) => (
             <div 
             key={slideIndex} onClick={() => goToSlide(slideIndex)}
-             className='text-2xl cursor-pointer'>
+            className={`text-2xl cursor-pointer ${slideIndex === currentIndex ? "text-red-500" : ""}`}>
                 <RxDotFilled/>
             </div>
         ))}

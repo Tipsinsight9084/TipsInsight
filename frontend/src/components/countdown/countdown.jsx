@@ -113,7 +113,7 @@ console.log("deadline : ", deadline); // Example output: "May 4, 2024, 19:30"
   <br></br>
   {/* {"Live"} */}
   <span className='uppercase mb-6 animate-text bg-gradient-to-r from-customRed via-customBrown to-orange-500 bg-clip-text text-transparent text-2xl font-black'>
-  {(days === 0 && hours === 0 && mins === 0 && secs === 0) ? "• Watch Live Now •" : ""}
+  {(days === 0 && hours === 0 && mins === 0 && secs === 0) ? "• Live Now •" : ""}
   </span>
 </div>
     </div>

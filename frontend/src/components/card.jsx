@@ -70,13 +70,13 @@ export default function Card(props) {
         <div className="rounded-3xl p-1 md:p-2 bg-gradient-to-r from-customRed to-customBrown">
           <div className="text-center">
             <div className="font-mont font-extrabold text-xl mt-2 md:text-3xl text-white"> {/* Adjusted font size */}
-              Indian Premiere League 2024
+              Indian Premier League 2024
             </div>
             <div className="font-mont text-white text-lg my-0 md:text-2xl font-semibold"> {/* Adjusted font size */}
               {match_no}th Match
             </div>
           </div>
-          <div className="mt-4 md:mt-6 border border-black w-99/100 bg-white rounded-b-3xl flex flex-col items-center">
+          <div className="mt-4 md:mt-6 border border-black w-99/100 bg-white rounded-b-3xl flex flex-col items-center ">
             <div className="font-bold flex flex-row items-center justify-between px-4 md:px-12 py-4 md:py-2 w-full rounded-md">
               <div className="flex flex-col justify-around md:pt-4 w-72 md:flex-row items-center">
                 <img className="w-auto md:w-auto md:h-32 h-16"src={logos[data.team1]} alt="" />
@@ -90,7 +90,7 @@ export default function Card(props) {
               </div>
               </div>
 
-              <div className="font-mont font-bold text-2xl mx-2 md:mx-6">vs</div>
+              <div className="font-mont font-bold text-2xl mx-2 md:mx-6">V/S</div>
 
               <div className="flex flex-col-reverse justify-center md:pt-4 w-72 md:flex-row items-center">
                 <div className='flex flex-col justify-around items-center'>

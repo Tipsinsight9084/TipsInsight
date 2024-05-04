@@ -20,22 +20,12 @@ import NavBar from '../navbarr';
 
 function BuyPage()  {
 
-  function redirectToWhatsApp() {
-    // Phone number with country code
-    const phoneNumber = "918445659152";
-    // Default message (URL encoded)
-    const defaultMessage = encodeURIComponent("Hello there, I would like to talk to you about Cricket Prediction.");
-    // Construct WhatsApp URL
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${defaultMessage}`;
-    // Redirect to WhatsApp
-    window.location.href = whatsappUrl;
-  }
-
+  
   let pred_heading = "Predicted Result"
-
+  
   const  {uniqueId}  = useParams();
   const [Details, setDetails] = useState(null);
-
+  
   const logos = {
     'MI': MI,
     'RCB': RCB,
@@ -48,7 +38,7 @@ function BuyPage()  {
     'GT': GT,
     'CSK': CSK,
   }
-
+  
   const full_names = {
     'MI': "Mumbai Indians",
     'RCB': "Royal Challengers Banglore",
@@ -65,48 +55,58 @@ function BuyPage()  {
   console.log("hey2  ", uniqueId);
   useEffect(() => {
     // Fetch event details from the backend using uniqueId
-   fetch(`https://temppp-cricket.onrender.com/matchdetails/${uniqueId}`,)
-      .then((response) => response.json())
-      .then((data) => setDetails(data))
-      .catch((error) => console.error('Error fetching event details:', error));
+    fetch(`https://temppp-cricket.onrender.com/matchdetails/${uniqueId}`,)
+    .then((response) => response.json())
+    .then((data) => setDetails(data))
+    .catch((error) => console.error('Error fetching event details:', error));
   }, [uniqueId]);
-
+  
   if (!Details) {
     return (
       <LoadingAnimation/>
     );
   }
-console.log(Details)
+console.log("Detailss:: ", Details)
 const data = Details
 
 const date = new Date(data.matchDate);
-  const day = date.getDate();
-  const monthIndex = date.getMonth();
-  const year = date.getFullYear();
-  
-  // Array of month names
-  const monthNames = [
-    "January", "February", "March", "April", "May", "June", 
-    "July", "August", "September", "October", "November", "December"
-  ];
+const day = date.getDate();
+const monthIndex = date.getMonth();
+const year = date.getFullYear();
 
-  // Array of weekday names
-  const weekdayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  
-  // Get the weekday (0-6)
-  const weekdayIndex = date.getDay();
-  const weekday = weekdayNames[weekdayIndex];
+// Array of month names
+const monthNames = [
+  "January", "February", "March", "April", "May", "June", 
+  "July", "August", "September", "October", "November", "December"
+];
 
-  
- 
-  let time = data.time
-  
-   time = parseInt(time)-12
-   let index = data.uniqueId.indexOf('_')
-  const match_no = data.uniqueId.substring(index+1)
+// Array of weekday names
+const weekdayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-  var scorecard = true;
+// Get the weekday (0-6)
+const weekdayIndex = date.getDay();
+const weekday = weekdayNames[weekdayIndex];
 
+
+
+let time = data.time
+
+time = parseInt(time)-12
+let index = data.uniqueId.indexOf('_')
+const match_no = data.uniqueId.substring(index+1)
+
+var scorecard = true;
+
+function redirectToWhatsApp() {
+  // Phone number with country code
+  const phoneNumber = "918445659152";
+  // Default message (URL encoded)
+  const defaultMessage = encodeURIComponent(`Hello there, I would like to talk to you about the match between ${Details.team1} & ${Details.team2} Teams.`);
+  // Construct WhatsApp URL
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${defaultMessage}`;
+  // Redirect to WhatsApp
+  window.location.href = whatsappUrl;
+}
   return (
         <div className='bg-[#F2F2F2] m-0 p-0 overscroll-x-none overflow-x-hidden'> {/* Adjusted padding for smaller devices */}
  <NavBar/>
@@ -177,7 +177,7 @@ const date = new Date(data.matchDate);
             <div className='basis-1/2 md:mx-10 md:text-3xl text-sm ml-2 text-center font-semibold'>
             Toss Prediction :
             </div>
-            <button onClick={redirectToWhatsApp} className="my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-2 md:px-12 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-36 md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
+            <button onClick={redirectToWhatsApp} className="my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-2 md:px-12 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-36 md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out mx-2">
   Buy now
 </button>
           </div>
@@ -189,7 +189,7 @@ const date = new Date(data.matchDate);
             <div className='basis-1/2 md:mx-10 md:text-3xl text-sm ml-2 text-center font-semibold'>
               Match Prediction :
             </div>
-            <button onClick={redirectToWhatsApp}className="my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-4 md:px-12 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-36 md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
+            <button onClick={redirectToWhatsApp}className="my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-4 md:px-12 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-36 md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out mx-2">
   Buy now
 </button>
           </div>
@@ -201,7 +201,7 @@ const date = new Date(data.matchDate);
             <div className='basis-1/2 md:mx-10 md:text-3xl text-sm ml-2 text-center font-semibold'>
               Overall Prediction :
             </div>
-            <button onClick={redirectToWhatsApp} className="my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-4 md:px-12 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-36 md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
+            <button onClick={redirectToWhatsApp} className="my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-4 md:px-12 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-36 md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out mx-2">
   Buy now
 </button>
           </div>

@@ -10,7 +10,7 @@ function NavBar() {
   const handleClick = () => setClick(!click);
   return (
     <>
-      <nav className="navbar">
+      <nav className="navbar font-mont">
         <div className="nav-container">
           <div className="nav-logo">
             <img src={logo} alt="" className="w-36 h-36"/>
