@@ -78,10 +78,10 @@ export default function Card(props) {
           </div>
           <div className="mt-4 md:mt-6 border border-black w-99/100 bg-white rounded-b-3xl flex flex-col items-center">
             <div className="font-bold flex flex-row items-center justify-between px-4 md:px-12 py-4 md:py-2 w-full rounded-md">
-              <div className="flex flex-col justify-between md:pt-4 w-72 md:flex-row items-center">
-                <img className="w-auto md:w-36 h-16"src={logos[data.team1]} alt="" />
+              <div className="flex flex-col justify-around md:pt-4 w-72 md:flex-row items-center">
+                <img className="w-auto md:w-auto md:h-32 h-16"src={logos[data.team1]} alt="" />
                 <div className='flex flex-col justify-center items-center'>
-                <div className="font-mont font-bold md:text-2xl">{data.team1}</div>
+                <div className="font-mont font-bold md:text-3xl">{data.team1}</div>
                {scorecard && <div className="flex flex-col items-center font-mont font-semibold  text-sm md:text-md">
                   <span>{data.team1Run + '-' + data.team1Wicket}</span>
                   <span>{'(' + data.team1Over + ')'}</span>
@@ -90,18 +90,18 @@ export default function Card(props) {
               </div>
               </div>
 
-              <div className="font-mont font-bold text-2xl">vs</div>
+              <div className="font-mont font-bold text-2xl mx-2 md:mx-6">vs</div>
 
-              <div className="flex flex-col-reverse justify-between md:pt-4 w-72 md:flex-row items-center">
-                <div className='flex flex-col justify-center items-center'>
-                <div className="font-mont font-bold md:text-2xl">{data.team2}</div>
+              <div className="flex flex-col-reverse justify-center md:pt-4 w-72 md:flex-row items-center">
+                <div className='flex flex-col justify-around items-center'>
+                <div className="font-mont font-bold md:text-3xl">{data.team2}</div>
                 {scorecard && <div className="flex flex-col items-center font-mont font-semibold text-sm md:text-md">
                   <span>{data.team2Run + '-' + data.team2Wicket}</span>
                   <span>{'(' + data.team2Over + ')'}</span>
                 </div>
 } 
               </div>
-                <img className="w-auto md:w-36 h-16"src={logos[data.team2]} alt="" />
+                <img className="w-auto md:w-auto md:h-32 h-16"src={logos[data.team2]} alt="" />
               </div>
 
 

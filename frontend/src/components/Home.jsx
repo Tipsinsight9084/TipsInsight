@@ -9,6 +9,7 @@ import NavBar from './navbarr';
 import FinalCarousel from './hero/finalCarousel';
 import BottomNav from './Bottom/bottomNav';
 import './home.css'
+import Countdown from './countdown/countdown';
 
 function Home_Page() {
   const next_heading = "Next Match";
@@ -24,12 +25,13 @@ function Home_Page() {
 
   useEffect(() => {
     async function fetchNextMatch() {
-      console.log("suraj")
+      // console.log("suraj")
       try {
         const response = await fetch('https://temppp-cricket.onrender.com/nextmatch');
-        console.log("again")
+        // console.log("again")
         const matchData = await response.json();
         setNextMatch(matchData);
+        console.log("check time here: ", matchData);
       } catch (error) {
         console.error('Error fetching next match:', error);
       }
@@ -84,6 +86,7 @@ function Home_Page() {
         <>
          
           <Heading heading={next_heading} />
+          <Countdown date= {nextMatch.matchDate} time={nextMatch.time}/>
           <Card prev="false" btn_link='buy' btn_des={buy} data={nextMatch} />
         </>
       )}
