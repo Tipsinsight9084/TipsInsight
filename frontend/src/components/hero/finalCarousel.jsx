@@ -15,7 +15,7 @@ const finalCarousel = () => {
         }
     ];
 
-    const [currentIndex, setCurrentIndex] = useState(2);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     const prevSlide = () => {
         const isFirstSlide = currentIndex === 0;

@@ -32,7 +32,7 @@ const AboutUs = () => {
 </p>
 
         <br></br>
-        <p>Cricket and online play is heart of Ace Predictor, but many of our guides are also exceptional assets for general online bounties, as many of our tips can be applied to a variety of other sports to wager on. This includes comprehensive reviews of all of our online gaming sites. Sharing our sporting knowledge to assist players in making more informed decisions in order to win more money.
+        <p>Cricket and online play is heart of Tips Insight, but many of our guides are also exceptional assets for general online bounties, as many of our tips can be applied to a variety of other sports to wager on. This includes comprehensive reviews of all of our online gaming sites. Sharing our sporting knowledge to assist players in making more informed decisions in order to win more money.
 
 </p>
 
