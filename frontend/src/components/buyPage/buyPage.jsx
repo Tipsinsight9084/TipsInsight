@@ -20,6 +20,7 @@ import NavBar from '../navbarr';
 
 function BuyPage()  {
 
+
   
   let pred_heading = "Predicted Result"
   
