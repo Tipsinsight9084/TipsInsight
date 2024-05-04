@@ -1,0 +1,14 @@
+.bottom-nav{
+/* border: 2px solid red; */
+/* margin-top: auto; */
+
+position: fixed;
+bottom: 0;
+width: 100%;
+}
+
+/* .parent-div{
+    min-height: 100vh;
+    display:  flex;
+    flex-direction: column;
+} */

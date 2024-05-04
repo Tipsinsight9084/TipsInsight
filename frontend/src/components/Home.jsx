@@ -7,6 +7,8 @@ import Footer from './footer'
 import HeroSection from './hero/hero';
 import NavBar from './navbarr';
 import FinalCarousel from './hero/finalCarousel';
+import BottomNav from './Bottom/bottomNav';
+import './home.css'
 
 function Home_Page() {
   const next_heading = "Next Match";
@@ -70,6 +72,8 @@ function Home_Page() {
 
   return (
     <>
+    <div className='parent-div'>
+
       <NavBar/>
       <br></br>
       <FinalCarousel/>
@@ -120,12 +124,20 @@ function Home_Page() {
 
 </div>
 
+{/* <div className='absolute fixed h-4 w-full'> */}
+{/* </div> */}
 
 {/* <div className='border-2 border-black bg-customgray'>
 <Footer/>
 </div> */}
 
 <Footer/>
+<div className='md:h-[10vh] h-[6vh]'></div>
+<div className='bottom-nav'>
+<BottomNav/>
+
+</div>
+</div>
          
     </>
   );
