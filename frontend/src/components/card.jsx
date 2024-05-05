@@ -66,13 +66,13 @@ export default function Card(props) {
   return (
     <div> {/* Adjusted padding for smaller devices */}
    
-      <div className=" mb-4 w-11/12 md:w-4/5 lg:w-4/5 xl:w-1/2 mx-auto"> {/* Centered and adjusted width */}
+      <div className=" mb-4 w-11/12 md:w-4/5 lg:w-4/5 xl:w-1/2 mx-auto font-mont"> {/* Centered and adjusted width */}
         <div className="rounded-3xl p-1 md:p-2 bg-gradient-to-r from-customRed to-customBrown">
           <div className="text-center">
-            <div className="font-mont font-extrabold text-xl mt-2 md:text-3xl text-white"> {/* Adjusted font size */}
+            <div className="font-mont font-semibold text-xl mt-2 md:text-3xl text-white"> {/* Adjusted font size */}
               Indian Premier League 2024
             </div>
-            <div className="font-mont text-white text-lg my-0 md:text-2xl font-semibold"> {/* Adjusted font size */}
+            <div className="font-mont text-white text-base my-0 md:text-2xl font-medium"> {/* Adjusted font size */}
               {match_no}th Match
             </div>
           </div>
@@ -110,12 +110,12 @@ export default function Card(props) {
               {data.highlight}
             </div>
 }
-            <div className="font-mont font-extrabold text-sm md:text-base mt-2 md:mt-4"> {/* Adjusted font size */}
+            <div className="font-mont font-bold text-sm md:text-base mt-0 md:mt-4"> {/* Adjusted font size */}
             {weekday}, {day}{' '}{monthNames[monthIndex]}, {time +":30"+ " PM"}
             </div>
               <Link to={link}>
             <div>
-            <button className="my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-4 md:px-8 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-full md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
+            <button className="my-4 md:my-8 font-mont font-semibold text-base md:text-xl rounded-3xl px-4 md:px-8 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-full md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
   {props.btn_des}
 </button>
 

@@ -1,4 +1,7 @@
 import React, {useState} from 'react'
+import { FaWhatsapp } from "react-icons/fa";
+import { RiWhatsappFill } from "react-icons/ri";
+
 
 const bottomNav = () => {
 
@@ -23,11 +26,16 @@ const bottomNav = () => {
   return (
     <>
     {isVisible && ( // Render component only if isVisible is true
-      <div className='w-full text-center z-20 hover:border-customRed  bg-white h-[6vh] md:h-[10vh] my-auto text-white sticky border-2 border-gray-300 flex justify-between'>
-        <div className=' mx-2 w-[90%] my-auto leading-[6vh] md:leading-[10vh] text-xs md:text-xl hover:drop-shadow-2xl hover:cursor-pointer text-customRed md:text-black md:hover:text-customRed underline underline-offset-2 font-bold font-mont' onClick={redirectToWhatsApp}>
-          Contact Us for Cricket Toss & Match Prediction!!!
+      <div className='w-full text-center z-20  bg-white drop-shadow-lg h-[6vh] md:h-[10vh] my-auto text-white sticky border-2 border-gray-300 flex justify-between rounded-full'>
+        <div className='uppercase mx-2 w-[90%] my-auto leading-[3vh] md:leading-[10vh] text-xs md:text-xl hover:drop-shadow-2xl hover:cursor-pointer text-customRed md:text-black md:hover:text-customRed underline underline-offset-2 font-bold font-mont' onClick={redirectToWhatsApp}>
+          Whatsapp message Here: 
         </div>
-        <button className="cross-icon w-[10%] font-bold text-black mx-2 text-customRed md:text-black" onClick={handleHide}>X</button>
+        {/* <img src={<FaWhatsapp />}></img> */}
+        {/* <FaWhatsapp /> */}
+        <div className='items-center my-auto align-center'>
+        <RiWhatsappFill  className=" text-[#075E54] md:text-black md:hover:text-customRed cursor-pointer" onClick={redirectToWhatsApp} style={{ fontSize: 'clamp(25px, 5vw, 40px)' }} />
+        </div>
+        <button className="hover:drop-shadow-2xl hover:cursor-pointer cross-icon w-[10%] font-bold text-black mx-2 text-customRed md:text-black md:hover:text-customRed" onClick={handleHide}>X</button>
       </div>
     )}
   </>

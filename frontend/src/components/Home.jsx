@@ -136,8 +136,10 @@ function Home_Page() {
 
 <Footer/>
 <div className='md:h-[10vh] h-[6vh]'></div>
-<div className='bottom-nav'>
+<div className='bottom-nav-parent w-full  flex justify-center'>
+<div className='bottom-nav w-[80%] mb-3 rounded-full border-[0px] bg-gradient-to-r00 bg-white from-customRed to-customBrown'>
 <BottomNav/>
+</div>
 
 </div>
 </div>

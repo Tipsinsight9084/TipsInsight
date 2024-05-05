@@ -4,7 +4,12 @@
 
 position: fixed;
 bottom: 0;
-width: 100%;
+width: 90%;
+/* margin-bottom: 2vh; */
+/* place-items: center; */
+/* margin: 0 auto; */
+
+border: 2px solid red;
 }
 
 /* .parent-div{
