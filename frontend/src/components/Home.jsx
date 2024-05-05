@@ -16,7 +16,7 @@ function Home_Page() {
   const upcoming_heading = "Upcoming Match";
   const previous_heading = "Previous Match"
   const buy = "Buy Now";
-  const prediction = "View prediction"
+  const prediction = "View Prediction"
   const [nextMatch, setNextMatch] = useState(null); // State to hold next match
   const [upcomingmatch,setUpcomingmatch] = useState(null)
   const [previousmatch,setPreviousmatch] = useState(null)
