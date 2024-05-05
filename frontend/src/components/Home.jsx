@@ -27,7 +27,7 @@ function Home_Page() {
     async function fetchNextMatch() {
       // console.log("suraj")
       try {
-        const response = await fetch('https://temppp-cricket.onrender.com/nextmatch');
+        const response = await fetch('https://tipsinsight.onrender.com/nextmatch');
         // console.log("again")
         const matchData = await response.json();
         setNextMatch(matchData);
@@ -43,7 +43,7 @@ function Home_Page() {
   useEffect(() => {
     async function fetchupcomingMatch() {
       try {
-        const response = await fetch('https://temppp-cricket.onrender.com/upcomingmatches');
+        const response = await fetch('https://tipsinsight.onrender.com/upcomingmatches');
         const matchData = await response.json();
         setUpcomingmatch(matchData);
       } catch (error) {
@@ -57,7 +57,7 @@ function Home_Page() {
   useEffect(() => {
     async function fetchPreviousMatch() {
       try {
-        const response = await fetch('https://temppp-cricket.onrender.com/prevmatches');
+        const response = await fetch('https://tipsinsight.onrender.com/prevmatches');
         const matchData = await response.json();
         setPreviousmatch(matchData);
       } catch (error) {

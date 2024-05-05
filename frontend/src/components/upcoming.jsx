@@ -14,7 +14,7 @@ export default function Upcoming(){
       // // Function to fetch all event data from the backend
       const fetchAllupcoming = async () => {
         try {
-          const response = await fetch('https://temppp-cricket.onrender.com/upcomingmatches');
+          const response = await fetch('https://tipsinsight.onrender.com/upcomingmatches');
           const data = await response.json();
           setUpcoming(data); // // Assuming the backend returns an array of events
         } catch (error) {

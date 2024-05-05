@@ -14,7 +14,7 @@ export default function Previous(){
       // // Function to fetch all event data from the backend
       const fetchAllPrevious = async () => {
         try {
-          const response = await fetch('https://temppp-cricket.onrender.com/prevmatches');
+          const response = await fetch('https://tipsinsight.onrender.com/prevmatches');
           const data = await response.json();
           setPrevious(data); // // Assuming the backend returns an array of events
         } catch (error) {

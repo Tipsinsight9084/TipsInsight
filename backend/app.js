@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors({
-  origin: ['https://tipinsight.netlify.app', 'http://localhost:5173','https://tips-insight.vercel.app']
+  origin: ['https://tipinsight.netlify.app', 'http://localhost:5173','https://tips-insight.vercel.app','https://www.tipsinsight.in']
 }));
 // app.use(cors({ origin: 'http://localhost:5173' }));
 

@@ -53,7 +53,7 @@ function Prediction_Page() {
   console.log("hey2  ", uniqueId);
   useEffect(() => {
     // Fetch event details from the backend using uniqueId
-   fetch(`https://temppp-cricket.onrender.com/matchdetails/${uniqueId}`,)
+   fetch(`https://tipsinsight.onrender.com/matchdetails/${uniqueId}`,)
       .then((response) => response.json())
       .then((data) => setDetails(data))
       .catch((error) => console.error('Error fetching event details:', error));
