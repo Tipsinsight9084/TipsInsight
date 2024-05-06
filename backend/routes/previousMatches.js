@@ -6,7 +6,7 @@ const Match = require('../model/match');
 router.get('/', async (req, res) => {
   try {
     const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    today.setHours(5, 30, 0, 0);
     const previousMatches = await Match.find({ matchDate: { $lt: today } }).sort({ matchDate: -1 });
     res.send(previousMatches);
   } catch (err) {
