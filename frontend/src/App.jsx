@@ -4,6 +4,8 @@ import Prediction_Page from './components/Prediction';
 import Home_Page from './components/Home';
 import Create from './components/create';
 import BuyPage from './components/buyPage/buyPage';
+import {SpeedInsights} from '@vercel/speed-insights/next'
+
 import Previous from './components/Previous_page';
 import AboutUs from './components/aboutUs/aboutUs';
 import ContactUs from './components/contactUs/contactUs'
@@ -36,6 +38,7 @@ function App() {
         <Route path='/buy/:uniqueId' element = {<BuyPage/>}></Route>
       </Routes>
       {/* <div className="hi">HI</div> */}
+      <SpeedInsights/>
     </>
   );
 }
