@@ -42,7 +42,7 @@ function MatchForm() {
 
     try {
       console.log({ ...formData, uniqueId })
-      const response = await fetch('https://cricket-prediction-66bh.onrender.com/create', {
+      const response = await fetch('https://tipsinsight.onrender.com/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
