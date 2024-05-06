@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     try {
       const today = new Date();
       console.log(today)
-      today.setHours(5, 30, 0, 0);
+      today.setHours(0, 0, 0, 0);
       console.log(today)
       const upcomingMatches = await Match.find({ matchDate: { $gte: today } }).sort({ matchDate: 1 });
       res.json(upcomingMatches);

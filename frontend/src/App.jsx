@@ -4,7 +4,7 @@ import Prediction_Page from './components/Prediction';
 import Home_Page from './components/Home';
 import Create from './components/create';
 import BuyPage from './components/buyPage/buyPage';
-import {SpeedInsights} from '@vercel/speed-insights/next'
+import {SpeedInsights} from '@vercel/speed-insights/react'
 
 import Previous from './components/Previous_page';
 import AboutUs from './components/aboutUs/aboutUs';
