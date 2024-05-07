@@ -9,9 +9,9 @@ router.get('/', async (req, res) => {
       const today = moment().tz('Asia/Kolkata');
       // const today = new Date();
       console.log(today)
-      today.setHours(0, 0, 0, 0);
+      // today.setHours(0, 0, 0, 0);
       console.log(today)
-      const upcomingMatches = await Match.find({ matchDate: { $gte: today } }).sort({ matchDate: 1 });
+      const upcomingMatches = await Match.find({ matchDate: { $gte: today.format() } }).sort({ matchDate: 1 });
       res.json(upcomingMatches);
     } catch (err) {
       res.status(500).json({ message: err.message });

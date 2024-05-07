@@ -31,7 +31,10 @@ export default function Card(props) {
   const link = '/' + props.btn_link +'/' + data.uniqueId
   console.log("link",link)
 
-  const date = new Date(data.matchDate);
+  const newmatchDate = new Date(new Date(data.matchDate).getTime() - (11 * 60 * 60 * 1000));
+
+
+  const date = new Date(newmatchDate);
   const day = date.getDate();
   const monthIndex = date.getMonth();
   const year = date.getFullYear();

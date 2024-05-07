@@ -15,21 +15,37 @@ const countdown = (props) => {
     // const Newdeadline = "May, 10, 2023, 19:30";
     // deadline:
 
-    const CorrectDate = props.date;
+    const oldCorrectDate = props.date;
+    // const CorrectDate = props.date;
+
+// Convert to milliseconds, subtract 5 hours and 30 minutes, then create a new Date object
+const CorrectDate = new Date(new Date(oldCorrectDate).getTime() - (11 * 60 * 60 * 1000));
+
+// console.log("new corrct date: ", correctedDate);
 const CorrectTime = props.time;
+console.log("CorrectDate: ", CorrectDate);
+console.log("CorrectTime: ", CorrectTime);
 
 // Parse CorrectDate into a Date object
 const dateObj = new Date(CorrectDate);
+console.log("dateobj", dateObj);
+console.log("new dateobj", dateObj.toISOString());
 
 // Extract year, month, and day from CorrectDate
 const year = dateObj.getFullYear();
 const month = dateObj.getMonth();
 const day = dateObj.getDate();
 
+console.log("day: ", day);
+// console.log("day: ", day);
+
 // Parse CorrectTime into hours and minutes
 const [hoursStr, minsStr] = CorrectTime.split(':');
 const hoursInt = parseInt(hoursStr, 10);
 const minsInt = parseInt(minsStr, 10);
+
+console.log("hour: ", hoursInt);
+console.log("min: ", minsInt);
 
 // Set the time part to the date object
 dateObj.setHours(hoursInt);
@@ -45,7 +61,7 @@ const deadline = dateObj.toLocaleString('en-US', {
 });
 
 // Now deadline contains both date and time combined correctly
-console.log("deadline : ", deadline); // Example output: "May 4, 2024, 19:30"
+console.log("countdown deadline : ", deadline); // Example output: "May 4, 2024, 19:30"
 
     const getTime =()=> {
         const time = Date.parse(deadline)- Date.now()

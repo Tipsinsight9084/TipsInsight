@@ -70,7 +70,10 @@ function BuyPage()  {
 console.log("Detailss:: ", Details)
 const data = Details
 
-const date = new Date(data.matchDate);
+const newmatchDate = new Date(new Date(data.matchDate).getTime() - (11 * 60 * 60 * 1000));
+
+
+const date = new Date(newmatchDate);
 const day = date.getDate();
 const monthIndex = date.getMonth();
 const year = date.getFullYear();

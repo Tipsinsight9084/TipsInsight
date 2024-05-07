@@ -68,7 +68,7 @@ function Home_Page() {
     fetchPreviousMatch();
   }, []); // Empty dependency array, runs once on component mount
 
-  console.log(nextMatch)
+  console.log("next match: ", nextMatch)
   console.log(upcomingmatch)
   console.log(previousmatch)
 

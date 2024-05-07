@@ -73,7 +73,7 @@ function MatchForm() {
     });
     
     // Now deadline contains both date and time combined correctly
-    console.log("deadline : ", deadline); // Example output: "May 4, 2024, 19:30"
+    console.log(" create deadline : ", deadline); // Example output: "May 4, 2024, 19:30"
 
     formData.matchDate = deadline;
 

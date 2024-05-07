@@ -7,12 +7,13 @@ const moment = require('moment-timezone');
 router.get('/', async (req, res) => {
   try {
     const today = moment().tz('Asia/Kolkata');
+    console.log("next today: ", today.format());
     // const today = new Date();
-      today.setHours(0, 0, 0, 0);
+      // today.setHours(0, 0, 0, 0);
       
       // Find the next upcoming match by sorting matches by matchDate in ascending order
       // and limiting the result to 1 match
-      const nextMatch = await Match.findOne({ matchDate: { $gte: today } }).sort({ matchDate: 1 }).limit(1).maxTimeMS(20000);
+      const nextMatch = await Match.findOne({ matchDate: { $gt: today.format() } }).sort({ matchDate: 1 }).limit(1).maxTimeMS(20000);
       
       if (nextMatch) {
         res.json(nextMatch);

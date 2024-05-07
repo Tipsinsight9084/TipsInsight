@@ -6,7 +6,7 @@ var logger = require('morgan');
 const cors = require('cors');
 
 
-
+var updateMatchDates = require('./routes/updateMatchDates')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var createRouter = require('./routes/create');
@@ -40,6 +40,7 @@ app.use('/prevmatches', prevmatchesRouter);
 app.use('/upcomingmatches', upcomingmatchesRouter);
 app.use('/nextmatch', nextmatchRouter);
 app.use('/matchdetails',matchDetails)
+app.use('/update',updateMatchDates)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
