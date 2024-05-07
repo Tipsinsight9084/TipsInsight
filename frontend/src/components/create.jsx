@@ -57,11 +57,12 @@ function MatchForm() {
     const hoursInt = parseInt(hoursStr, 10);
     const minsInt = parseInt(minsStr, 10);
 
-    const newHoursInt = hoursInt + 4;
+    const newHoursInt = hoursInt - 1;
+    const newMinsInt = minsInt -  30;
     
     // Set the time part to the date object
     dateObj.setHours(newHoursInt);
-    dateObj.setMinutes(minsInt);
+    dateObj.setMinutes(newMinsInt);
     
     // Format the deadline
     const deadline = dateObj.toLocaleString('en-US', {
