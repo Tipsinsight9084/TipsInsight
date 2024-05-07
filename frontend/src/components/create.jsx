@@ -8,14 +8,14 @@ function MatchForm() {
   const [formData, setFormData] = useState({
     team1: '',
     team2: '',
-    matchDate: '2024-03-15',
+    matchDate: '2024-05-10',
     time: '19:30',
     venue: '',
     tossWinner: '',
-    tossDate: '2024-03-15',
+    tossDate: '2024-05-10',
     tossTime: '17:00',
     matchWinner: '',
-    matchwinnerDate: '2024-03-15',
+    matchwinnerDate: '2024-05-10',
     matchwinnerTime: '19:10',
     matchNumber: '',
     team1Run: '',
@@ -42,7 +42,7 @@ function MatchForm() {
 
     try {
       console.log({ ...formData, uniqueId })
-      const response = await fetch('https://cricket-prediction-66bh.onrender.com/create', {
+      const response = await fetch('https://tipsinsight.onrender.com/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
