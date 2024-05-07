@@ -1,30 +1,38 @@
 const express = require('express');
 const router = express.Router();
 const Match = require('../model/match');
+const moment = require('moment-timezone');
 
 // Get previous matches based on today's date
 router.get('/', async (req, res) => {
   try {
-    const today = new Date();
+    // const today = new Date();
+    // const today = "May, 10, 2023, 24:00";
 
-//     // Get current date and time
-// // const today = new Date();
+    const today = moment().tz('Asia/Kolkata');
+// //     // Get current date and time
+// const newtoday = new Date();
 
-// // Get current time zone offset in minutes
-// const offsetMinutes = today.getTimezoneOffset();
+// const today = new Date();
 
-// // Indian Standard Time (IST) offset is UTC+5:30
-// const istOffset = 5 * 60 + 30; // Convert hours to minutes and add 30 minutes
+// // Adjust the time to Indian Standard Time (IST)
 
-// // Add the offset for IST
-// const indianTime = new Date(today.getTime() + (offsetMinutes + istOffset) * 60000);
+// today.setHours(today.getHours() + 5); // Add 5 hours
+// today.setMinutes(today.getMinutes() + 30); // Add 30 minutes
 
-// console.log("Current Indian Time:", indianTime);
+// today.setUTCHours(today.getUTCHours() + 5); // Add 5 hours
+// today.setUTCMinutes(today.getUTCMinutes() + 30); // Add 30 minutes
 
-    console.log("today : ", today)
-    today.setHours(0, 0, 0, 0);
-    console.log("after today: ", today)
-    const previousMatches = await Match.find({ matchDate: { $lt: today } }).sort({ matchDate: -1 });
+
+
+// console.log("Current Indian Time:", newtoday);
+
+
+    console.log("1st today : ", today.format());
+    console.log("2nd today : ", today)
+    // today.setHours(0,0, 0, 0);
+    // console.log("after today: ", today)
+    const previousMatches = await Match.find({ matchDate: { $lt: today.format() } }).sort({ matchDate: -1 });
     res.send(previousMatches);
   } catch (err) {
     res.status(500).json({ message: err.message });

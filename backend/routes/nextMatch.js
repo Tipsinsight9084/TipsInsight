@@ -1,11 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const Match = require('../model/match');
+const moment = require('moment-timezone');
 
 
 router.get('/', async (req, res) => {
-    try {
-      const today = new Date();
+  try {
+    const today = moment().tz('Asia/Kolkata');
+    // const today = new Date();
       today.setHours(0, 0, 0, 0);
       
       // Find the next upcoming match by sorting matches by matchDate in ascending order

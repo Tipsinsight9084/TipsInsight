@@ -36,6 +36,49 @@ function MatchForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // const oldDate = formData.matchDate;
+    // const oldTime = formData.time;
+
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
+
+    const CorrectDate = formData.matchDate;
+    const CorrectTime = formData.time;
+    
+    // Parse CorrectDate into a Date object
+    const dateObj = new Date(CorrectDate);
+    
+    // Extract year, month, and day from CorrectDate
+    const year = dateObj.getFullYear();
+    const month = dateObj.getMonth();
+    const day = dateObj.getDate();
+    
+    // Parse CorrectTime into hours and minutes
+    const [hoursStr, minsStr] = CorrectTime.split(':');
+    const hoursInt = parseInt(hoursStr, 10);
+    const minsInt = parseInt(minsStr, 10);
+
+    const newHoursInt = hoursInt + 4;
+    
+    // Set the time part to the date object
+    dateObj.setHours(newHoursInt);
+    dateObj.setMinutes(minsInt);
+    
+    // Format the deadline
+    const deadline = dateObj.toLocaleString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+    });
+    
+    // Now deadline contains both date and time combined correctly
+    console.log("deadline : ", deadline); // Example output: "May 4, 2024, 19:30"
+
+    formData.matchDate = deadline;
+
+    // 1!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
     const matchNumber = formData.matchNumber.toString().padStart(2, '0');
     const uniqueId = `IPL24_${matchNumber}`;
     console.log(formData)
