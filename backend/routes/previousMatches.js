@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     const today = new Date();
     console.log("today : ", today)
     // today.setHours(0, 0, 0, 0);
-    console.log(today)
+    console.log("after today: ", today)
     const previousMatches = await Match.find({ matchDate: { $lt: today } }).sort({ matchDate: -1 });
     res.send(previousMatches);
   } catch (err) {
