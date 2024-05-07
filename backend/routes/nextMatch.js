@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     console.log("next today: ", today.format());
     // const today = new Date();
       // today.setHours(0, 0, 0, 0);
-      console.log(why)
+      console.log("why")
       
       // Find the next upcoming match by sorting matches by matchDate in ascending order
       // and limiting the result to 1 match
