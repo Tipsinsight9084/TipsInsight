@@ -16,6 +16,8 @@ import RCB from '../assets/RCB.png'
 import DC from '../assets/DC.png'
 import Footer from './footer.jsx';
 import LoadingAnimation from './Loader/Loader.jsx';
+import Whatsapp_floating from './floating/Whatsapp_floating.jsx';
+import Telegram_floating from './floating/Telegram_floating.jsx';
 
 function Prediction_Page() {
 
@@ -288,6 +290,23 @@ const date = new Date(newmatchDate);
   
 
    <Footer/>
+
+   <div className='md:h-[32vh] h-[8vh]'></div>
+
+<div className='bottom-nav-parent   flex justify-center'>
+<div className='bottom-nav w-[80%] mb-28 md:mb-48 rounded-full border-[0px]  bg-transparent'>
+  <Whatsapp_floating/>
+</div>
+
+</div>
+
+
+<div className='bottom-nav-parent   flex justify-center'>
+<div className='bottom-nav w-[80%] mb-16 md:mb-28 rounded-full border-[0px]  bg-transparent'>
+  <Telegram_floating/>
+</div>
+
+</div>
 
  </>
 );

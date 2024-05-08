@@ -4,7 +4,8 @@ import Card from "./card";
 import NavBar from "./navbarr";
 import Footer from './footer'
 import LoadingAnimation from "./Loader/Loader";
-
+import Whatsapp_floating from "./floating/Whatsapp_floating";
+import Telegram_floating from "./floating/Telegram_floating";
 export default function Previous(){
 
     const [previous, setPrevious] = useState([]);
@@ -44,6 +45,22 @@ export default function Previous(){
                 <Card prev="true" btn_link='prediction' key={previous.uniqueId} btn_des={view} data={previous}/> 
       ))}
      <Footer/>
+     <div className='md:h-[32vh] h-[8vh]'></div>
+
+<div className='bottom-nav-parent   flex justify-center'>
+<div className='bottom-nav w-[80%] mb-28 md:mb-48 rounded-full border-[0px]  bg-transparent'>
+  <Whatsapp_floating/>
+</div>
+
+</div>
+
+
+<div className='bottom-nav-parent   flex justify-center'>
+<div className='bottom-nav w-[80%] mb-16 md:mb-28 rounded-full border-[0px]  bg-transparent'>
+  <Telegram_floating/>
+</div>
+
+</div>
         </>
     )
     
