@@ -18,15 +18,15 @@ function MatchForm() {
     matchwinnerDate: '2024-05-10',
     matchwinnerTime: '19:10',
     matchNumber: '',
-    team1Run: '',
-    team1Wicket: '',
+    team1Run: '1',
+    team1Wicket: '1',
     team1Over: '20',
-    team2Run: '',
-    team2Wicket: '',
+    team2Run: '1',
+    team2Wicket: '1',
     team2Over: '20',
     actualmatchWinner: '',
     actualtossWinner: '',
-    highlight: ''
+    highlight: 'null'
   });
 
   const handleChange = (e) => {
@@ -57,11 +57,12 @@ function MatchForm() {
     const hoursInt = parseInt(hoursStr, 10);
     const minsInt = parseInt(minsStr, 10);
 
-    const newHoursInt = hoursInt + 4;
+    const newHoursInt = hoursInt - 1;
+    const newMinsInt = minsInt -  30;
     
     // Set the time part to the date object
     dateObj.setHours(newHoursInt);
-    dateObj.setMinutes(minsInt);
+    dateObj.setMinutes(newMinsInt);
     
     // Format the deadline
     const deadline = dateObj.toLocaleString('en-US', {
