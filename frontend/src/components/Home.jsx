@@ -10,6 +10,8 @@ import FinalCarousel from './hero/finalCarousel';
 import BottomNav from './Bottom/bottomNav';
 import './home.css'
 import Countdown from './countdown/countdown';
+import Whatsapp_floating from './floating/Whatsapp_floating';
+import Telegram_floating from './floating/Telegram_floating';
 
 function Home_Page() {
   const next_heading = "Next Match";
@@ -135,8 +137,26 @@ function Home_Page() {
 </div> */}
 
 <Footer/>
-<div className='md:h-[10vh] h-[6vh]'></div>
-<div className='bottom-nav-parent w-full  flex justify-center'>
+<div className='md:h-[32vh] h-[8vh]'></div>
+
+<div className='bottom-nav-parent   flex justify-center'>
+<div className='bottom-nav w-[80%] mb-28 md:mb-48 rounded-full border-[0px]  bg-transparent'>
+  <Whatsapp_floating/>
+</div>
+
+</div>
+
+
+<div className='bottom-nav-parent   flex justify-center'>
+<div className='bottom-nav w-[80%] mb-16 md:mb-28 rounded-full border-[0px]  bg-transparent'>
+  <Telegram_floating/>
+</div>
+
+</div>
+
+
+{/* <div className='md:h-[10vh] h-[6vh]'></div> */}
+<div className='bottom-nav-parent   flex justify-center'>
 <div className='bottom-nav w-[80%] mb-3 rounded-full border-[0px] bg-gradient-to-r00 bg-white from-customRed to-customBrown'>
 <BottomNav/>
 </div>
