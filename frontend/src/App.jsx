@@ -13,6 +13,7 @@ import HeroSection from './components/hero/hero';
 // import ContactPage from './components/contactUs/contactUs';
 import Upcoming from './components/upcoming'
 import FinalCarousel from './components/hero/finalCarousel';
+import Sample from './components/SamplePage/Sample';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route path='/create' element={<Create/>}></Route>
         <Route path='/upcoming' element={<Upcoming/>}></Route>
         <Route path='/buy/:uniqueId' element = {<BuyPage/>}></Route>
+        <Route path='/sample/sample' element = {<Sample/>}></Route>
       </Routes>
       {/* <div className="hi">HI</div> */}
       <SpeedInsights/>

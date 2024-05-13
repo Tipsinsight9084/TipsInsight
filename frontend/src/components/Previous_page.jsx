@@ -16,6 +16,7 @@ export default function Previous(){
       const fetchAllPrevious = async () => {
         try {
           const response = await fetch('https://tipsinsight.onrender.com/prevmatches');
+          // const response = await fetch('http://localhost:3000/prevmatches/');
           const data = await response.json();
           setPrevious(data); // // Assuming the backend returns an array of events
         } catch (error) {
