@@ -86,7 +86,8 @@ function MatchForm() {
 
     try {
       console.log({ ...formData, uniqueId })
-      const response = await fetch('https://tipsinsight.onrender.com/create', {
+      const response = await fetch('https://tipsinsight.onrender.com/create/IPL', {
+      // const response = await fetch('http://localhost:3000/create/IPL', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

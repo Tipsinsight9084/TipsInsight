@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 // mongoose.connect(`mongodb+srv://pass:pass@eventcluster.blixsin.mongodb.net/`)
 // mongoose.connect("mongodb://127.0.0.1:27017/Cricket")
- let MONGO_URL = "mongodb+srv://akshaychauhan:askaychauhan@matchdatabase.hd4jvpk.mongodb.net/?retryWrites=true&w=majority"
+ let MONGO_URL = "mongodb+srv://akshaychauhan:askaychauhan@matchdatabase.hd4jvpk.mongodb.net/bigbash"
 mongoose.connect(MONGO_URL)
 .then(() => {
     console.log('COnntedd!!!');
@@ -98,9 +98,9 @@ const matchSchema = new mongoose.Schema({
     type: String,
     default: null
   }
-},{collection:'matches'});
+}, {collection: 'BigBash'});
 
 
-const Match = mongoose.model('Match', matchSchema);
+const Bigbash = mongoose.model('Bigbash', matchSchema);
 
-module.exports = Match;
+module.exports = Bigbash;
