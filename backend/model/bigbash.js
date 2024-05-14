@@ -97,6 +97,14 @@ const matchSchema = new mongoose.Schema({
   highlight: {
     type: String,
     default: null
+  },
+  series: {
+    type: String,
+    default: null
+  },
+  year: {
+    type: String,
+    default: null
   }
 }, {collection: 'BigBash'});
 

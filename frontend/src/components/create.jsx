@@ -2,21 +2,22 @@
 
 import React, { useState } from 'react';
 
-const teams = ["CSK", "GT", "DC", "KKR", "LSG", "MI", "PBKS", "RR", "RCB", "SRH","SIX","HUR","HEA","SCO","STR","STA","REN","THU"];
+// const teams = ["CSK", "GT", "DC", "KKR", "LSG", "MI", "PBKS", "RR", "RCB", "SRH","SIX","HUR","HEA","SCO","STR","STA","REN","THU"];
+const teams = ["SIX","HUR","HEA","SCO","STR","STA","REN","THU"];
 
 function MatchForm() {
   const [formData, setFormData] = useState({
     team1: '',
     team2: '',
-    matchDate: '2024-05-10',
-    time: '19:30',
+    matchDate: '2023-12-07',
+    time: '13:00',
     venue: '',
     tossWinner: '',
-    tossDate: '2024-05-10',
-    tossTime: '17:00',
+    tossDate: '2023-12-07',
+    tossTime: '12:00',
     matchWinner: '',
-    matchwinnerDate: '2024-05-10',
-    matchwinnerTime: '19:10',
+    matchwinnerDate: '2023-12-07',
+    matchwinnerTime: '12:45',
     matchNumber: '',
     team1Run: '1',
     team1Wicket: '1',
@@ -26,7 +27,9 @@ function MatchForm() {
     team2Over: '20',
     actualmatchWinner: '',
     actualtossWinner: '',
-    highlight: 'null'
+    highlight: 'null',
+    series: 'Big Bash League',
+    year: '2023-24'
   });
 
   const handleChange = (e) => {
@@ -86,8 +89,8 @@ function MatchForm() {
 
     try {
       console.log({ ...formData, uniqueId })
-      const response = await fetch('https://tipsinsight.onrender.com/create/bigbash', {
-      // const response = await fetch('http://localhost:3000/create/IPL', {
+      // const response = await fetch('https://tipsinsight.onrender.com/create/bigbash23', {
+      const response = await fetch('http://localhost:3000/create/bigbash23', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -108,6 +111,7 @@ function MatchForm() {
 
   return (
     <div>
+      <p>BB</p>
       {/* <h1>Create a New Match</h1> */}
       <form onSubmit={handleSubmit}>
         <div className='flex m-auto justify-center items-center my-10'>
@@ -217,12 +221,24 @@ function MatchForm() {
 
         </div>
         </div>
-
-        <div className='flex m-auto justify-center items-center'>
-        <label htmlFor="highlight">highlight:</label>
-        <input type="text" id="highlight" name="highlight" value={formData.highlight} onChange={handleChange} min="1" required /><br /><br />
-        </div>
-
+        
+        
+                <div className='flex m-auto justify-center items-center'>
+                <label htmlFor="highlight">highlight:</label>
+                <input type="text" id="highlight" name="highlight" value={formData.highlight} onChange={handleChange} min="1" required /><br /><br />
+                </div>
+        
+        
+                <div className='flex m-auto justify-center items-center'>
+                <label htmlFor="series">Series:</label>
+                <input type="text" id="series" name="series" value={formData.series} onChange={handleChange} min="1" required /><br /><br />
+                </div>
+        
+        
+                <div className='flex m-auto justify-center items-center'>
+                <label htmlFor="year">Year:</label>
+                <input type="text" id="year" name="year" value={formData.year} onChange={handleChange} min="1" required /><br /><br />
+                </div>
         {/* <label htmlFor="tossWinner">Toss Winner:</label>
         <select id="tossWinner" name="tossWinner" value={formData.tossWinner} onChange={handleChange}>
           <option value="">Select Team</option>

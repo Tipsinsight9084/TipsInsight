@@ -43,11 +43,11 @@ router.post('/IPL', async (req, res) => {
   }
 });
 
-router.post('/bigbash', async (req, res) => {
+router.post('/bigbash23', async (req, res) => {
   try {
-    const { team1, team2, matchDate, time, venue, tossWinner, tossDate, tossTime, matchWinner, matchwinnerDate, matchwinnerTime, uniqueId, team1Run , team1Wicket, team1Over, team2Run , team2Wicket, team2Over, actualmatchWinner, actualtossWinner, highlight} = req.body;
+    const { team1, team2, matchDate, time, venue, tossWinner, tossDate, tossTime, matchWinner, matchwinnerDate, matchwinnerTime, uniqueId, team1Run , team1Wicket, team1Over, team2Run , team2Wicket, team2Over, actualmatchWinner, actualtossWinner, highlight, series, year} = req.body;
 
-    const newMatch = new Bigbash({
+    const newBigBashMatch = new Bigbash({
       team1,
       team2,
       matchDate,
@@ -68,18 +68,20 @@ router.post('/bigbash', async (req, res) => {
       team2Over,
       actualmatchWinner,
       actualtossWinner,
-      highlight
+      highlight,
+      series,
+      year,
     });
 
     console.log(req.body)
     console.log("QI")
-    console.log("bigbash",newMatch)
+    console.log("bigbash",newBigBashMatch)
     // const 
-    await newMatch.save();
+    await newBigBashMatch.save();
 
     res.status(201).json({ message: 'Bigbash Match created successfully.' });
   } catch (err) {
-    res.status(400).json({ message: err.message + 'error in' });
+    res.status(400).json({ message: err + 'error in' });
   }
 });
 
