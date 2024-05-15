@@ -14,6 +14,14 @@ import SRH from '../assets/SRH.png'
 import RR from '../assets/RR.png'
 import RCB from '../assets/RCB.png'
 import DC from '../assets/DC.png'
+import SIX from '../assets/SIX.png'
+import STA from '../assets/STA.png'
+import STR from '../assets/STR.png'
+import THU from '../assets/THU.png'
+import REN from '../assets/REN.png'
+import SCO from '../assets/SCO.png'
+import HEA from '../assets/HEA.png'
+import HUR from '../assets/HUR.png'
 import Footer from './footer.jsx';
 import LoadingAnimation from './Loader/Loader.jsx';
 import Whatsapp_floating from './floating/Whatsapp_floating.jsx';
@@ -26,7 +34,23 @@ function Prediction_Page() {
   const  {uniqueId}  = useParams();
   const [Details, setDetails] = useState(null);
 
-  const logos = {
+  
+  let league = uniqueId.substring(0,3)
+  let Year = "2023";
+
+  if(league==="IPL"){
+    league= "Indian Premier League"
+    Year = "2024"
+  }
+
+  else{
+    league="Big Bash League"
+    Year = "2023-24"
+  }
+
+  const logos = {}
+
+   logos["Indian Premier League"] = {
     'MI': MI,
     'RCB': RCB,
     'SRH': SRH,
@@ -39,7 +63,20 @@ function Prediction_Page() {
     'CSK': CSK,
   }
 
-  const full_names = {
+  logos["Big Bash League"] = {
+    'SIX':SIX,
+    'STA':STA,
+    'THU':THU,
+    'HEA':HEA,
+    'REN':REN,
+    'HUR':HUR,
+    'SCO':SCO,
+    'STR':STR
+ }
+
+  const full_names = {}
+
+   full_names["Indian Premier League"] = {
     'MI': "Mumbai Indians",
     'RCB': "Royal Challengers Banglore",
     'SRH': "Sunrisers Hyderabad",
@@ -50,7 +87,20 @@ function Prediction_Page() {
     'PBKS': "Punjab Kings",
     'GT': "Gujarat Titans",
     'CSK': "Chennai Super Kings",
+
   }
+
+  full_names["Big Bash League"] = {
+    'SIX' : "Sydney Sixers",
+    "HEA" : "Brisbane Heat",
+    'SCO' : "Perth Scorchers",
+    'STR': 'Adelaide Strikers',
+     'HUR' : 'Hobart Hurricanes',
+     "STA" : 'Melbourne Stars',
+     'THU'  : 'Sydney Thunder',
+     "REN" : 'Renegades'
+  }
+
   
   console.log("hey2  ", uniqueId);
   useEffect(() => {
@@ -123,7 +173,7 @@ const date = new Date(newmatchDate);
      <div className="rounded-3xl p-1 md:p-2 bg-gradient-to-r from-customRed to-customBrown">
        <div className="text-center">
          <div className="font-mont font-extrabold text-xl md:text-3xl text-white"> {/* Adjusted font size */}
-           Indian Premiere League 2024
+           {league} {Year}
          </div>
          <div className="font-mont text-white text-lg md:text-2xl font-semibold"> {/* Adjusted font size */}
            {match_no}th Match
@@ -135,7 +185,7 @@ const date = new Date(newmatchDate);
          </div>
          <div className="font-bold flex flex-row items-center justify-between px-4 md:px-12 py-4 md:py-2 w-full rounded-md">
               <div className="flex flex-col justify-between md:pt-4 w-72 md:flex-row items-center">
-                <img className="w-auto h-16 md:h-32"src={logos[data.team1]} alt="" />
+                <img className="w-auto h-16 md:h-32"src={logos[league][data.team1]} alt="" />
                 <div className='flex flex-col justify-center items-center'>
                 <div className="font-mont font-bold md:text-2xl">{data.team1}</div>
                {scorecard && <div className="flex flex-col items-center font-mont font-semibold text-sm md:text-md">
@@ -157,7 +207,7 @@ const date = new Date(newmatchDate);
                 </div>
 } 
               </div>
-                <img className="w-auto h-16 md:h-32"src={logos[data.team2]} alt="" />
+                <img className="w-auto h-16 md:h-32"src={logos[league][data.team2]} alt="" />
               </div>
 
 
@@ -237,12 +287,12 @@ const date = new Date(newmatchDate);
 
             <div className='w-[95%] flex justify-evenly py-4'>
               <div >
-             <img className="w-auto h-24" src={logos[data.tossWinner]} alt="" />
+             <img className="w-auto h-24" src={logos[league][data.tossWinner]} alt="" />
               </div>
 
               <div className='flex flex-col mx-4'>
                 <div className='text-customBrown font-bold text-xl md:text-4xl font-mont' >
-                  {full_names[data.tossWinner]}
+                  {full_names[league][data.tossWinner]}
                 </div>
 
                <div className='text-gray-500 text-lg md:text-xl tracking:wide md:tracking-widest'>
@@ -264,12 +314,12 @@ const date = new Date(newmatchDate);
 
             <div className='w-[95%] flex flex-row-reverse justify-evenly py-4'>
               <div >
-             <img className="w-auto h-24" src={logos[data.matchWinner]} alt="" />
+             <img className="w-auto h-24" src={logos[league][data.matchWinner]} alt="" />
               </div>
 
               <div className='flex flex-col mx-4'>
                 <div className='text-customBrown font-bold text-xl md:text-4xl font-mont'>
-                  {full_names[data.matchWinner]}
+                  {full_names[league][data.matchWinner]}
                 </div>
 
                <div className='text-gray-500 text-lg md:text-xl tracking-wide md:tracking-widest'>

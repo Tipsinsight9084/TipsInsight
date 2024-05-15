@@ -16,6 +16,14 @@ import SRH from '../../assets/SRH.png'
 import RR from '../../assets/RR.png'
 import RCB from '../../assets/RCB.png'
 import DC from '../../assets/DC.png'
+import SIX from '../../assets/SIX.png'
+import STA from '../../assets/STA.png'
+import STR from '../../assets/STR.png'
+import THU from '../../assets/THU.png'
+import REN from '../../assets/REN.png'
+import SCO from '../../assets/SCO.png'
+import HEA from '../../assets/HEA.png'
+import HUR from '../../assets/HUR.png'
 import NavBar from '../navbarr';
 import Whatsapp_floating from '../floating/Whatsapp_floating';
 import Telegram_floating from '../floating/Telegram_floating';
@@ -27,8 +35,10 @@ function BuyPage()  {
   
   const  {uniqueId}  = useParams();
   const [Details, setDetails] = useState(null);
+
+  const logos = {}
   
-  const logos = {
+   logos["Indian Premier League"] = {
     'MI': MI,
     'RCB': RCB,
     'SRH': SRH,
@@ -40,6 +50,18 @@ function BuyPage()  {
     'GT': GT,
     'CSK': CSK,
   }
+
+  logos["Big Bash League"] = {
+    'SIX':SIX,
+    'STA':STA,
+    'THU':THU,
+    'HEA':HEA,
+    'REN':REN,
+    'HUR':HUR,
+    'SCO':SCO,
+    'STR':STR
+ }
+
   
   const full_names = {
     'MI': "Mumbai Indians",
@@ -52,6 +74,19 @@ function BuyPage()  {
     'PBKS': "Punjab Kings",
     'GT': "Gujarat Titans",
     'CSK': "Chennai Super Kings",
+  }
+
+  let league = uniqueId.substring(0,3)
+  let Year = "2023";
+
+  if(league==="IPL"){
+    league= "Indian Premier League"
+    Year = "2024"
+  }
+
+  else{
+    league="Big Bash League"
+    Year = "2023-24"
   }
   
   console.log("hey2  ", uniqueId);
@@ -140,7 +175,7 @@ function redirectToWhatsApp() {
       
        <div className="text-center my-5">
          <div className="font-mont font-bold md:text-2xl text-sm md:text-3xl text-white "> {/* Adjusted font size */}
-           Indian Premier League 2024
+          {league} {Year}
          </div>
          <div className="font-mont md:text-lg text-sm md:text-2xl font-semibold text-white"> {/* Adjusted font size */}
            {match_no}<sup>th</sup> Match
@@ -151,7 +186,7 @@ function redirectToWhatsApp() {
            {/* <div className="md:mx-8 flex flex-row justify-center items-center w-full md:w-auto md:rounded-md"> Adjusted margin and width */}
              {/* <div className=" flex text-lg md:text-2xl w-full flex justify-between items-center"> */}
               <div className='basis-3/7 flex flex-col items-center  m-auto'>
-           <img src={logos[data.team1]} alt="Team 1 image" className=" w-auto h-16" /> {/* Adjusted image size */}
+           <img src={logos[league][data.team1]} alt="Team 1 image" className=" w-auto h-16" /> {/* Adjusted image size */}
                <div className="md:px-4 m-auto md:text-2xl text-xs font-bold text-center">{data.team1}</div>
                </div>
 
@@ -159,7 +194,7 @@ function redirectToWhatsApp() {
                <div className='basis-3/7 flex flex-col-reverse items-center m-auto'>
                <div className="md:px-4 m-auto md:text-2xl text-xs font-bold text-center">{data.team2}</div>
 
-               <img src={logos[data.team2]} alt="Team 2 image" className=" w-auto h-16"/> {/* Adjusted image size */}
+               <img src={logos[league][data.team2]} alt="Team 2 image" className=" w-auto h-16"/> {/* Adjusted image size */}
                </div>
              {/* </div> */}
            {/* </div> */}
