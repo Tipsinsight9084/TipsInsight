@@ -15,7 +15,7 @@ export default function Previous(){
       // // Function to fetch all event data from the backend
       const fetchAllPrevious = async () => {
         try {
-          const response = await fetch('https://tipsinsight.onrender.com/prevmatches');
+          const response = await fetch('https://tipsinsight.onrender.com/prevmatches/IPL24');
           // const response = await fetch('http://localhost:3000/prevmatches/');
           const data = await response.json();
           setPrevious(data); // // Assuming the backend returns an array of events
@@ -43,7 +43,7 @@ export default function Previous(){
         <NavBar />
         <Heading heading={previous_heading}/>
         {previous.map((previous) => ( 
-                <Card prev="true" btn_link='prediction' key={previous.uniqueId} btn_des={view} data={previous}/> 
+                <Card prev="true" btn_link='prediction' key={previous.uniqueId} btn_des={view} data={previous} League="Indian Premier League" Year="2023"/> 
       ))}
      <Footer/>
      <div className='md:h-[32vh] h-[8vh]'></div>

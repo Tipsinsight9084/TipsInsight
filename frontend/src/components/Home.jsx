@@ -89,14 +89,14 @@ function Home_Page() {
          
           <Heading heading={next_heading} />
           <Countdown date= {nextMatch.matchDate} time={nextMatch.time}/>
-          <Card prev="false" btn_link='buy' btn_des={buy} data={nextMatch} />
+          <Card prev="false" Year="2024" btn_link='buy' btn_des={buy} data={nextMatch} League="Indian Premier League" />
         </>
       )}
       
       {upcomingmatch && (
         <>
       <Heading heading={upcoming_heading} />
-      <Card prev="false" btn_link='buy' btn_des={buy} data={upcomingmatch[1]}/>
+      <Card prev="false" btn_link='buy' btn_des={buy} data={upcomingmatch[1]} League="Indian Premier League" Year="2023"/>
       </>
   )
 }
@@ -113,7 +113,7 @@ function Home_Page() {
   previousmatch && (
     <>
     <Heading heading={previous_heading}/>
-    <Card prev="true" btn_link = 'prediction' btn_des = {prediction} data={previousmatch[0]} />
+    <Card prev="true" btn_link = 'prediction' btn_des = {prediction} data={previousmatch[0]} League="Indian Premier League" Year="2024"/>
       </>
   )
 }

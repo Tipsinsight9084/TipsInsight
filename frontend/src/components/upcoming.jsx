@@ -43,7 +43,7 @@ export default function Upcoming(){
         <NavBar />
         <Heading heading={upcoming_heading}/>
         {upcoming.map((upcoming) => ( 
-                <Card prev="false" btn_link='buy' key={upcoming.uniqueId} btn_des={view} data={upcoming}/> 
+                <Card prev="false" btn_link='buy' key={upcoming.uniqueId} btn_des={view} data={upcoming} League="Indian Premier League" Year="2024"/> 
       ))}
       <Footer/>
 

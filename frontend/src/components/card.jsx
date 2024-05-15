@@ -8,14 +8,26 @@ import SRH from '../assets/SRH.png'
 import RR from '../assets/RR.png'
 import RCB from '../assets/RCB.png'
 import DC from '../assets/DC.png'
+import SIX from '../assets/SIX.png'
+import STA from '../assets/STA.png'
+import STR from '../assets/STR.png'
+import THU from '../assets/THU.png'
+import REN from '../assets/REN.png'
+import SCO from '../assets/SCO.png'
+import HEA from '../assets/HEA.png'
+import HUR from '../assets/HUR.png'
+
 // import KKR from '../assets/KKR.jpeg'
 // import './card.css'
 import { Link } from 'react-router-dom'
 
 export default function Card(props) {
 
+  const Logos = {}
   const data = props.data;
-  const logos = {
+  const League = props.League
+  const Year = props.Year
+   Logos["Indian Premier League"] = {
     'MI': MI,
     'RCB': RCB,
     'SRH': SRH,
@@ -26,6 +38,17 @@ export default function Card(props) {
     'PBKS': PBKS,
     'GT': GT,
     'CSK': CSK,
+  }
+
+  Logos["Big Bash League"] = {
+     'SIX':SIX,
+     'STA':STA,
+     'THU':THU,
+     'HEA':HEA,
+     'REN':REN,
+     'HUR':HUR,
+     'SCO':SCO,
+     'STR':STR
   }
 
   const link = '/' + props.btn_link +'/' + data.uniqueId
@@ -73,7 +96,7 @@ export default function Card(props) {
         <div className="rounded-3xl p-1 md:p-2 bg-gradient-to-r from-customRed to-customBrown">
           <div className="text-center">
             <div className="font-mont font-semibold text-xl mt-2 md:text-3xl text-white"> {/* Adjusted font size */}
-              Indian Premier League 2024
+              {League} {Year}
             </div>
             <div className="font-mont text-white text-base my-0 md:text-2xl font-medium"> {/* Adjusted font size */}
               {match_no}th Match
@@ -82,7 +105,7 @@ export default function Card(props) {
           <div className="mt-4 md:mt-6 border border-black w-99/100 bg-white rounded-b-3xl flex flex-col items-center ">
             <div className="font-bold flex flex-row items-center justify-between px-4 md:px-12 py-4 md:py-2 w-full rounded-md">
               <div className="flex flex-col justify-around md:pt-4 w-72 md:flex-row items-center">
-                <img className="w-auto md:w-auto md:h-32 h-16"src={logos[data.team1]} alt="" />
+                <img className="w-auto md:w-auto md:h-32 h-16"src={Logos[League][data.team1]} alt="" />
                 <div className='flex flex-col justify-center items-center'>
                 <div className="font-mont font-bold md:text-3xl">{data.team1}</div>
                {scorecard && <div className="flex flex-col items-center font-mont font-semibold  text-sm md:text-md">
@@ -104,7 +127,7 @@ export default function Card(props) {
                 </div>
 } 
               </div>
-                <img className="w-auto md:w-auto md:h-32 h-16"src={logos[data.team2]} alt="" />
+                <img className="w-auto md:w-auto md:h-32 h-16"src={Logos[League][data.team2]} alt="" />
               </div>
 
 
