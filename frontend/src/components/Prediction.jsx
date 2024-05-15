@@ -106,6 +106,7 @@ function Prediction_Page() {
   useEffect(() => {
     // Fetch event details from the backend using uniqueId
    fetch(`https://tipsinsight.onrender.com/matchdetails/${uniqueId}`,)
+  //  fetch(`http://localhost:3000/matchdetails/${uniqueId}`,)
       .then((response) => response.json())
       .then((data) => setDetails(data))
       .catch((error) => console.error('Error fetching event details:', error));
@@ -118,7 +119,7 @@ function Prediction_Page() {
     
   }
 
-console.log(Details)
+console.log("deatisl : ", Details)
 const data = Details
 
 
