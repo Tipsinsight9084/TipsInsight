@@ -9,14 +9,14 @@ function MatchForm() {
   const [formData, setFormData] = useState({
     team1: '',
     team2: '',
-    matchDate: '2023-12-07',
+    matchDate: '2024-01-01',
     time: '13:00',
     venue: '',
     tossWinner: '',
-    tossDate: '2023-12-07',
+    tossDate: '2024-01-01',
     tossTime: '12:00',
     matchWinner: '',
-    matchwinnerDate: '2023-12-07',
+    matchwinnerDate: '2024-01-01',
     matchwinnerTime: '12:45',
     matchNumber: '',
     team1Run: '1',
@@ -27,7 +27,7 @@ function MatchForm() {
     team2Over: '20',
     actualmatchWinner: '',
     actualtossWinner: '',
-    highlight: 'null',
+    highlight: 'NULL',
     series: 'Big Bash League',
     year: '2023-24'
   });
@@ -89,6 +89,7 @@ function MatchForm() {
 
     try {
       console.log({ ...formData, uniqueId })
+      // const response = await fetch('https://tipsinsight.onrender.com/create/IPL', {
       const response = await fetch('https://tipsinsight.onrender.com/create/bigbash23', {
       // const response = await fetch('http://localhost:3000/create/bigbash23', {
         method: 'POST',
