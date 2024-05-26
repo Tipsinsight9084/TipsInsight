@@ -7,7 +7,8 @@ const Progessbar = (props) => {
     const title = props.title;
     const value = props.value;
     const maxvalue = props.maxvalue;
-    const percentage = (value/maxvalue) * 100;
+    let percentage = (value/maxvalue) * 100;
+   percentage =  percentage.toFixed(2)
 
 
     const completedClassNameVariable = `bg-customRed w-[${value}%]`;
@@ -24,13 +25,13 @@ const Progessbar = (props) => {
   {/* Progress */}
   <div className='w-[80%] m-auto'>
     <div className="mb-2 flex justify-between items-center">
-      <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
+      <h3 className="text-lg font-bold text-gray-800 dark:text-white">
         {title}
       </h3>
-      <span className="text-base text-gray-800 dark:text-white"> {percentage}% ({value}/{maxvalue})</span>
+      <span className="text-base text-gray-800 font-bold dark:text-white"> {percentage}% ({value}/{maxvalue})</span>
     </div>
     <div
-      className="flex w-full md:h-4 h-2 bg-gray-200 rounded-full overflow-hidden dark:bg-neutral-700"
+      className="flex w-full md:h-4 h-6 border-4 border-double border-black bg-gray-200 rounded-full overflow-hidden dark:bg-neutral-700"
       role="progressbar"
       aria-valuenow={percentage}
       aria-valuemin={0}

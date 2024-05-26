@@ -25,6 +25,7 @@ export default function Card(props) {
 
   const Logos = {}
   const data = props.data;
+  console.log("Data here",data)
   const League = props.League
   const Year = props.Year
    Logos["Indian Premier League"] = {

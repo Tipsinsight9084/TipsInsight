@@ -6,12 +6,14 @@ import {Link} from 'react-router-dom'
 import Footer from './footer'
 import HeroSection from './hero/hero';
 import NavBar from './navbarr';
+import Resultbar from './Resultbar';
 import FinalCarousel from './hero/finalCarousel';
 import BottomNav from './Bottom/bottomNav';
 import './home.css'
 import Countdown from './countdown/countdown';
 import Whatsapp_floating from './floating/Whatsapp_floating';
 import Telegram_floating from './floating/Telegram_floating';
+import Sample from './SamplePage/Sample';
 
 function Home_Page() {
   const next_heading = "Next Match";
@@ -21,6 +23,7 @@ function Home_Page() {
   const prediction = "View Prediction"
   const [nextMatch, setNextMatch] = useState(null); // State to hold next match
   const [upcomingmatch,setUpcomingmatch] = useState(null)
+  const [previousmatchbb,setPreviousmatchbb] = useState(null)
   const [previousmatch,setPreviousmatch] = useState(null)
   console.log("st")
   const run = useState(null)
@@ -70,9 +73,56 @@ function Home_Page() {
     fetchPreviousMatch();
   }, []); // Empty dependency array, runs once on component mount
 
+  useEffect(() => {
+    async function fetchPreviousMatch() {
+      try {
+        const response = await fetch('https://tipsinsight.onrender.com/prevmatches/Bigbash23');
+        const matchData = await response.json();
+        setPreviousmatchbb(matchData);
+      } catch (error) {
+        console.error('Error fetching next match:', error);
+      }
+    }
+
+    fetchPreviousMatch();
+  }, []); // Empty dependency array, runs once on component mount
+
   console.log("next match: ", nextMatch)
   console.log(upcomingmatch)
   console.log(previousmatch)
+  console.log(previousmatchbb)
+
+  var total = 0;
+    var tosspassed = 0;
+    var matchpassed = 0;
+
+  if(previousmatch) 
+     {previousmatch.forEach(item => {
+        total += 1;
+    
+        if (item.actualmatchWinner === item.matchWinner) {
+            matchpassed += 1;
+        }
+    
+        if (item.actualtossWinner === item.tossWinner) {
+            tosspassed += 1;
+        }
+    });
+  }
+
+  if(previousmatchbb){
+    previousmatchbb.forEach(item => {
+      total += 1;
+  
+      if (item.actualmatchWinner === item.matchWinner) {
+          matchpassed += 1;
+      }
+  
+      if (item.actualtossWinner === item.tossWinner) {
+          tosspassed += 1;
+      }
+  });
+}
 
   return (
     <>
@@ -80,6 +130,9 @@ function Home_Page() {
 
       <NavBar/>
       <br></br>
+      {/* <ResultBar total={total} tosspassed={tosspassed} matchpassed={matchpassed}/> */}
+      < Resultbar total={total} tosspassed={tosspassed} matchpassed={matchpassed}/>
+
       <FinalCarousel/>
       {/* <div className='mt-8 md:mt-1'></div> */}
       {/* Render next match data if available */}
