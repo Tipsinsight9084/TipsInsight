@@ -137,19 +137,19 @@ function Home_Page() {
       {/* <div className='mt-8 md:mt-1'></div> */}
       {/* Render next match data if available */}
       <div className='md:mt-[30vh]'>
-      {nextMatch && (
+      {/* {nextMatch && (
         <>
          
           <Heading heading={next_heading} />
           <Countdown date= {nextMatch.matchDate} time={nextMatch.time}/>
           <Card prev="false" Year="2024" btn_link='buy' btn_des={buy} data={nextMatch} League="Indian Premier League" />
         </>
-      )}
+      )} */}
       
-      {upcomingmatch && (
+      {/* {upcomingmatch && (
         <>
       <Heading heading={upcoming_heading} />
-      <Card prev="false" btn_link='buy' btn_des={buy} data={upcomingmatch[1]} League="Indian Premier League" Year="2023"/>
+      <Card prev="false" btn_link='buy' btn_des={buy} data={upcomingmatch[0]} League="Indian Premier League" Year="2023"/>
       </>
   )
 }
@@ -160,7 +160,7 @@ function Home_Page() {
   View more matches
 </button>
 </Link>
-</div>
+</div> */}
 
 {
   previousmatch && (

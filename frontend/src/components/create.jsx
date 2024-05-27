@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 
-// const teams = ["CSK", "GT", "DC", "KKR", "LSG", "MI", "PBKS", "RR", "RCB", "SRH","SIX","HUR","HEA","SCO","STR","STA","REN","THU"];
-const teams = ["SIX","HUR","HEA","SCO","STR","STA","REN","THU"];
+const teams = ["CSK", "GT", "DC", "KKR", "LSG", "MI", "PBKS", "RR", "RCB", "SRH","SIX","HUR","HEA","SCO","STR","STA","REN","THU"];
+// const teams = ["SIX","HUR","HEA","SCO","STR","STA","REN","THU"];
 
 function MatchForm() {
   const [formData, setFormData] = useState({
@@ -84,12 +84,12 @@ function MatchForm() {
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     const matchNumber = formData.matchNumber.toString().padStart(2, '0');
-    const uniqueId = `Bigbash23_${matchNumber}`;
+    const uniqueId = `IPL24_${matchNumber}`;
     console.log(formData)
 
     try {
       console.log({ ...formData, uniqueId })
-      const response = await fetch('https://tipsinsight.onrender.com/create/bigbash23', {
+      const response = await fetch('https://tipsinsight.onrender.com/create/IPL', {
       // const response = await fetch('http://localhost:3000/create/bigbash23', {
         method: 'POST',
         headers: {
