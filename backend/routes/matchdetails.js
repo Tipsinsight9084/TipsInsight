@@ -2,6 +2,11 @@ const express = require('express');
 const router = express.Router();
 const Match = require('../model/match');
 const Bigbash = require('../model/bigbash');
+const WC23 = require('../model/WC23');
+const SA24 = require('../model/SA24');
+const ENGvPAK24 = require('../model/ENGvPAK24');
+const WIvSA24 = require('../model/WIvSA24');
+
 
 
 
@@ -11,7 +16,7 @@ router.get('/:uniqueId', async (req, res) => {
       console.log(uniqueId)
 
        // Define an array of collections to search
-       const collections = [Match, Bigbash]; // Assuming Match and Bigbash are Mongoose models
+       const collections = [Match, Bigbash, WC23, SA24, ENGvPAK24, WIvSA24]; // Assuming Match and Bigbash are Mongoose models
 
        let match = null;
        
