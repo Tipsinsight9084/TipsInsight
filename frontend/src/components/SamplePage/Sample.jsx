@@ -2,12 +2,17 @@ import React from 'react'
 import Progessbar from '../Progessbar'
 import Resultbar from '../Resultbar'
 
-const Sample = () => {
+const Sample = (props) => {
+
+  let total = props.total
+  let matchpassed = props.matchpassed
+  let tosspassed = props.tosspassed
+
   return (
-    <div>
-        <Resultbar total="43" predicted="43" passed="42" percentage="99"/>
-      <Progessbar title="Match Prediction" value="30" maxvalue="40"/>
-      <Progessbar title="Toss Prediction" value="20" maxvalue="100"/>
+    <div className='mt-8 mb-16 '>
+        <Resultbar total={total} tosspassed={tosspassed} matchpassed={matchpassed}/>
+      <Progessbar title="Toss Prediction" value={tosspassed} maxvalue={total}/>
+      <Progessbar title="Match Prediction" value={matchpassed} maxvalue={total}/>
     </div>
   )
 }

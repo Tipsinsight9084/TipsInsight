@@ -5,8 +5,8 @@ import Home_Page from './components/Home';
 import Create from './components/create';
 import BuyPage from './components/buyPage/buyPage';
 import {SpeedInsights} from '@vercel/speed-insights/react'
-
-import Previous from './components/Previous_page';
+import Previous from './components/previous';
+import Previousmatches from './components/Previous_page';
 import AboutUs from './components/aboutUs/aboutUs';
 import ContactUs from './components/contactUs/contactUs'
 import HeroSection from './components/hero/hero';
@@ -32,12 +32,13 @@ function App() {
         <Route path="/" element={<Home_Page/>} />
         <Route path="/prediction/:uniqueId" element={<Prediction_Page />} />
         <Route path='/about' element={<AboutUs/>}></Route>
-        <Route path='/previousmatches' element={<Previous/>}></Route>
+        <Route path='/previousmatches' element={<Previousmatches/>}></Route>
         <Route path='/contact' element={<ContactUs/>}></Route>
         <Route path='/create' element={<Create/>}></Route>
         <Route path='/upcoming' element={<Upcoming/>}></Route>
         <Route path='/buy/:uniqueId' element = {<BuyPage/>}></Route>
         <Route path='/sample/sample' element = {<Sample/>}></Route>
+        <Route path='previous/:league' element={<Previous/>}></Route>
       </Routes>
       {/* <div className="hi">HI</div> */}
       <SpeedInsights/>

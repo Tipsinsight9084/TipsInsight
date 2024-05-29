@@ -7,7 +7,6 @@ import LoadingAnimation from "./Loader/Loader";
 import Whatsapp_floating from "./floating/Whatsapp_floating";
 import Telegram_floating from "./floating/Telegram_floating";
 import { Link } from 'react-router-dom'
-import Sample from "./SamplePage/Sample";
 export default function Previousmatches(){
 
     const [previousipl, setPreviousipl] = useState([]);
@@ -54,38 +53,6 @@ export default function Previousmatches(){
       );
       
     }
-
-    var totalipl24 = 0;
-    var tosspassedipl24 = 0;
-    var matchpassedipl24 = 0;
-
-    previousipl.forEach(item => {
-      totalipl24 += 1;
-  
-      if (item.actualmatchWinner === item.matchWinner) {
-          matchpassedipl24 += 1;
-      }
-  
-      if (item.actualtossWinner === item.tossWinner) {
-          tosspassedipl24 += 1;
-      }
-  });
-
-  var totalbb23 = 0;
-  var tosspassedbb23 = 0;
-  var matchpassedbb23 = 0;
-
-  previousbb.forEach(item => {
-    totalbb23 += 1;
-
-    if (item.actualmatchWinner === item.matchWinner) {
-        matchpassedbb23 += 1;
-    }
-
-    if (item.actualtossWinner === item.tossWinner) {
-        tosspassedbb23 += 1;
-    }
-});
   
 
     let previous_heading_ipl = "IPL 2024"
@@ -95,7 +62,6 @@ export default function Previousmatches(){
         <>
         <NavBar />
         <Heading heading={previous_heading_ipl}/>
-        < Sample total = {totalipl24} tosspassed = {tosspassedipl24} matchpassed = {matchpassedipl24}/>
         {/* {previous.map((previous) => ( 
                 <Card prev="true" btn_link='prediction' key={previous.uniqueId} btn_des={view} data={previous} League="Indian Premier League" Year="2023"/> 
       ))} */}
@@ -113,12 +79,9 @@ export default function Previousmatches(){
   </Link>
 
       <Heading heading = {previous_heading_bb}/>
-      < Sample total = {totalbb23} tosspassed = {tosspassedbb23} matchpassed = {matchpassedbb23}/>
-      
       {previousbb.slice(0, 3).map((item) => (
         <Card prev="true" btn_link = 'prediction' key={item.uniqueId} btn_des={view} data={item} League = "Big Bash League" Year = "2023-24"/>
       ))}
-     
 
 <Link to='/previous/Bigbash23'>
 <div className="flex justify-center items-center ">
