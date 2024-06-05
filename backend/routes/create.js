@@ -132,6 +132,7 @@ router.post('/WC23', async (req, res) => {
 });
 
 router.post('/WC24', async (req, res) => {
+  console.log("workinfg",req.body);
   try {
     const { team1, team2, matchDate, time, venue, tossWinner, tossDate, tossTime, matchWinner, matchwinnerDate, matchwinnerTime, uniqueId, team1Run , team1Wicket, team1Over, team2Run , team2Wicket, team2Over, actualmatchWinner, actualtossWinner, highlight, series, year} = req.body;
 

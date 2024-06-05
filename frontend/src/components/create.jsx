@@ -2,23 +2,27 @@
 
 import React, { useState } from 'react';
 
-const teams = ["CSK", "GT", "DC", "KKR", "LSG", "MI", "PBKS", "RR", "RCB", "SRH","SIX","HUR","HEA","SCO","STR","STA","REN","THU"];
+// const teams = ["CSK", "GT", "DC", "KKR", "LSG", "MI", "PBKS", "RR", "RCB", "SRH","SIX","HUR","HEA","SCO","STR","STA","REN","THU"];
 // const teams = ["SIX","HUR","HEA","SCO","STR","STA","REN","THU"];
+// const teams = ["SEC" , "DSG" , "PR" , "JSK" , "PC" , "MICT"];
+const teams = ["PAP" , "UGA" , "PAK" , "OMA" , "AUS" , "NAM" , "SCOT" , "USA"];
 
 function MatchForm() {
   const [formData, setFormData] = useState({
     team1: '',
     team2: '',
-    matchDate: '2023-12-07',
-    time: '13:00',
+    // matchDate: '2024-02-10',
+    matchDate: '2024-06-06',
+    time: '05:00',
     venue: '',
     tossWinner: '',
-    tossDate: '2023-12-07',
-    tossTime: '12:00',
+    // tossDate: '2024-02-10',
+    tossDate: '2024-06-06',
+    tossTime: '04:30',
     matchWinner: '',
-    matchwinnerDate: '2023-12-07',
-    matchwinnerTime: '12:45',
-    matchNumber: '',
+    matchwinnerDate: '2024-06-06',
+    matchwinnerTime: '04:45',
+    matchNumber: '34',
     team1Run: '0',
     team1Wicket: '0',
     team1Over: '20',
@@ -28,8 +32,8 @@ function MatchForm() {
     actualmatchWinner: '',
     actualtossWinner: '',
     highlight: 'NULL',
-    series: 'Big Bash League',
-    year: '2023-24'
+    series: 'T20 World Cup',
+    year: '2024'
   });
 
   const handleChange = (e) => {
@@ -84,12 +88,12 @@ function MatchForm() {
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     const matchNumber = formData.matchNumber.toString().padStart(2, '0');
-    const uniqueId = `IPL24_${matchNumber}`;
+    const uniqueId = `WC24_${matchNumber}`;
     console.log(formData)
 
     try {
       console.log({ ...formData, uniqueId })
-      const response = await fetch('https://tipsinsight.onrender.com/create/', {
+      const response = await fetch('https://tipsinsight.onrender.com/create/WC24', {
       // const response = await fetch('http://localhost:3000/create/bigbash23', {
         method: 'POST',
         headers: {
