@@ -6,6 +6,7 @@ const WC23 = require('../model/WC23');
 const SA24 = require('../model/SA24');
 const ENGvPAK24 = require('../model/ENGvPAK24');
 const WIvSA24 = require('../model/WIvSA24');
+const WC24 = require('../model/WC24');
 
 // Create a new match
 router.post('/IPL', async (req, res) => {
