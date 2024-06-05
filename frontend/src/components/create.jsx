@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 // const teams = ["CSK", "GT", "DC", "KKR", "LSG", "MI", "PBKS", "RR", "RCB", "SRH","SIX","HUR","HEA","SCO","STR","STA","REN","THU"];
 // const teams = ["SIX","HUR","HEA","SCO","STR","STA","REN","THU"];
 // const teams = ["SEC" , "DSG" , "PR" , "JSK" , "PC" , "MICT"];
-const teams = ["PAP" , "UGA" , "PAK" , "OMA" , "AUS" , "NAM" , "SCOT" , "USA"];
+const teams = ["PAP" , "UGA" , "PAK" , "OMA" , "AUS" , "NAM" , "SCOT" , "USA", "CAN" , "IRE"];
 
 function MatchForm() {
   const [formData, setFormData] = useState({
