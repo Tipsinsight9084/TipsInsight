@@ -12,6 +12,7 @@ export default function Previous(){
 
     var league = useParams();
     league = league.league
+    console
 
     var details = {};
     details['Bigbash23'] = {
@@ -29,6 +30,7 @@ export default function Previous(){
 
     const [previous, setPrevious] = useState([]);
     let view = "View Prediction"
+    
 
     useEffect(() => {
       // // Function to fetch all event data from the backend
@@ -55,6 +57,44 @@ export default function Previous(){
       
     }
 
+    if(league==="IPL24"){
+      total = 74;
+      tosspassed = 67
+      matchpassed = 69;
+    }
+
+     else if(league==="SA24"){
+      total = 34;
+      tosspassed = 31
+      matchpassed = 32;
+    }
+
+    else if(league==="WIvSA24"){
+      total = 3;
+      tosspassed = 2
+      matchpassed = 3;
+    }
+
+    else if(league==="ENGvPAK24"){
+      total = 4;
+      tosspassed = 3
+      matchpassed = 4;
+    }
+
+    else if(league==="WC23"){
+      total = 48;
+      tosspassed = 43
+      matchpassed = 45
+    }
+
+    else if(league==="Bigbash23"){
+      total = 44;
+      tosspassed = 40
+      matchpassed = 41
+    }
+
+    else{
+
     var total = 0;
     var tosspassed = 0;
     var matchpassed = 0;
@@ -74,10 +114,15 @@ export default function Previous(){
     console.log(total,tosspassed,matchpassed)
     
    
-    
+  }
   
 
-    let previous_heading = details[league]['heading']
+    let previous_heading = previous[0].series + " " + previous[0].year
+    console.log("Previousss heading",previous_heading)
+ 
+    if(previous_heading=="undefined undefined"){
+      previous_heading = "IPL 2024"
+    }
     // console.log(previous)
     return(
         <>
@@ -85,7 +130,7 @@ export default function Previous(){
         <Heading heading={previous_heading}/>
         < Sample total = {total} tosspassed = {tosspassed} matchpassed = {matchpassed}/>
         {previous.map((previous) => ( 
-                <Card prev="true" btn_link='prediction' key={previous.uniqueId} btn_des={view} data={previous} League={details[league]['Tournament']} Year={details[league]['Year']}/> 
+                <Card prev="true" btn_link='prediction' key={previous.uniqueId} btn_des={view} data={previous} /> 
       ))}
      <Footer/>
      <div className='md:h-[32vh] h-[8vh]'></div>
