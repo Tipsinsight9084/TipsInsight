@@ -24,7 +24,7 @@ function MatchForm() {
     venue: '',
     tossWinner: '',
     // tossDate: '2024-02-10',
-    tossDate: '2024-06-06',
+    tossDate: '2024-06-07',
     tossTime: '04:30',
     tossDate: '2024-06-07',
     tossTime: '22:00',
