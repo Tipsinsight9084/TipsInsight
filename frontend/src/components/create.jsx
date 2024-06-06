@@ -17,7 +17,7 @@ function MatchForm() {
     team1: '',
     team2: '',
     // matchDate: '2024-02-10',
-    matchDate: '2024-06-06',
+    matchDate: '2024-06-07',
     time: '05:00',
     matchDate: '2024-06-07',
     time: '23:00',
