@@ -6,6 +6,7 @@ const WC23 = require('../model/WC23');
 const SA24 = require('../model/SA24');
 const ENGvPAK24 = require('../model/ENGvPAK24');
 const WIvSA24 = require('../model/WIvSA24');
+const WC24 = require('../model/WC24');
 
 // Create a new match
 router.post('/IPL', async (req, res) => {
@@ -132,6 +133,7 @@ router.post('/WC23', async (req, res) => {
 });
 
 router.post('/WC24', async (req, res) => {
+  console.log("workinfg",req.body);
   try {
     const { team1, team2, matchDate, time, venue, tossWinner, tossDate, tossTime, matchWinner, matchwinnerDate, matchwinnerTime, uniqueId, team1Run , team1Wicket, team1Over, team2Run , team2Wicket, team2Over, actualmatchWinner, actualtossWinner, highlight, series, year} = req.body;
 

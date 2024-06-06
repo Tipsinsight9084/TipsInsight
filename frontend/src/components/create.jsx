@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 
 // const teams = ["CSK", "GT", "DC", "KKR", "LSG", "MI", "PBKS", "RR", "RCB", "SRH","SIX","HUR","HEA","SCO","STR","STA","REN","THU"];
 // const teams = ["SIX","HUR","HEA","SCO","STR","STA","REN","THU"];
+// const teams = ["SEC" , "DSG" , "PR" , "JSK" , "PC" , "MICT"];
+const teams = ["PAP" , "UGA" , "PAK" , "OMA" , "AUS" , "NAM" , "SCOT" , "USA", "CAN" , "IRE", "IND"];
 // const teams = ["WI",'SA']
 // const teams =[ "IND","SA",'AUS','PAK','NED','ENG','NZ','BAN','SL','AFG']
 // const teams = ["PAK",'ENG']
@@ -14,16 +16,22 @@ function MatchForm() {
   const [formData, setFormData] = useState({
     team1: '',
     team2: '',
+    // matchDate: '2024-02-10',
+    matchDate: '2024-06-06',
+    time: '05:00',
     matchDate: '2024-06-07',
     time: '23:00',
     venue: '',
     tossWinner: '',
+    // tossDate: '2024-02-10',
+    tossDate: '2024-06-06',
+    tossTime: '04:30',
     tossDate: '2024-06-07',
     tossTime: '22:00',
     matchWinner: '',
-    matchwinnerDate: '2024-06-07',
-    matchwinnerTime: '22:40',
-    matchNumber: '',
+    matchwinnerDate: '2024-06-06',
+    matchwinnerTime: '04:45',
+    matchNumber: '34',
     team1Run: '0',
     team1Wicket: '0',
     team1Over: '20',
@@ -89,12 +97,12 @@ function MatchForm() {
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     const matchNumber = formData.matchNumber.toString().padStart(2, '0');
-    const uniqueId = `WC24_${matchNumber}`;
+    const uniqueId = `IPL24_${matchNumber}`;
     console.log(formData)
 
     try {
       console.log({ ...formData, uniqueId })
-      const response = await fetch('https://tipsinsight.onrender.com/create/WC24', {
+      const response = await fetch('https://tipsinsight.onrender.com/create/WC24/WC24', {
       // const response = await fetch('http://localhost:3000/create/bigbash23', {
         method: 'POST',
         headers: {
