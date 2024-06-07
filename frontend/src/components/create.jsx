@@ -97,12 +97,12 @@ function MatchForm() {
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     const matchNumber = formData.matchNumber.toString().padStart(2, '0');
-    const uniqueId = `IPL24_${matchNumber}`;
+    const uniqueId = `WC24_${matchNumber}`;
     console.log(formData)
 
     try {
       console.log({ ...formData, uniqueId })
-      const response = await fetch('https://tipsinsight.onrender.com/create/WC24/WC24', {
+      const response = await fetch('https://tipsinsight.onrender.com/create/WC24', {
       // const response = await fetch('http://localhost:3000/create/bigbash23', {
         method: 'POST',
         headers: {
