@@ -158,7 +158,7 @@ Logos["T20 World Cup"] = {
   'CAN':CAN,
   'PAP':PAP,
   'OMA':OMA,
-  'SCO':SCOT,
+  'SCOT':SCOT,
   'NAM':NAM,
   'USA':USA,
   'UGA':UGA,
@@ -235,7 +235,7 @@ Logos["T20 World Cup"] = {
      'NAM':'Namibia',
      'OMA':'Oman',
      'PAP':'Papua New Guinea',
-     'SCO':'Scotland',
+     'SCOT':'Scotland',
      'UGA':'Uganda',
      'USA':'United States of America',
   }

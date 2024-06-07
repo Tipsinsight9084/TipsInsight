@@ -133,7 +133,7 @@ Logos["T20 World Cup"] = {
   'CAN':CAN,
   'PAP':PAP,
   'OMA':OMA,
-  'SCO':SCOT,
+  'SCOT':SCOT,
   'NAM':NAM,
   'USA':USA,
   'UGA':UGA,
