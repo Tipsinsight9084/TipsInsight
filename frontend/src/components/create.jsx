@@ -29,7 +29,7 @@ function MatchForm() {
     tossDate: '2024-06-07',
     tossTime: '22:00',
     matchWinner: '',
-    matchwinnerDate: '2024-06-06',
+    matchwinnerDate: '2024-06-07',
     matchwinnerTime: '04:45',
     matchNumber: '34',
     team1Run: '0',
