@@ -6,6 +6,11 @@ import { useEffect,useState } from 'react';
 import axios from 'axios'
 import LoadingAnimation from '../Loader/Loader';
 // import Heading from './Heading.jsx'
+
+import NavBar from '../navbarr';
+import Whatsapp_floating from '../floating/Whatsapp_floating';
+import Telegram_floating from '../floating/Telegram_floating';
+
 import CSK from '../../assets/CSK.png'
 import MI from '../../assets/MI.png'
 import LSG from '../../assets/LSG.png'
@@ -24,9 +29,32 @@ import REN from '../../assets/REN.png'
 import SCO from '../../assets/SCO.png'
 import HEA from '../../assets/HEA.png'
 import HUR from '../../assets/HUR.png'
-import NavBar from '../navbarr';
-import Whatsapp_floating from '../floating/Whatsapp_floating';
-import Telegram_floating from '../floating/Telegram_floating';
+import SEC from '../../assets/SEC.png'
+import DSG from '../../assets/DSG.png'
+import PR from '../../assets/PR.png'
+import PC from '../../assets/PC.png'
+import JSK from '../../assets/JSK.png'
+import MICT from '../../assets/MICT.png'
+import WI from '../../assets/WI.png'
+import PAK from '../../assets/PAK.png'
+import SA from '../../assets/SA.png'
+import ENG from '../../assets/ENG.png'
+import AUS from '../../assets/AUS.png'
+import IND from '../../assets/IND.png'
+import NZ from '../../assets/NZ.png'
+import SL from '../../assets/SL.png'
+import NED from '../../assets/NED.png'
+import AFG from '../../assets/AFG.png'
+import OMA from '../../assets/OMG.png'
+import PAP from '../../assets/POP.png'
+import SCOT from '../../assets/SCOT.png'
+import IRE from '../../assets/IRE.png'
+import NAM from '../../assets/NAM.png'
+import BAN from '../../assets/BAN.png'
+import USA from '../../assets/USA.png'
+import UGA from '../../assets/UGA.png'
+import CAN from '../../assets/CAN.png'
+import NEP from '../../assets/NEP.png'
 function BuyPage()  {
 
 
@@ -62,19 +90,75 @@ function BuyPage()  {
     'STR':STR
  }
 
+ logos["WI vs SA T20"] = {
+  'WI':WI,
+  'SA':SA
+}
+
+logos["ENG vs PAK T20"] = {
+  'ENG':ENG,
+  'PAK':PAK
+}
+
+logos["Cricket World Cup"] = {
+  'NED':NED,
+  'SA':SA,
+   'IND':IND,
+   'AUS':AUS,
+   'NZ':NZ,
+   'AFG':AFG,
+   'BAN':BAN,
+   'SL':SL,
+  'ENG':ENG,
+  'PAK':PAK
+}
+
+logos["SA T20 League"] = {
+'SEC':SEC,
+'DSG':DSG,
+'PR':PR,
+'JSK':JSK,
+'PC':PC,
+'MICT':MICT
+}
+
+logos["T20 World Cup"] = {
+'NED':NED,
+'SA':SA,
+ 'IND':IND,
+ 'AUS':AUS,
+ 'NZ':NZ,
+ 'AFG':AFG,
+ 'BAN':BAN,
+ 'SL':SL,
+'ENG':ENG,
+'PAK':PAK,
+'WI':WI,
+'CAN':CAN,
+'PAP':PAP,
+'OMA':OMA,
+'SCOT':SCOT,
+'NAM':NAM,
+'USA':USA,
+'UGA':UGA,
+'NEP':NEP,
+'IRE':IRE
+}
+
+
   
-  const full_names = {
-    'MI': "Mumbai Indians",
-    'RCB': "Royal Challengers Banglore",
-    'SRH': "Sunrisers Hyderabad",
-    'KKR': "Kolkata Knight Riders",
-    'LSG': "Lucknow Supergiants",
-    'DC': "Delhi Capitals",
-    'RR': "Rajasthan Royals",
-    'PBKS': "Punjab Kings",
-    'GT': "Gujarat Titans",
-    'CSK': "Chennai Super Kings",
-  }
+  // const full_names = {
+  //   'MI': "Mumbai Indians",
+  //   'RCB': "Royal Challengers Banglore",
+  //   'SRH': "Sunrisers Hyderabad",
+  //   'KKR': "Kolkata Knight Riders",
+  //   'LSG': "Lucknow Supergiants",
+  //   'DC': "Delhi Capitals",
+  //   'RR': "Rajasthan Royals",
+  //   'PBKS': "Punjab Kings",
+  //   'GT': "Gujarat Titans",
+  //   'CSK': "Chennai Super Kings",
+  // }
 
   let league = uniqueId.substring(0,3)
   let Year = "2023";
@@ -175,7 +259,7 @@ function redirectToWhatsApp() {
       
        <div className="text-center my-5">
          <div className="font-mont font-bold md:text-2xl text-sm md:text-3xl text-white "> {/* Adjusted font size */}
-          {league} {Year}
+         {data.series ? data.series : 'Indian Premier League'} {data.year?data.year:'2024'}
          </div>
          <div className="font-mont md:text-lg text-sm md:text-2xl font-semibold text-white"> {/* Adjusted font size */}
            {match_no}<sup>th</sup> Match
@@ -186,7 +270,7 @@ function redirectToWhatsApp() {
            {/* <div className="md:mx-8 flex flex-row justify-center items-center w-full md:w-auto md:rounded-md"> Adjusted margin and width */}
              {/* <div className=" flex text-lg md:text-2xl w-full flex justify-between items-center"> */}
               <div className='basis-3/7 flex flex-col items-center  m-auto'>
-           <img src={logos[league][data.team1]} alt="Team 1 image" className=" w-auto h-16" /> {/* Adjusted image size */}
+           <img src={logos[data.series][data.team1]} alt="Team 1 image" className=" w-auto h-16" /> {/* Adjusted image size */}
                <div className="md:px-4 m-auto md:text-2xl text-xs font-bold text-center">{data.team1}</div>
                </div>
 
@@ -194,7 +278,7 @@ function redirectToWhatsApp() {
                <div className='basis-3/7 flex flex-col-reverse items-center m-auto'>
                <div className="md:px-4 m-auto md:text-2xl text-xs font-bold text-center">{data.team2}</div>
 
-               <img src={logos[league][data.team2]} alt="Team 2 image" className=" w-auto h-16"/> {/* Adjusted image size */}
+               <img src={logos[data.series][data.team2]} alt="Team 2 image" className=" w-auto h-16"/> {/* Adjusted image size */}
                </div>
              {/* </div> */}
            {/* </div> */}
