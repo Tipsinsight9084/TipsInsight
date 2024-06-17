@@ -4,6 +4,23 @@ import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from 'axios'
 import Heading from './Heading.jsx'
+import SEC from '../assets/SEC.png'
+import DSG from '../assets/DSG.png'
+import PR from '../assets/PR.png'
+import PC from '../assets/PC.png'
+import JSK from '../assets/JSK.png'
+import MICT from '../assets/MICT.png'
+import OMA from '../assets/OMG.png'
+import PAP from '../assets/POP.png'
+import SCOT from '../assets/SCOT.png'
+import IRE from '../assets/IRE.png'
+import NAM from '../assets/NAM.png'
+import BAN from '../assets/BAN.png'
+
+import USA from '../assets/USA.png'
+import UGA from '../assets/UGA.png'
+import CAN from '../assets/CAN.png'
+import NEP from '../assets/NEP.png'
 import CSK from '../assets/CSK.png'
 import MI from '../assets/MI.png'
 import LSG from '../assets/LSG.png'
@@ -22,6 +39,16 @@ import REN from '../assets/REN.png'
 import SCO from '../assets/SCO.png'
 import HEA from '../assets/HEA.png'
 import HUR from '../assets/HUR.png'
+import WI from '../assets/WI.png'
+import PAK from '../assets/PAK.png'
+import SA from '../assets/SA.png'
+import ENG from '../assets/ENG.png'
+import AUS from '../assets/AUS.png'
+import IND from '../assets/IND.png'
+import NZ from '../assets/NZ.png'
+import SL from '../assets/SL.png'
+import NED from '../assets/NED.png'
+import AFG from '../assets/AFG.png'
 import Footer from './footer.jsx';
 import LoadingAnimation from './Loader/Loader.jsx';
 import Whatsapp_floating from './floating/Whatsapp_floating.jsx';
@@ -33,24 +60,34 @@ function Prediction_Page() {
 
   const  {uniqueId}  = useParams();
   const [Details, setDetails] = useState(null);
+  console.log(uniqueId)
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        console.log("Inside");
+        // Fetch event details from the backend using uniqueId
+        const response = await fetch(`https://tipsinsight.onrender.com/matchdetails/${uniqueId}`);
+        // const response = await fetch(`http://localhost:3000/matchdetails/${uniqueId}`);
+        const data = await response.json();
+        setDetails(data);
+      } catch (error) {
+        console.error('Error fetching event details:', error);
+      }
+    };
   
-  let league = uniqueId.substring(0,3)
-  let Year = "2023";
+    fetchData(); // Invoke the async function immediately
+  
+  }, []);
+  
 
-  if(league==="IPL"){
-    league= "Indian Premier League"
-    Year = "2024"
-  }
+  const data = Details
 
-  else{
-    league="Big Bash League"
-    Year = "2023-24"
-  }
+  // let league = data.series
 
-  const logos = {}
+  const Logos = {}
 
-   logos["Indian Premier League"] = {
+   Logos[undefined] = {
     'MI': MI,
     'RCB': RCB,
     'SRH': SRH,
@@ -63,7 +100,7 @@ function Prediction_Page() {
     'CSK': CSK,
   }
 
-  logos["Big Bash League"] = {
+  Logos["Big Bash League"] = {
     'SIX':SIX,
     'STA':STA,
     'THU':THU,
@@ -74,9 +111,64 @@ function Prediction_Page() {
     'STR':STR
  }
 
+ Logos["WI vs SA T20"] = {
+  'WI':WI,
+  'SA':SA
+}
+
+Logos["ENG vs PAK T20"] = {
+  'ENG':ENG,
+  'PAK':PAK
+}
+
+Logos["Cricket World Cup"] = {
+  'NED':NED,
+  'SA':SA,
+   'IND':IND,
+   'AUS':AUS,
+   'NZ':NZ,
+   'AFG':AFG,
+   'BAN':BAN,
+   'SL':SL,
+  'ENG':ENG,
+  'PAK':PAK
+}
+
+Logos["SA T20 League"] = {
+  'SEC':SEC,
+  'DSA':DSG,
+  'PR':PR,
+  'JSK':JSK,
+  'PC':PC,
+  'MICT':MICT
+ }
+
+Logos["T20 World Cup"] = {
+  'NED':NED,
+  'SA':SA,
+   'IND':IND,
+   'AUS':AUS,
+   'NZ':NZ,
+   'AFG':AFG,
+   'BAN':BAN,
+   'SL':SL,
+  'ENG':ENG,
+  'PAK':PAK,
+  'WI':WI,
+  'CAN':CAN,
+  'PAP':PAP,
+  'OMA':OMA,
+  'SCOT':SCOT,
+  'NAM':NAM,
+  'USA':USA,
+  'UGA':UGA,
+  'NEP':NEP,
+  'IRE':IRE
+}
+
   const full_names = {}
 
-   full_names["Indian Premier League"] = {
+   full_names[undefined] = {
     'MI': "Mumbai Indians",
     'RCB': "Royal Challengers Banglore",
     'SRH': "Sunrisers Hyderabad",
@@ -101,16 +193,83 @@ function Prediction_Page() {
      "REN" : 'Renegades'
   }
 
+  full_names["WI vs SA T20"] = {
+    'WI' : "West Indies",
+    'SA' : 'South Africa'
+  }
+
+  full_names["ENG vs PAK T20"] = {
+    'ENG' : "England",
+    'PAK' : 'Pakistan'
+  }
+
+  full_names["Cricket World Cup"] = {
+    'WI' : "West Indies",
+    'SA' : 'South Africa',
+    'ENG' : "England",
+    'PAK' : 'Pakistan',
+    'IND' : 'India',
+    'AUS':'Australia',
+    'NZ' : 'New Zealand',
+    'NED': 'Netherlands',
+    'SL':'Sri Lanka',
+    'AFG':'Afghanistan',
+    'BAN':'Bangladesh'
+  }
+
+  full_names["T20 World Cup"] = {
+    'WI' : "West Indies",
+    'SA' : 'South Africa',
+    'ENG' : "England",
+    'PAK' : 'Pakistan',
+    'IND' : 'India',
+    'AUS':'Australia',
+    'NZ' : 'New Zealand',
+    'NED': 'Netherlands',
+    'SL':'Sri Lanka',
+    'AFG':'Afghanistan',
+    'BAN':'Bangladesh',
+     'NEP': 'Nepal',
+     'CAN':'Canada',
+     'IRE':'Ireland',
+     'NAM':'Namibia',
+     'OMA':'Oman',
+     'PAP':'Papua New Guinea',
+     'SCOT':'Scotland',
+     'UGA':'Uganda',
+     'USA':'United States of America',
+  }
+
+  full_names["SA T20 League"]={
+    'SEC': 'Sunrisers Eastern Cape',
+     'MICT': 'MI Capt Town',
+     'DSG': 'Durban Super Giants',
+     'JSK':'Joburg Super Kings',
+     'PR':'Paari Royals',
+     'PC': 'Pretoria Capitals'
+  }
+
   
-  console.log("hey2  ", uniqueId);
-  useEffect(() => {
-    // Fetch event details from the backend using uniqueId
-   fetch(`https://tipsinsight.onrender.com/matchdetails/${uniqueId}`,)
-  //  fetch(`http://localhost:3000/matchdetails/${uniqueId}`,)
-      .then((response) => response.json())
-      .then((data) => setDetails(data))
-      .catch((error) => console.error('Error fetching event details:', error));
-  }, [uniqueId]);
+  // console.log("hey2  ", uniqueId);
+  // useEffect(() => {
+  //   // Fetch event details from the backend using uniqueId
+  //  fetch(`https://tipsinsight.onrender.com/matchdetails/${uniqueId}`,)
+  // //  fetch(`http://localhost:3000/matchdetails/${uniqueId}`,)
+  //     .then((response) => response.json())
+  //     .then((data) => setDetails(data))
+  //     .catch((error) => console.error('Error fetching event details:', error));
+  // }, [uniqueId]);
+
+  // let league = Details.series
+  // let Year = Details.year
+
+  // // let league = "suraj"
+
+  // if(league===undefined){
+  //   league= "Indian Premier League"
+  //   Year = "2024"
+  // }
+
 
   if (!Details) {
     return (
@@ -120,7 +279,7 @@ function Prediction_Page() {
   }
 
 console.log("deatisl : ", Details)
-const data = Details
+// const data = Details
 
 
 
@@ -174,7 +333,7 @@ const date = new Date(newmatchDate);
      <div className="rounded-3xl p-1 md:p-2 bg-gradient-to-r from-customRed to-customBrown">
        <div className="text-center">
          <div className="font-mont font-extrabold text-xl md:text-3xl text-white"> {/* Adjusted font size */}
-           {league} {Year}
+         {data.series ? data.series : 'Indian Premier League'} {data.year?data.year:'2024'}
          </div>
          <div className="font-mont text-white text-lg md:text-2xl font-semibold"> {/* Adjusted font size */}
            {match_no}th Match
@@ -186,7 +345,7 @@ const date = new Date(newmatchDate);
          </div>
          <div className="font-bold flex flex-row items-center justify-between px-4 md:px-12 py-4 md:py-2 w-full rounded-md">
               <div className="flex flex-col justify-between md:pt-4 w-72 md:flex-row items-center">
-                <img className="w-auto h-16 md:h-32"src={logos[league][data.team1]} alt="" />
+                <img className="w-auto h-16 md:h-32"src={Logos[data.series][data.team1]} alt="" />
                 <div className='flex flex-col justify-center items-center'>
                 <div className="font-mont font-bold md:text-2xl">{data.team1}</div>
                {scorecard && <div className="flex flex-col items-center font-mont font-semibold text-sm md:text-md">
@@ -208,7 +367,7 @@ const date = new Date(newmatchDate);
                 </div>
 } 
               </div>
-                <img className="w-auto h-16 md:h-32"src={logos[league][data.team2]} alt="" />
+                <img className="w-auto h-16 md:h-32"src={Logos[data.series][data.team2]} alt="" />
               </div>
 
 
@@ -288,12 +447,12 @@ const date = new Date(newmatchDate);
 
             <div className='w-[95%] flex justify-evenly py-4'>
               <div >
-             <img className="w-auto h-24" src={logos[league][data.tossWinner]} alt="" />
+             <img className="w-auto h-24" src={Logos[data.series][data.tossWinner]} alt="" />
               </div>
 
               <div className='flex flex-col mx-4'>
                 <div className='text-customBrown font-bold text-xl md:text-4xl font-mont' >
-                  {full_names[league][data.tossWinner]}
+                  {full_names[data.series][data.tossWinner]}
                 </div>
 
                <div className='text-gray-500 text-lg md:text-xl tracking:wide md:tracking-widest'>
@@ -315,12 +474,12 @@ const date = new Date(newmatchDate);
 
             <div className='w-[95%] flex flex-row-reverse justify-evenly py-4'>
               <div >
-             <img className="w-auto h-24" src={logos[league][data.matchWinner]} alt="" />
+             <img className="w-auto h-24" src={Logos[data.series][data.matchWinner]} alt="" />
               </div>
 
               <div className='flex flex-col mx-4'>
                 <div className='text-customBrown font-bold text-xl md:text-4xl font-mont'>
-                  {full_names[league][data.matchWinner]}
+                  {full_names[data.series][data.matchWinner]}
                 </div>
 
                <div className='text-gray-500 text-lg md:text-xl tracking-wide md:tracking-widest'>

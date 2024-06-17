@@ -32,7 +32,7 @@ function Home_Page() {
     async function fetchNextMatch() {
       // console.log("suraj")
       try {
-        const response = await fetch('https://tipsinsight.onrender.com/nextmatch');
+        const response = await fetch('https://tipsinsight.onrender.com/nextmatch/');
         // console.log("again")
         const matchData = await response.json();
         setNextMatch(matchData);
@@ -48,7 +48,7 @@ function Home_Page() {
   useEffect(() => {
     async function fetchupcomingMatch() {
       try {
-        const response = await fetch('https://tipsinsight.onrender.com/upcomingmatches');
+        const response = await fetch('https://tipsinsight.onrender.com/upcomingmatches/WC24');
         const matchData = await response.json();
         setUpcomingmatch(matchData);
       } catch (error) {
@@ -62,7 +62,7 @@ function Home_Page() {
   useEffect(() => {
     async function fetchPreviousMatch() {
       try {
-        const response = await fetch('https://tipsinsight.onrender.com/prevmatches');
+        const response = await fetch('https://tipsinsight.onrender.com/prevmatches/WC24');
         const matchData = await response.json();
         setPreviousmatch(matchData);
       } catch (error) {
@@ -73,28 +73,16 @@ function Home_Page() {
     fetchPreviousMatch();
   }, []); // Empty dependency array, runs once on component mount
 
-  useEffect(() => {
-    async function fetchPreviousMatch() {
-      try {
-        const response = await fetch('https://tipsinsight.onrender.com/prevmatches/Bigbash23');
-        const matchData = await response.json();
-        setPreviousmatchbb(matchData);
-      } catch (error) {
-        console.error('Error fetching next match:', error);
-      }
-    }
-
-    fetchPreviousMatch();
-  }, []); // Empty dependency array, runs once on component mount
+  
 
   console.log("next match: ", nextMatch)
   console.log(upcomingmatch)
   console.log(previousmatch)
   console.log(previousmatchbb)
 
-  var total = 0;
-    var tosspassed = 0;
-    var matchpassed = 0;
+  var total = 207;
+    var tosspassed = 186;
+    var matchpassed = 194;
 
   if(previousmatch) 
      {previousmatch.forEach(item => {
@@ -110,19 +98,7 @@ function Home_Page() {
     });
   }
 
-  if(previousmatchbb){
-    previousmatchbb.forEach(item => {
-      total += 1;
-  
-      if (item.actualmatchWinner === item.matchWinner) {
-          matchpassed += 1;
-      }
-  
-      if (item.actualtossWinner === item.tossWinner) {
-          tosspassed += 1;
-      }
-  });
-}
+
 
   return (
     <>
@@ -137,22 +113,22 @@ function Home_Page() {
       {/* <div className='mt-8 md:mt-1'></div> */}
       {/* Render next match data if available */}
       <div className='md:mt-[30vh]'>
-      {/* {nextMatch && (
+      {nextMatch && (
         <>
          
           <Heading heading={next_heading} />
           <Countdown date= {nextMatch.matchDate} time={nextMatch.time}/>
           <Card prev="false" Year="2024" btn_link='buy' btn_des={buy} data={nextMatch} League="Indian Premier League" />
         </>
-      )} */}
+      )}
       
-      {/* {upcomingmatch && (
+     {upcomingmatch && (
         <>
       <Heading heading={upcoming_heading} />
-      <Card prev="false" btn_link='buy' btn_des={buy} data={upcomingmatch[0]} League="Indian Premier League" Year="2023"/>
+      <Card prev="false" btn_link='buy' btn_des={buy} data={upcomingmatch[1]} League="Indian Premier League" Year="2023"/>
       </>
   )
-}
+} *
 <div className='flex justify-center'>
 <Link to='/upcoming'>
   
@@ -160,7 +136,7 @@ function Home_Page() {
   View more matches
 </button>
 </Link>
-</div> */}
+</div> 
 
 {
   previousmatch && (

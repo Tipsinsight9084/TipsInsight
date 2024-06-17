@@ -16,9 +16,35 @@ import REN from '../assets/REN.png'
 import SCO from '../assets/SCO.png'
 import HEA from '../assets/HEA.png'
 import HUR from '../assets/HUR.png'
+import SEC from '../assets/SEC.png'
+import DSG from '../assets/DSG.png'
+import PR from '../assets/PR.png'
+import PC from '../assets/PC.png'
+import JSK from '../assets/JSK.png'
+import MICT from '../assets/MICT.png'
+import WI from '../assets/WI.png'
+import PAK from '../assets/PAK.png'
+import SA from '../assets/SA.png'
+import ENG from '../assets/ENG.png'
+import AUS from '../assets/AUS.png'
+import IND from '../assets/IND.png'
+import NZ from '../assets/NZ.png'
+import SL from '../assets/SL.png'
+import NED from '../assets/NED.png'
+import AFG from '../assets/AFG.png'
+import OMA from '../assets/OMG.png'
+import PAP from '../assets/POP.png'
+import SCOT from '../assets/SCOT.png'
+import IRE from '../assets/IRE.png'
+import NAM from '../assets/NAM.png'
+import BAN from '../assets/BAN.png'
+import USA from '../assets/USA.png'
+import UGA from '../assets/UGA.png'
+import CAN from '../assets/CAN.png'
+import NEP from '../assets/NEP.png'
+// import OMA from '../assets/OMG.png'
 
-// import KKR from '../assets/KKR.jpeg'
-// import './card.css'
+
 import { Link } from 'react-router-dom'
 
 export default function Card(props) {
@@ -26,8 +52,16 @@ export default function Card(props) {
   const Logos = {}
   const data = props.data;
   console.log("Data here",data)
-  const League = props.League
-  const Year = props.Year
+  let League = data.series
+  let Year = data.year
+
+  if(League===undefined){
+    League = "Indian Premier League"
+    Year = "2024"
+  }
+
+  console.log("League",League)
+  
    Logos["Indian Premier League"] = {
     'MI': MI,
     'RCB': RCB,
@@ -51,6 +85,62 @@ export default function Card(props) {
      'SCO':SCO,
      'STR':STR
   }
+
+  Logos["WI vs SA T20"] = {
+    'WI':WI,
+    'SA':SA
+  }
+
+  Logos["ENG vs PAK T20"] = {
+    'ENG':ENG,
+    'PAK':PAK
+  }
+
+  Logos["Cricket World Cup"] = {
+    'NED':NED,
+    'SA':SA,
+     'IND':IND,
+     'AUS':AUS,
+     'NZ':NZ,
+     'AFG':AFG,
+     'BAN':BAN,
+     'SL':SL,
+    'ENG':ENG,
+    'PAK':PAK
+ }
+
+ Logos["SA T20 League"] = {
+ 'SEC':SEC,
+ 'DSG':DSG,
+ 'PR':PR,
+ 'JSK':JSK,
+ 'PC':PC,
+ 'MICT':MICT
+}
+
+Logos["T20 World Cup"] = {
+  'NED':NED,
+  'SA':SA,
+   'IND':IND,
+   'AUS':AUS,
+   'NZ':NZ,
+   'AFG':AFG,
+   'BAN':BAN,
+   'SL':SL,
+  'ENG':ENG,
+  'PAK':PAK,
+  'WI':WI,
+  'CAN':CAN,
+  'PAP':PAP,
+  'OMA':OMA,
+  'SCOT':SCOT,
+  'NAM':NAM,
+  'USA':USA,
+  'UGA':UGA,
+  'NEP':NEP,
+  'IRE':IRE
+}
+
 
   const link = '/' + props.btn_link +'/' + data.uniqueId
   console.log("link",link)
@@ -106,7 +196,8 @@ if (matchHour >= 11) {
 
   return (
     <div> {/* Adjusted padding for smaller devices */}
-   
+ 
+
       <div className=" mb-4 w-11/12 md:w-4/5 lg:w-4/5 xl:w-1/2 mx-auto font-mont"> {/* Centered and adjusted width */}
         <div className="rounded-3xl p-1 md:p-2 bg-gradient-to-r from-customRed to-customBrown">
           <div className="text-center">
