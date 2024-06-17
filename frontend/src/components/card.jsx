@@ -55,7 +55,21 @@ export default function Card(props) {
   const link = '/' + props.btn_link +'/' + data.uniqueId
   console.log("link",link)
 
-  const newmatchDate = new Date(new Date(data.matchDate).getTime() - (11 * 60 * 60 * 1000));
+  const matchDate = new Date(data.matchDate);
+
+// Get the hours of the match date
+const matchHour = matchDate.getHours();
+
+let newmatchDate;
+
+// Check if the match time is after 11 AM
+if (matchHour >= 11) {
+ newmatchDate = new Date(matchDate.getTime() - (11 * 60 * 60 * 1000));
+} else {
+ newmatchDate = matchDate; // Do not subtract 11 hours
+}
+
+  // const newmatchDate = new Date(new Date(data.matchDate).getTime() - (11 * 60 * 60 * 1000));
 
 
   const date = new Date(newmatchDate);
