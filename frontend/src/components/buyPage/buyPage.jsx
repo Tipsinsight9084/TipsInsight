@@ -215,7 +215,7 @@ const weekday = weekdayNames[weekdayIndex];
 
 let time = data.time
 
-time = parseInt(time)-12
+time = parseInt(time)
 if(time<12){
   time = time + ":00 am"
 }

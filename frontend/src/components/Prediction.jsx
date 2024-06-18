@@ -311,7 +311,7 @@ const date = new Date(newmatchDate);
  
   let time = data.time
   
-   time = parseInt(time)-12
+   time = parseInt(time)
    if(time<12){
     time = time + ":00 am"
   }
@@ -319,6 +319,7 @@ const date = new Date(newmatchDate);
   else{
     time = time -12 + ":00 pm"
   }
+  console.log("predited time",time)
    let index = data.uniqueId.indexOf('_')
   const match_no = data.uniqueId.substring(index+1)
 
