@@ -4,6 +4,7 @@ import Footer from '../footer'
   import { useParams } from 'react-router-dom';
 import { useEffect,useState } from 'react';
 import axios from 'axios'
+import Box from '../../box';
 import LoadingAnimation from '../Loader/Loader';
 // import Heading from './Heading.jsx'
 
@@ -174,6 +175,7 @@ logos["T20 World Cup"] = {
   }
   
   console.log("hey2  ", uniqueId);
+  const [upcomingmatch,setUpcomingmatch] = useState([])
   useEffect(() => {
     // Fetch event details from the backend using uniqueId
     fetch(`https://tipsinsight.onrender.com/matchdetails/${uniqueId}`,)
@@ -181,6 +183,20 @@ logos["T20 World Cup"] = {
     .then((data) => setDetails(data))
     .catch((error) => console.error('Error fetching event details:', error));
   }, [uniqueId]);
+
+  useEffect(() => {
+    async function fetchupcomingMatch() {
+      try {
+        const response = await fetch('https://tipsinsight.onrender.com/upcomingmatches/WC24');
+        const matchData = await response.json();
+        setUpcomingmatch(matchData);
+      } catch (error) {
+        console.error('Error fetching upcoming match:', error);
+      }
+    }
+
+    fetchupcomingMatch();
+  }, []); // 
   
   if (!Details) {
     return (
@@ -299,7 +315,7 @@ function redirectToWhatsApp() {
    </div>
 
    </div>
-   <div className='divide-y md:py-28 py-4'> 
+   <div className='divide-y md:py-28 py-4 mb-8'> 
 
          <div className='w-full divide-y md:pt-2'>
 
@@ -344,8 +360,13 @@ Buy Now
 
 
          </div>
+         {
+  upcomingmatch &&
+  <Box Matches={upcomingmatch} League="T20 World Cup" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
 
-         <div className='md:mt-10 mt-5'>
+ }
+
+         <div className='md:mt-10 mt-16'>
           <p className='w-[80%] md:mt-10 m-auto text-sm md:text-xl text-center font-semibold'>We strictly secure your identity with each and every detail like your Name, Contact details and all other details which we have.</p>
 
           <br></br>
