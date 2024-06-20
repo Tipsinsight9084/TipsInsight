@@ -145,6 +145,9 @@ Logos["T20 World Cup"] = {
   const link = '/' + props.btn_link +'/' + data.uniqueId
   console.log("link",link)
 
+  const matchDate = new Date(data.matchDate);
+
+
   const newmatchDate = new Date(new Date(data.matchDate).getTime() - (11 * 60 * 60 * 1000));
 
 

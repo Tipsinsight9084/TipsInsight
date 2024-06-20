@@ -109,7 +109,7 @@ function Home_Page() {
     <>
     <div className='parent-div'>
 
-      <NavBar/>
+      <NavBar total={total} tosspassed={tosspassed} matchpassed={matchpassed}/>
       <br></br>
       {/* <ResultBar total={total} tosspassed={tosspassed} matchpassed={matchpassed}/> */}
       {/* < Resultbar total={total} tosspassed={tosspassed} matchpassed={matchpassed}/> */}
