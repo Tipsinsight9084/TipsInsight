@@ -511,17 +511,17 @@ const date = new Date(newmatchDate);
 
    <div className='md:h-[32vh] h-[8vh]'></div>
 
-<div className='bottom-nav-parent   flex justify-center'>
+{/* <div className='bottom-nav-parent   flex justify-center'>
 <div className='bottom-nav w-[80%] mb-28 md:mb-48 rounded-full border-[0px]  bg-transparent'>
-  <Whatsapp_floating/>
+  <Telegram_floating/>
 </div>
 
-</div>
+</div> */}
 
 
 <div className='bottom-nav-parent   flex justify-center'>
 <div className='bottom-nav w-[80%] mb-16 md:mb-28 rounded-full border-[0px]  bg-transparent'>
-  <Telegram_floating/>
+  <Whatsapp_floating/>
 </div>
 
 </div>

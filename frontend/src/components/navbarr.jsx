@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import  {HamburgetMenuOpen} from "./Icons.jsx";
@@ -8,10 +8,41 @@ import { FaTelegram } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 
 function NavBar(props) {
+  const [previousmatch,setPreviousmatch] = useState(null)
 
-  const total = props.total;
-    const matchpassed = props.matchpassed
-    const tosspassed = props.tosspassed
+  useEffect(() => {
+    async function fetchPreviousMatch() {
+      try {
+        const response = await fetch('https://tipsinsight.onrender.com/prevmatches/WC24');
+        const matchData = await response.json();
+        setPreviousmatch(matchData);
+      } catch (error) {
+        console.error('Error fetching next match:', error);
+      }
+    }
+
+    fetchPreviousMatch();
+  }, []); // Empty dependency array, runs once on component mount
+
+  var total = 207;
+  // var tosspassed = 186;
+  var matchpassed = 194;
+
+if(previousmatch) 
+   {previousmatch.forEach(item => {
+      total += 1;
+  
+      if (item.actualmatchWinner === item.matchWinner) {
+          matchpassed += 1;
+      }
+  
+      // if (item.actualtossWinner === item.tossWinner) {
+      //     tosspassed += 1;
+      // }
+  });
+}
+
+    // const tosspassed = props.tosspassed
     // const percentage = 99
     const percentage = ((matchpassed/total) *100).toFixed(0);
 
