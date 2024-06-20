@@ -53,7 +53,7 @@ import Footer from './footer.jsx';
 import LoadingAnimation from './Loader/Loader.jsx';
 import Whatsapp_floating from './floating/Whatsapp_floating.jsx';
 import Telegram_floating from './floating/Telegram_floating.jsx';
-
+import Box from '../box.jsx';
 function Prediction_Page() {
 
   let pred_heading = "Predicted Result"
@@ -269,6 +269,20 @@ Logos["T20 World Cup"] = {
   //   league= "Indian Premier League"
   //   Year = "2024"
   // }
+  const [upcomingmatch,setUpcomingmatch] = useState([]);
+  useEffect(() => {
+    async function fetchupcomingMatch() {
+      try {
+        const response = await fetch('https://tipsinsight.onrender.com/upcomingmatches/WC24');
+        const matchData = await response.json();
+        setUpcomingmatch(matchData);
+      } catch (error) {
+        console.error('Error fetching upcoming match:', error);
+      }
+    }
+
+    fetchupcomingMatch();
+  }, []); // 
 
 
   if (!Details) {
@@ -474,7 +488,7 @@ const date = new Date(newmatchDate);
             </div>
             </div>
 
-            <div>
+            <div className='mb-12'>
 
             <div className="text-center my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-6 md:px-14 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown md:w-auto">
   Match Prediction
@@ -505,6 +519,13 @@ const date = new Date(newmatchDate);
       
             
     </div>
+
+    
+ {
+  upcomingmatch &&
+  <Box Matches={upcomingmatch} League="T20 World Cup" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
+
+ }
   
 
    <Footer/>

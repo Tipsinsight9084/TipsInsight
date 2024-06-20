@@ -13,6 +13,7 @@ import HeroSection from './components/hero/hero';
 // import ContactPage from './components/contactUs/contactUs';
 import Upcoming from './components/upcoming'
 import FinalCarousel from './components/hero/finalCarousel';
+import Strap from './components/strap';
 import Sample from './components/SamplePage/Sample';
 import { Analytics } from "@vercel/analytics/react"
 
@@ -39,6 +40,7 @@ function App() {
         <Route path='/upcoming' element={<Upcoming/>}></Route>
         <Route path='/buy/:uniqueId' element = {<BuyPage/>}></Route>
         <Route path='/sample/sample' element = {<Sample/>}></Route>
+        <Route path='/strap' element={<Strap/>}></Route>
         <Route path='previous/:league' element={<Previous/>}></Route>
       </Routes>
       {/* <div className="hi">HI</div> */}

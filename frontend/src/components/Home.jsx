@@ -5,6 +5,7 @@ import Heading from './Heading';
 import {Link} from 'react-router-dom'
 import Footer from './footer'
 import HeroSection from './hero/hero';
+import Strap from './strap';
 import NavBar from './navbarr';
 import Resultbar from './Resultbar';
 import FinalCarousel from './hero/finalCarousel';
@@ -15,6 +16,7 @@ import Whatsapp_floating from './floating/Whatsapp_floating';
 import Telegram_floating from './floating/Telegram_floating';
 import Sample from './SamplePage/Sample';
 import { Analytics } from "@vercel/analytics/react"
+import Box from '../box';
 
 function Home_Page() {
   const next_heading = "Next Match";
@@ -99,6 +101,8 @@ function Home_Page() {
     });
   }
 
+  let view = "view"
+
 
 
   return (
@@ -108,7 +112,7 @@ function Home_Page() {
       <NavBar total={total} tosspassed={tosspassed} matchpassed={matchpassed}/>
       <br></br>
       {/* <ResultBar total={total} tosspassed={tosspassed} matchpassed={matchpassed}/> */}
-      < Resultbar total={total} tosspassed={tosspassed} matchpassed={matchpassed}/>
+      {/* < Resultbar total={total} tosspassed={tosspassed} matchpassed={matchpassed}/> */}
 
       <FinalCarousel/>
       {/* <div className='mt-8 md:mt-1'></div> */}
@@ -129,7 +133,7 @@ function Home_Page() {
       <Card prev="false" btn_link='buy' btn_des={buy} data={upcomingmatch[1]} League="Indian Premier League" Year="2023"/>
       </>
   )
-} *
+}
 <div className='flex justify-center'>
 <Link to='/upcoming'>
   
@@ -156,6 +160,16 @@ function Home_Page() {
 </button>
 </Link>
 </div>
+
+ {
+  upcomingmatch &&
+  <Box Matches={upcomingmatch} League="T20 World Cup" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
+
+ }
+
+{ previousmatch && 
+  <Box Matches={previousmatch} League="T20 World Cup" Year='2024' State="Previous Matches" btn_link="prediction" btn_des="View"/>
+}
 
 </div>
 
