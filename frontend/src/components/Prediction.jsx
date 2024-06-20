@@ -311,7 +311,15 @@ const date = new Date(newmatchDate);
  
   let time = data.time
   
-   time = parseInt(time)-12
+   time = parseInt(time)
+   if(time<12){
+    time = time + ":00 am"
+  }
+
+  else{
+    time = time -12 + ":00 pm"
+  }
+  console.log("predited time",time)
    let index = data.uniqueId.indexOf('_')
   const match_no = data.uniqueId.substring(index+1)
 
@@ -320,7 +328,7 @@ const date = new Date(newmatchDate);
   let predictiontimetoss = data.tossTime
   let predictionmatch = data.matchwinnerTime
   
-   time = parseInt(time)
+  //  time = parseInt(time)
 
 
   return (
@@ -341,7 +349,7 @@ const date = new Date(newmatchDate);
        </div>
        <div className="mt-4 pb-4 md:mt-6 border border-black w-99/100 bg-white rounded-b-3xl flex flex-col items-center">
        <div className="font-mont font-extrabold text-sm md:text-base mt-2 md:mt-4"> {/* Adjusted font size */}
-         {weekday}, {day}{' '}{monthNames[monthIndex]}, {time +":30"+ " PM"}
+         {weekday}, {day}{' '}{monthNames[monthIndex]} {time}
          </div>
          <div className="font-bold flex flex-row items-center justify-between px-4 md:px-12 py-4 md:py-2 w-full rounded-md">
               <div className="flex flex-col justify-between md:pt-4 w-72 md:flex-row items-center">

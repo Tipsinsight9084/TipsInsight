@@ -14,6 +14,7 @@ import HeroSection from './components/hero/hero';
 import Upcoming from './components/upcoming'
 import FinalCarousel from './components/hero/finalCarousel';
 import Sample from './components/SamplePage/Sample';
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   return (

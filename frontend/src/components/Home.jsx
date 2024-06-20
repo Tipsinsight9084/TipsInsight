@@ -14,6 +14,7 @@ import Countdown from './countdown/countdown';
 import Whatsapp_floating from './floating/Whatsapp_floating';
 import Telegram_floating from './floating/Telegram_floating';
 import Sample from './SamplePage/Sample';
+import { Analytics } from "@vercel/analytics/react"
 
 function Home_Page() {
   const next_heading = "Next Match";

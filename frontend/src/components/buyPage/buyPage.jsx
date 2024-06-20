@@ -215,7 +215,14 @@ const weekday = weekdayNames[weekdayIndex];
 
 let time = data.time
 
-time = parseInt(time)-12
+time = parseInt(time)
+if(time<12){
+  time = time + ":00 am"
+}
+
+else{
+  time = time -12 + ":00 pm"
+}
 let index = data.uniqueId.indexOf('_')
 const match_no = data.uniqueId.substring(index+1)
 
@@ -285,7 +292,7 @@ function redirectToWhatsApp() {
          </div>
          {/* <div className='divide-y'></div> */}
          <div className="font-mont font-semibold text-xs md:text-5xl md:text-base mt-2 divide-y text-center"> {/* Adjusted font size */}
-         {weekday}, {day}{' '}{monthNames[monthIndex]}, {time +":30"+ " PM"}
+         {weekday}, {day}{' '}{monthNames[monthIndex]}, {time}
         
        </div>
      </div>
