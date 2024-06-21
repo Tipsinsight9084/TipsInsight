@@ -110,6 +110,11 @@ function Home_Page() {
     <div className='parent-div'>
 
       <NavBar total={total} tosspassed={tosspassed} matchpassed={matchpassed}/>
+      <div className='flex  justify-center'>
+      <div className='mt-4 animate-combined bg-gradient-to-r from-customRed via-customBrown to-orange-500 bg-clip-text text-transparent text-2xl font-black mb-0 py-0'>
+  { "Welcome to Tipsinsight" }
+  </div>
+  </div>
       <br></br>
       {/* <ResultBar total={total} tosspassed={tosspassed} matchpassed={matchpassed}/> */}
       {/* < Resultbar total={total} tosspassed={tosspassed} matchpassed={matchpassed}/> */}

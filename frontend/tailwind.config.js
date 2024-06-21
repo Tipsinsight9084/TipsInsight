@@ -12,6 +12,9 @@ export default ({
     extend: {
       animation: {
         text: 'text 5s ease infinite',
+        fade: 'fade 3s infinite',
+        combined: 'sizeAnimation 2s infinite , text 5s ease infinite',
+        sizeAnimation : 'sizeAnimation 2s infinite'
       },
       keyframes: {
         text: {
@@ -23,6 +26,19 @@ export default ({
             'background-size': '200% 200%',
             'background-position': 'right center',
           },
+        },
+        sizeAnimation: {
+          '0%, 100%': { fontSize: '20px' },
+          '50%': { fontSize: '28px' },
+        },
+        fade: {
+          '0%, 100%': { opacity: 1 },
+          '50%': { opacity: 0 },
+        },
+        bounce: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '66%': { transform: 'translateY(-20px)' },
+          '33%': {transform : 'translateY(20px)'}
         },
       },
       colors: {
