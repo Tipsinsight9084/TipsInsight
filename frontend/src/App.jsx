@@ -11,6 +11,7 @@ import AboutUs from './components/aboutUs/aboutUs';
 import ContactUs from './components/contactUs/contactUs'
 import HeroSection from './components/hero/hero';
 // import ContactPage from './components/contactUs/contactUs';
+import Screenshot from './components/screenshots/screenshot';
 import Upcoming from './components/upcoming'
 import FinalCarousel from './components/hero/finalCarousel';
 import Strap from './components/strap';
@@ -41,6 +42,7 @@ function App() {
         <Route path='/buy/:uniqueId' element = {<BuyPage/>}></Route>
         <Route path='/sample/sample' element = {<Sample/>}></Route>
         <Route path='/strap' element={<Strap/>}></Route>
+        {/* <Route path='screenshots' element={<Screenshot />}></Route> */}
         <Route path='previous/:league' element={<Previous/>}></Route>
       </Routes>
       {/* <div className="hi">HI</div> */}

@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './navbar';
 import Card from './card';
 import Heading from './Heading';
-import {Link} from 'react-router-dom'
+// import {Link from 'react-router-dom'
 import Footer from './footer'
 import HeroSection from './hero/hero';
 import Strap from './strap';
+import { Link } from 'react-router-dom';
 import NavBar from './navbarr';
 import Resultbar from './Resultbar';
+import LoadingAnimation from './Loader/Loader';
 import FinalCarousel from './hero/finalCarousel';
 import BottomNav from './Bottom/bottomNav';
 import './home.css'
@@ -103,6 +105,13 @@ function Home_Page() {
 
   let view = "view"
 
+  // if (!nextMatch) {
+  //   return (
+  //     <LoadingAnimation/>
+  //   );
+    
+  // }
+
 
 
   return (
@@ -123,22 +132,32 @@ function Home_Page() {
       {/* <div className='mt-8 md:mt-1'></div> */}
       {/* Render next match data if available */}
       <div className='md:mt-[30vh]'>
+      <Heading heading={next_heading} />
       {nextMatch && (
         <>
          
-          <Heading heading={next_heading} />
+          {/* <Heading heading={next_heading} /> */}
           <Countdown date= {nextMatch.matchDate} time={nextMatch.time}/>
           <Card prev="false" Year="2024" btn_link='buy' btn_des={buy} data={nextMatch} League="Indian Premier League" />
         </>
       )}
-      
+
+      {
+        !nextMatch && <LoadingAnimation/>
+      }
+      <Heading heading={upcoming_heading} />
      {upcomingmatch && (
         <>
-      <Heading heading={upcoming_heading} />
-      <Card prev="false" btn_link='buy' btn_des={buy} data={upcomingmatch[1]} League="Indian Premier League" Year="2023"/>
+      
+      <Card prev="false" btn_link='buy' btn_des={buy} data={upcomingmatch[0]} League="Indian Premier League" Year="2023"/>
       </>
   )
 }
+{
+        !upcomingmatch && <LoadingAnimation/>
+      }
+
+
 <div className='flex justify-center'>
 <Link to='/upcoming'>
   
@@ -147,15 +166,19 @@ function Home_Page() {
 </button>
 </Link>
 </div> 
-
+<Heading heading={previous_heading}/>
 {
   previousmatch && (
     <>
-    <Heading heading={previous_heading}/>
+    
     <Card prev="true" btn_link = 'prediction' btn_des = {prediction} data={previousmatch[0]} League="Indian Premier League" Year="2024"/>
       </>
   )
 }
+
+{
+        !previousmatch && <LoadingAnimation/>
+      }
 
 <div className="flex justify-center">
 

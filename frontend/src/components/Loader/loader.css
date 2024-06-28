@@ -14,6 +14,10 @@
     border-top: 4px solid blue; /* Red */
     animation: spin 1s linear infinite;
   }
+
+  .text{
+    text-align: center;
+  }
   
   @keyframes spin {
     to {

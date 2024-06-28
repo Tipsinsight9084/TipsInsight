@@ -6,6 +6,7 @@ import logo from '/logo_final.png';
 import { FaWhatsapp } from "react-icons/fa";
 import { FaTelegram } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function NavBar(props) {
   const [previousmatch,setPreviousmatch] = useState(null)
@@ -76,8 +77,10 @@ if(previousmatch)
       <nav className="navbar font-mont">
         <div className="nav-container">
           <div className="nav-logo">
+            <Link to="/">
             <img src={logo} alt="" className="w-36 h-36"/>
             {/* <i className="fas fa-code"></i> */}
+            </Link>
           </div>
 
           <ul className={click ? "nav-menu active" : "nav-menu"}>
@@ -126,6 +129,17 @@ if(previousmatch)
                 Predictions
               </NavLink>
             </li>
+            {/* <li className="nav-item">
+              <NavLink
+                exact
+                to="/screenshots"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Screenshots
+              </NavLink>
+            </li> */}
             <li className="nav-item">
               <NavLink
                 exact

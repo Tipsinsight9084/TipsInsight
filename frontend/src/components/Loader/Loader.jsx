@@ -6,7 +6,11 @@ const LoadingAnimation = () => {
     // <> 
       <div className='cricket-loading-container'>
       <div className='cricket-ball'></div>
-      <p>Loading...</p>
+      <p className='text'>Loading...<br/>
+      Please Wait
+      <br/>
+      It might take some time to load matches
+      </p>
     </div> 
     // </>
 
