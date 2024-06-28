@@ -135,7 +135,7 @@ function Home_Page() {
      {upcomingmatch && (
         <>
       <Heading heading={upcoming_heading} />
-      <Card prev="false" btn_link='buy' btn_des={buy} data={upcomingmatch[1]} League="Indian Premier League" Year="2023"/>
+      <Card prev="false" btn_link='buy' btn_des={buy} data={upcomingmatch[0]} League="Indian Premier League" Year="2023"/>
       </>
   )
 }
