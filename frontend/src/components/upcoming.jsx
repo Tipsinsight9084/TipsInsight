@@ -16,7 +16,7 @@ export default function Upcoming(){
       // // Function to fetch all event data from the backend
       const fetchAllupcoming = async () => {
         try {
-          const response = await fetch('https://tipsinsight.onrender.com/upcomingmatches/WC24');
+          const response = await fetch('https://tipsinsight.onrender.com/upcomingmatches/LPL24');
           const data = await response.json();
           setUpcoming(data); // // Assuming the backend returns an array of events
         } catch (error) {
@@ -39,12 +39,12 @@ export default function Upcoming(){
     let upcoming_heading = "UPCOMING MATCHES"
     // console.log(previous)
 
-    return (
-      <>
-      <NavBar/>
-      <Heading heading={"Matches will be available soon"}/>
-      </>
-    )
+    // return (
+    //   <>
+    //   <NavBar/>
+    //   <Heading heading={"Matches will be available soon"}/>
+    //   </>
+    // )
     return(
         <>
         <NavBar />

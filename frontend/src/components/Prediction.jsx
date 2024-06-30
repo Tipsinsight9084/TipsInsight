@@ -16,7 +16,11 @@ import SCOT from '../assets/SCOT.png'
 import IRE from '../assets/IRE.png'
 import NAM from '../assets/NAM.png'
 import BAN from '../assets/BAN.png'
-
+import CS from '../assets/LPL/CS.png'
+import DS from '../assets/LPL/DS.png'
+import GM from '../assets/LPL/GM.png'
+import JK from '../assets/LPL/JK.png'
+import BLK from '../assets/LPL/BLK.png'
 import USA from '../assets/USA.png'
 import UGA from '../assets/UGA.png'
 import CAN from '../assets/CAN.png'
@@ -143,6 +147,15 @@ Logos["SA T20 League"] = {
   'MICT':MICT
  }
 
+ Logos["Lanka Premier League"] = {
+  'CS': CS,
+  'JK': JK,
+  'DS': DS,
+  'GM': GM,
+  'BLK': BLK,
+}
+
+
 Logos["T20 World Cup"] = {
   'NED':NED,
   'SA':SA,
@@ -249,6 +262,15 @@ Logos["T20 World Cup"] = {
      'PC': 'Pretoria Capitals'
   }
 
+  full_names["Lanka Premier League"] = {
+    'CS': 'Colombo Strikers',
+    'DS': 'Dambulla Sixers',
+    'BLK':'B-Love Kandy',
+    'JK':'Jaffana Kings',
+    'GS':'Galle Strikers',
+
+  }
+
   
   // console.log("hey2  ", uniqueId);
   // useEffect(() => {
@@ -273,7 +295,7 @@ Logos["T20 World Cup"] = {
   useEffect(() => {
     async function fetchupcomingMatch() {
       try {
-        const response = await fetch('https://tipsinsight.onrender.com/upcomingmatches/WC24');
+        const response = await fetch('https://tipsinsight.onrender.com/upcomingmatches/LPL24');
         const matchData = await response.json();
         setUpcomingmatch(matchData);
       } catch (error) {
@@ -523,7 +545,7 @@ const date = new Date(newmatchDate);
     
  {
   upcomingmatch &&
-  <Box Matches={upcomingmatch} League="T20 World Cup" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
+  <Box Matches={upcomingmatch} League="Lanka Premier League" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
 
  }
   

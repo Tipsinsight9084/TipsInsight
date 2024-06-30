@@ -11,7 +11,11 @@ import LoadingAnimation from '../Loader/Loader';
 import NavBar from '../navbarr';
 import Whatsapp_floating from '../floating/Whatsapp_floating';
 import Telegram_floating from '../floating/Telegram_floating';
-
+import CS from '../../assets/LPL/CS.png'
+import DS from '../../assets/LPL/DS.png'
+import GM from '../../assets/LPL/GM.png'
+import JK from '../../assets/LPL/JK.png'
+import BLK from '../../assets/LPL/BLK.png'
 import CSK from '../../assets/CSK.png'
 import MI from '../../assets/MI.png'
 import LSG from '../../assets/LSG.png'
@@ -78,6 +82,14 @@ function BuyPage()  {
     'PBKS': PBKS,
     'GT': GT,
     'CSK': CSK,
+  }
+
+  logos["Lanka Premier League"] = {
+    'CS': CS,
+    'JK': JK,
+    'DS': DS,
+    'GM': GM,
+    'BLK': BLK,
   }
 
   logos["Big Bash League"] = {
@@ -187,7 +199,7 @@ logos["T20 World Cup"] = {
   useEffect(() => {
     async function fetchupcomingMatch() {
       try {
-        const response = await fetch('https://tipsinsight.onrender.com/upcomingmatches/WC24');
+        const response = await fetch('https://tipsinsight.onrender.com/upcomingmatches/LPL24');
         const matchData = await response.json();
         setUpcomingmatch(matchData);
       } catch (error) {
@@ -362,7 +374,7 @@ Buy Now
          </div>
          {
   upcomingmatch &&
-  <Box Matches={upcomingmatch} League="T20 World Cup" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
+  <Box Matches={upcomingmatch} League="Lanka Premier League" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
 
  }
 

@@ -189,11 +189,11 @@ function Home_Page() {
 </Link>
 </div>
 
- {/* {
+ {
   upcomingmatch &&
-  <Box Matches={upcomingmatch} League="T20 World Cup" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
+  <Box Matches={upcomingmatch} League="Lanka Premier League" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
 
- } */}
+ }
 
 { previousmatch && 
   <Box Matches={previousmatch} League="T20 World Cup" Year='2024' State="Previous Matches" btn_link="prediction" btn_des="View"/>

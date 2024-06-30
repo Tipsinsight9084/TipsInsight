@@ -93,6 +93,12 @@ export default function Previous(){
       matchpassed = 41
     }
 
+    else if(league==="WC24"){
+      total = 55;
+      tosspassed = 51
+      matchpassed = 53
+    }
+
     else{
 
     var total = 0;

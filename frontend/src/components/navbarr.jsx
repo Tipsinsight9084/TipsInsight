@@ -14,7 +14,7 @@ function NavBar(props) {
   useEffect(() => {
     async function fetchPreviousMatch() {
       try {
-        const response = await fetch('https://tipsinsight.onrender.com/prevmatches/WC24');
+        const response = await fetch('https://tipsinsight.onrender.com/prevmatches/LPL24');
         const matchData = await response.json();
         setPreviousmatch(matchData);
       } catch (error) {
@@ -25,9 +25,9 @@ function NavBar(props) {
     fetchPreviousMatch();
   }, []); // Empty dependency array, runs once on component mount
 
-  var total = 207;
+  var total = 262;
   // var tosspassed = 186;
-  var matchpassed = 194;
+  var matchpassed = 247;
 
 if(previousmatch) 
    {previousmatch.forEach(item => {

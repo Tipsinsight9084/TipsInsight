@@ -43,6 +43,11 @@ import USA from '../assets/USA.png'
 import UGA from '../assets/UGA.png'
 import CAN from '../assets/CAN.png'
 import NEP from '../assets/NEP.png'
+import CS from '../assets/LPL/CS.png'
+import DS from '../assets/LPL/DS.png'
+import GM from '../assets/LPL/GM.png'
+import JK from '../assets/LPL/JK.png'
+import BLK from '../assets/LPL/BLK.png'
 // import OMA from '../assets/OMG.png'
 
 
@@ -74,6 +79,14 @@ export default function Strap(props) {
     'PBKS': PBKS,
     'GT': GT,
     'CSK': CSK,
+  }
+
+  Logos["Lanka Premier League"] = {
+    'CS': CS,
+    'JK': JK,
+    'DS': DS,
+    'GM': GM,
+    'BLK': BLK,
   }
 
   Logos["Big Bash League"] = {

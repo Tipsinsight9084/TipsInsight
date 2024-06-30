@@ -17,6 +17,10 @@ return(
             <div className="font-mont font-semibold text-xl mt-2 md:text-3xl text-white"> {/* Adjusted font size */}
              {State}
             </div>
+
+            <div className="font-mont font-semibold text-lg mt-2 md:text-3xl text-white"> {/* Adjusted font size */}
+             {League} {Year}
+            </div>
             
           </div>
           <div className="mt-4 md:mt-6 border border-black w-99/100 bg-white rounded-b-3xl flex flex-col items-center ">
