@@ -1,4 +1,16 @@
 const mongoose = require('mongoose');
+// const { MongoClient } = require('mongodb');
+
+// mongoose.connect(`mongodb+srv://pass:pass@eventcluster.blixsin.mongodb.net/`)
+// mongoose.connect("mongodb://127.0.0.1:27017/Cricket")
+//  let MONGO_URL = "mongodb+srv://akshaychauhan:askaychauhan@matchdatabase.hd4jvpk.mongodb.net/bigbash"
+// mongoose.connect(MONGO_URL)
+// .then(() => {
+//     console.log('COnntedd!!!');
+// })
+// .catch((err) => {
+//     console.log('Errorrrr!!!', err);
+// })
 
 const matchSchema = new mongoose.Schema({
   team1: {
@@ -94,9 +106,9 @@ const matchSchema = new mongoose.Schema({
     type: String,
     default: null
   }
-}, {collection: 'SA24'});
+}, {collection: 'LPL24'});
 
 
-const SA24 = mongoose.model('SA24', matchSchema);
+const LPL24 = mongoose.model('LPL24', matchSchema);
 
-module.exports = SA24;
+module.exports = LPL24;

@@ -9,8 +9,10 @@ import React, { useState } from 'react';
 // const teams = ["WI",'SA']
 // const teams =[ "IND","SA",'AUS','PAK','NED','ENG','NZ','BAN','SL','AFG']
 // const teams = ["PAK",'ENG']
-const teams =[ "IND","SA",'AUS','PAK','NED','ENG','NZ','BAN','SL','AFG','WI',
-'UGA','SCOT','NEP','PAP','NAM','OMA','CAN','USA','IRE']
+// const teams =[ "IND","SA",'AUS','PAK','NED','ENG','NZ','BAN','SL','AFG','WI',
+// 'UGA','SCOT','NEP','PAP','NAM','OMA','CAN','USA','IRE']
+
+const teams = ["BLK",'CS','DM','GM','JK'];
 
 function MatchForm() {
   const [formData, setFormData] = useState({
@@ -41,7 +43,7 @@ function MatchForm() {
     actualmatchWinner: '',
     actualtossWinner: '',
     highlight: 'NULL',
-    series: 'T20 World Cup',
+    series: 'Lanka Premier League',
     year: '2024'
   });
 
@@ -97,12 +99,12 @@ function MatchForm() {
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     const matchNumber = formData.matchNumber.toString().padStart(2, '0');
-    const uniqueId = `WC24_${matchNumber}`;
+    const uniqueId = `LPL24_${matchNumber}`;
     console.log(formData)
 
     try {
       console.log({ ...formData, uniqueId })
-      const response = await fetch('https://tipsinsight.onrender.com/create/WC24', {
+      const response = await fetch('https://tipsinsight.onrender.com/create/LPL24', {
       // const response = await fetch('http://localhost:3000/create/bigbash23', {
         method: 'POST',
         headers: {
