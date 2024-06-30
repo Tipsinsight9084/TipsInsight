@@ -53,7 +53,7 @@ function Home_Page() {
   useEffect(() => {
     async function fetchupcomingMatch() {
       try {
-        const response = await fetch('https://tipsinsight.onrender.com/upcomingmatches/WC24');
+        const response = await fetch('https://tipsinsight.onrender.com/upcomingmatches/LPL24');
         const matchData = await response.json();
         setUpcomingmatch(matchData);
       } catch (error) {
@@ -132,32 +132,32 @@ function Home_Page() {
       {/* <div className='mt-8 md:mt-1'></div> */}
       {/* Render next match data if available */}
       <div className='md:mt-[30vh]'>
-      {/* <Heading heading={next_heading} /> */}
-      {/* {nextMatch && (
+      <Heading heading={next_heading} />
+      {nextMatch && (
         <>
          
         
           <Countdown date= {nextMatch.matchDate} time={nextMatch.time}/>
           <Card prev="false" Year="2024" btn_link='buy' btn_des={buy} data={nextMatch} League="Indian Premier League" />
         </>
-      )} */}
+      )}
 
-      {/* {
+      {
         !nextMatch && <LoadingAnimation/>
-      } */}
-      {/* <Heading heading={upcoming_heading} /> */}
-     {/* {upcomingmatch && (
+      }
+      <Heading heading={upcoming_heading} />
+     {upcomingmatch && (
         <>
       
       <Card prev="false" btn_link='buy' btn_des={buy} data={upcomingmatch[0]} League="Indian Premier League" Year="2023"/>
       </>
   )
-} */}
-{/* {
+}
+{
         !upcomingmatch && <LoadingAnimation/>
-      } */}
+      }
 
-{/* 
+
 <div className='flex justify-center'>
 <Link to='/upcoming'>
   
@@ -165,7 +165,7 @@ function Home_Page() {
   View more matches
 </button>
 </Link>
-</div>  */}
+</div>  
 <Heading heading={previous_heading}/>
 {
   previousmatch && (
