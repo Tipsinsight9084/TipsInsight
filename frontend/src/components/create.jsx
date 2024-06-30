@@ -12,7 +12,8 @@ import React, { useState } from 'react';
 // const teams =[ "IND","SA",'AUS','PAK','NED','ENG','NZ','BAN','SL','AFG','WI',
 // 'UGA','SCOT','NEP','PAP','NAM','OMA','CAN','USA','IRE']
 
-const teams = ["BLK",'CS','DS','GM','JK'];
+// const teams = ["BLK",'CS','DS','GM','JK'];
+const teams = ["LKK","CSG",'SS','DD','SMP','TGC','ITT','NRK']
 
 function MatchForm() {
   const [formData, setFormData] = useState({
@@ -43,7 +44,7 @@ function MatchForm() {
     actualmatchWinner: '',
     actualtossWinner: '',
     highlight: 'NULL',
-    series: 'Lanka Premier League',
+    series: 'Tamil Nadu Premier League',
     year: '2024'
   });
 
@@ -99,12 +100,12 @@ function MatchForm() {
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     const matchNumber = formData.matchNumber.toString().padStart(2, '0');
-    const uniqueId = `LPL24_${matchNumber}`;
+    const uniqueId = `TNPL24_${matchNumber}`;
     console.log(formData)
 
     try {
       console.log({ ...formData, uniqueId })
-      const response = await fetch('https://tipsinsight.onrender.com/create/LPL24', {
+      const response = await fetch('https://tipsinsight.onrender.com/create/TNPL24', {
       // const response = await fetch('http://localhost:3000/create/bigbash23', {
         method: 'POST',
         headers: {

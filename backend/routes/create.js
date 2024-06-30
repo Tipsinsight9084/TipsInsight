@@ -382,7 +382,7 @@ router.post('/TNPL24', async (req, res) => {
     console.log("QI")
     console.log("TNPL24",newWC24)
     // const 
-    await newWTN24.save();
+    await newWC24.save();
 
     res.status(201).json({ message: 'TNPL Match created successfully.' });
   } catch (err) {
