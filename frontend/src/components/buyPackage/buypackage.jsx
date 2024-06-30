@@ -1,0 +1,73 @@
+import React from "react";
+
+export default function Buypackage(){
+return(
+    <>
+     <div> {/* Adjusted padding for smaller devices */}
+ 
+
+ <div className=" mb-4 w-11/12 md:w-4/5 lg:w-4/5 xl:w-1/2 mx-auto font-mont"> {/* Centered and adjusted width */}
+   <div className="rounded-3xl p-1 md:p-2 bg-gradient-to-r from-customRed to-customBrown">
+     <div className="text-center">
+       <div className="font-mont font-semibold text-xl mt-2 md:text-3xl text-white"> {/* Adjusted font size */}
+         {League} {Year}
+       </div>
+       <div className="font-mont text-white text-base my-0 md:text-2xl font-medium"> {/* Adjusted font size */}
+         {match_no}th Match
+       </div>
+     </div>
+     <div className="mt-4 md:mt-6 border border-black w-99/100 bg-white rounded-b-3xl flex flex-col items-center ">
+       <div className="font-bold flex flex-row items-center justify-between px-4 md:px-12 py-4 md:py-2 w-full rounded-md">
+         <div className="flex flex-col justify-around md:pt-4 w-72 md:flex-row items-center">
+           <img className="w-auto md:w-auto md:h-32 h-16"src={Logos[League][data.team1]} alt="" />
+           <div className='flex flex-col justify-center items-center'>
+           <div className="font-mont font-bold md:text-3xl">{data.team1}</div>
+          {scorecard && <div className="flex flex-col items-center font-mont font-semibold  text-sm md:text-md">
+             <span>{data.team1Run + '-' + data.team1Wicket}</span>
+             <span>{'(' + data.team1Over + ')'}</span>
+           </div>
+}
+         </div>
+         </div>
+
+         <div className="font-mont font-bold text-2xl mx-2 md:mx-6">V/S</div>
+
+         <div className="flex flex-col-reverse justify-center md:pt-4 w-72 md:flex-row items-center">
+           <div className='flex flex-col justify-around items-center'>
+           <div className="font-mont font-bold md:text-3xl">{data.team2}</div>
+           {scorecard && <div className="flex flex-col items-center font-mont font-semibold text-sm md:text-md">
+             <span>{data.team2Run + '-' + data.team2Wicket}</span>
+             <span>{'(' + data.team2Over + ')'}</span>
+           </div>
+} 
+         </div>
+           <img className="w-auto md:w-auto md:h-32 h-16"src={Logos[League][data.team2]} alt="" />
+         </div>
+
+
+       </div>
+       {scorecard && <div className="font-mont font-bold text-sm md:text-base mt-2 md:mt-4">
+         {data.highlight}
+       </div>
+}
+       <div className="font-mont font-bold text-sm md:text-base mt-0 md:mt-4"> {/* Adjusted font size */}
+       {weekday}, {day}{' '}{monthNames[monthIndex]}, {time}
+       </div>
+         <Link to={link}>
+       <div>
+       <button className="my-4 md:my-8 font-mont font-semibold text-base md:text-xl rounded-3xl px-4 md:px-8 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-full md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
+{props.btn_des}
+</button>
+
+
+
+
+       </div>
+</Link>
+     </div>
+   </div>
+ </div>
+</div>
+    </>
+)
+}

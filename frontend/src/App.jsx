@@ -15,6 +15,7 @@ import Screenshot from './components/screenshots/screenshot';
 import Upcoming from './components/upcoming'
 import FinalCarousel from './components/hero/finalCarousel';
 import Strap from './components/strap';
+import Packages from './components/buyPackage/packages';
 import Sample from './components/SamplePage/Sample';
 import { Analytics } from "@vercel/analytics/react"
 
@@ -42,6 +43,7 @@ function App() {
         <Route path='/buy/:uniqueId' element = {<BuyPage/>}></Route>
         <Route path='/sample/sample' element = {<Sample/>}></Route>
         <Route path='/strap' element={<Strap/>}></Route>
+        <Route path='/buypackages' element={<Packages/>}></Route>
         {/* <Route path='screenshots' element={<Screenshot />}></Route> */}
         <Route path='previous/:league' element={<Previous/>}></Route>
       </Routes>

@@ -28,16 +28,23 @@ export default function Upcoming(){
       fetchAllupcoming();
     }, []);
     
-    if (upcoming.length===0) {
-      return (
-        <LoadingAnimation/>
-      );
+    // if (upcoming.length===0) {
+    //   return (
+    //     <LoadingAnimation/>
+    //   );
       
-    }
+    // }
   
 
     let upcoming_heading = "UPCOMING MATCHES"
     // console.log(previous)
+
+    return (
+      <>
+      <NavBar/>
+      <Heading heading={"Matches will be available soon"}/>
+      </>
+    )
     return(
         <>
         <NavBar />
