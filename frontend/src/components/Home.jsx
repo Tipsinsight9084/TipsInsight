@@ -37,7 +37,7 @@ function Home_Page() {
     async function fetchNextMatch() {
       // console.log("suraj")
       try {
-        const response = await fetch('https://tipsinsight.onrender.com/nextmatch/');
+        const response = await fetch('https://tipsinsight.onrender.com/nextmatch/LPL24');
         // console.log("again")
         const matchData = await response.json();
         setNextMatch(matchData);
