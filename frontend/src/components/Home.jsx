@@ -210,6 +210,10 @@ function Home_Page() {
 
  }
 
+{ previousmatchlpl && 
+  <Box Matches={previousmatchlpl} League="Lanka Premier League" Year='2024' State="Previous Matches" btn_link="prediction" btn_des="View"/>
+}
+
 { previousmatch && 
   <Box Matches={previousmatch} League="T20 World Cup" Year='2024' State="Previous Matches" btn_link="prediction" btn_des="View"/>
 }
