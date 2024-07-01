@@ -5,10 +5,10 @@ const finalCarousel = () => {
 
     const slides = [
         {
-            url: './p1.png'
+            url: './p2.png'
         },
         {
-            url: './p2.png'
+            url: './p1.png'
         }
         ,
         {
