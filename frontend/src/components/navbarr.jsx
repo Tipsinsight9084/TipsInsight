@@ -121,6 +121,19 @@ if(previousmatch)
             <li className="nav-item">
               <NavLink
                 exact
+                to="/buypackages"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Buy Packages
+              </NavLink>
+            </li>
+
+
+            <li className="nav-item">
+              <NavLink
+                exact
                 to="/previousmatches"
                 activeClassName="active"
                 className="nav-links"

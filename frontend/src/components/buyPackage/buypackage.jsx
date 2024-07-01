@@ -2,11 +2,21 @@ import React from "react";
 import LPL_package from '/LPL_package.jpg'
 import TNPL_package from '/TNPL_package.jpg'
 import {Link} from 'react-router-dom'
+import Footer from "../footer";
 
 export default function Buypackage(props){
 
   let League = props.league
   let Year = props.year
+  let packages;
+
+  if(League==="Lanka Premier League"){
+    packages = LPL_package
+  }
+
+  if(League==="Tamil Nadu Premier League"){
+    packages = TNPL_package
+  }
 
   function redirectToWhatsApp() {
     // Phone number with country code
@@ -18,26 +28,36 @@ export default function Buypackage(props){
     // Redirect to WhatsApp
     window.location.href = whatsappUrl;
   }
-
+// className=" mb-4 w-11/12 md:w-4/5 lg:w-4/5 xl:w-1/2 mx-auto font-mont"
   return(
     <>
-    <div className="mx-4">
-      <div className=" mb-4 w-11/12 md:w-4/5 lg:w-4/5 xl:w-1/2 mx-auto font-mont"> 
-      <img src={LPL_package} alt="" />
+    <div className="mb-16 flex flex-column justify-center mx-4">
+      <div className="w-full"> 
+      <img src={packages} class="w-full"/>
       </div>
+    
+    <div className="font-mont bg-black flex flex-col items-center justify-center">
+    <div className="font-mont text-white items-center mt-4 mx-2 md:text-2xl md:my-8 font-bold" >
+       {League} {Year}
+        </div>
+        <div className="border-2 border-solid border-yellow-700 w-[80%] mt-2 rounded-2xl">
 
-      <div className="font-mont bg-black">
-        League
+        </div>
+      <div className="font-mont text-white items-center my-4 mx-2 md:text-2xl md:my-8 font-semibold" >
+       Buy Toss and Match Prediction for all the matches
+        </div>
+        <div className=""> 
       
        <button onClick={redirectToWhatsApp} className="my-4 md:my-8 font-mont font-semibold text-base md:text-xl rounded-3xl px-4 md:px-8 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-full md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
-Buy
+Buy Package
 </button>
 
 
 
-
+</div>
        </div>
-      </div></>
+      </div>
+      </>
   )
 
  

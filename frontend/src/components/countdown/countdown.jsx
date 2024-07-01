@@ -97,7 +97,7 @@ const deadline = dateObj.toLocaleString('en-US', {
 <div className='w-full text-center text-xl font-semibold text-black'>
   {(days === 0 && hours === 0 && mins === 0 && secs === 0) ? "Match Starts In:" : "Match Starts In:"}
 </div>
-<div className="grid grid-flow-col justify-center justify-items-center gap-5 text-center auto-cols-max text-black mb-4 mt-2">
+<div className="grid grid-flow-col justify-center justify-items-center gap-4 text-center auto-cols-max text-black mb-4 mt-2">
     {/* <br></br> */}
   <div className="flex flex-col p-2  border-[black]-900 bg-transparent rounded-2xl border-4 text-neutral-content">
     <span className="countdown font-mont md:text-5xl text-3xl">
