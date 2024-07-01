@@ -10,10 +10,14 @@ const finalCarousel = () => {
         {
             url: './p2.png'
         }
-        // ,
-        // {
-        //     url: './p4.png'
-        // }
+        ,
+        {
+            url: './p3.png'
+        }
+        ,
+        {
+            url: './p4.png'
+        }
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
