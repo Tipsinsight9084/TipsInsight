@@ -27,7 +27,7 @@ export default function Previousmatches(){
       // // Function to fetch all event data from the backend
       const fetchAllPrevious = async () => {
         try {
-          const response = await fetch('https://tipsinsight.onrender.com/prevmatches/IPL24');
+          const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/IPL24');
           // const response = await fetch('http://localhost:3000/prevmatches/');
           const data = await response.json();
           setPreviousipl(data); // // Assuming the backend returns an array of events
@@ -44,7 +44,7 @@ export default function Previousmatches(){
       // // Function to fetch all event data from the backend
       const fetchAllPrevious = async () => {
         try {
-          const response = await fetch('https://tipsinsight.onrender.com/prevmatches/WC24');
+          const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/WC24');
           // const response = await fetch('http://localhost:3000/prevmatches/');
           const data = await response.json();
           setPreviouswc24(data); // // Assuming the backend returns an array of events
@@ -61,7 +61,7 @@ export default function Previousmatches(){
       // // Function to fetch all event data from the backend
       const fetchAllPrevious = async () => {
         try {
-          const response = await fetch('https://tipsinsight.onrender.com/prevmatches/WC23');
+          const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/WC23');
           // const response = await fetch('http://localhost:3000/prevmatches/');
           const data = await response.json();
           setPreviouswc23(data); // // Assuming the backend returns an array of events
@@ -78,7 +78,7 @@ export default function Previousmatches(){
       // // Function to fetch all event data from the backend
       const fetchAllPrevious = async () => {
         try {
-          const response = await fetch('https://tipsinsight.onrender.com/prevmatches/SA24');
+          const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/SA24');
           // const response = await fetch('http://localhost:3000/prevmatches/');
           const data = await response.json();
           setPrevioussa(data); // // Assuming the backend returns an array of events
@@ -95,7 +95,7 @@ export default function Previousmatches(){
       // // Function to fetch all event data from the backend
       const fetchAllPrevious = async () => {
         try {
-          const response = await fetch('https://tipsinsight.onrender.com/prevmatches/ENGvPAK24');
+          const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/ENGvPAK24');
           // const response = await fetch('http://localhost:3000/prevmatches/');
           const data = await response.json();
           setPreviousengvspak(data); // // Assuming the backend returns an array of events
@@ -112,7 +112,7 @@ export default function Previousmatches(){
       // // Function to fetch all event data from the backend
       const fetchAllPrevious = async () => {
         try {
-          const response = await fetch('https://tipsinsight.onrender.com/prevmatches/WIvSA24');
+          const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/WIvSA24');
           // const response = await fetch('http://localhost:3000/prevmatches/');
           const data = await response.json();
           setPreviouswivssa(data); // // Assuming the backend returns an array of events
@@ -129,7 +129,7 @@ export default function Previousmatches(){
       // // Function to fetch all event data from the backend
       const fetchAllPrevious = async () => {
         try {
-          const response = await fetch('https://tipsinsight.onrender.com/prevmatches/Bigbash23');
+          const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/Bigbash23');
           // const response = await fetch('http://localhost:3000/prevmatches/');
           const data = await response.json();
           setPreviousbb(data); // // Assuming the backend returns an array of events
@@ -146,7 +146,7 @@ export default function Previousmatches(){
       // // Function to fetch all event data from the backend
       const fetchAllPrevious = async () => {
         try {
-          const response = await fetch('https://tipsinsight.onrender.com/prevmatches/LPL24');
+          const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/LPL24');
           // const response = await fetch('http://localhost:3000/prevmatches/');
           const data = await response.json();
           setPreviouslpl(data); // // Assuming the backend returns an array of events

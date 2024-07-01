@@ -14,7 +14,7 @@ function NavBar(props) {
   useEffect(() => {
     async function fetchPreviousMatch() {
       try {
-        const response = await fetch('https://tipsinsight.onrender.com/prevmatches/LPL24');
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/LPL24');
         const matchData = await response.json();
         setPreviousmatch(matchData);
       } catch (error) {

@@ -16,7 +16,7 @@ export default function Upcoming(){
       // // Function to fetch all event data from the backend
       const fetchAllupcoming = async () => {
         try {
-          const response = await fetch('https://tipsinsight.onrender.com/upcomingmatches/LPL24');
+          const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/LPL24');
           const data = await response.json();
           setUpcoming(data); // // Assuming the backend returns an array of events
         } catch (error) {

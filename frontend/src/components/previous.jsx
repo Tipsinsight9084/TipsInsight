@@ -36,7 +36,7 @@ export default function Previous(){
       // // Function to fetch all event data from the backend
       const fetchAllPrevious = async () => {
         try {
-          const response = await fetch(`https://tipsinsight.onrender.com/prevmatches/${league}`);
+          const response = await fetch(`https://tips-insight-m7y6-backend.vercel.app/prevmatches/${league}`);
           // const response = await fetch('http://localhost:3000/prevmatches/');
           const data = await response.json();
           setPrevious(data); // // Assuming the backend returns an array of events

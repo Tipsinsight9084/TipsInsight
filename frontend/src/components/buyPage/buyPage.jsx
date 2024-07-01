@@ -190,7 +190,7 @@ logos["T20 World Cup"] = {
   const [upcomingmatch,setUpcomingmatch] = useState([])
   useEffect(() => {
     // Fetch event details from the backend using uniqueId
-    fetch(`https://tipsinsight.onrender.com/matchdetails/${uniqueId}`,)
+    fetch(`https://tips-insight-m7y6-backend.vercel.app/matchdetails/${uniqueId}`,)
     .then((response) => response.json())
     .then((data) => setDetails(data))
     .catch((error) => console.error('Error fetching event details:', error));
@@ -199,7 +199,7 @@ logos["T20 World Cup"] = {
   useEffect(() => {
     async function fetchupcomingMatch() {
       try {
-        const response = await fetch('https://tipsinsight.onrender.com/upcomingmatches/LPL24');
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/LPL24');
         const matchData = await response.json();
         setUpcomingmatch(matchData);
       } catch (error) {

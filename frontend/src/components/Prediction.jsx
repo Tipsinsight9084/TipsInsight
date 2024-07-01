@@ -71,7 +71,7 @@ function Prediction_Page() {
       try {
         console.log("Inside");
         // Fetch event details from the backend using uniqueId
-        const response = await fetch(`https://tipsinsight.onrender.com/matchdetails/${uniqueId}`);
+        const response = await fetch(`https://tips-insight-m7y6-backend.vercel.app/matchdetails/${uniqueId}`);
         // const response = await fetch(`http://localhost:3000/matchdetails/${uniqueId}`);
         const data = await response.json();
         setDetails(data);
@@ -275,7 +275,7 @@ Logos["T20 World Cup"] = {
   // console.log("hey2  ", uniqueId);
   // useEffect(() => {
   //   // Fetch event details from the backend using uniqueId
-  //  fetch(`https://tipsinsight.onrender.com/matchdetails/${uniqueId}`,)
+  //  fetch(`https://tips-insight-m7y6-backend.vercel.app/matchdetails/${uniqueId}`,)
   // //  fetch(`http://localhost:3000/matchdetails/${uniqueId}`,)
   //     .then((response) => response.json())
   //     .then((data) => setDetails(data))
@@ -295,7 +295,7 @@ Logos["T20 World Cup"] = {
   useEffect(() => {
     async function fetchupcomingMatch() {
       try {
-        const response = await fetch('https://tipsinsight.onrender.com/upcomingmatches/LPL24');
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/LPL24');
         const matchData = await response.json();
         setUpcomingmatch(matchData);
       } catch (error) {

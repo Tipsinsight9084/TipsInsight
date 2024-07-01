@@ -37,7 +37,7 @@ function Home_Page() {
     async function fetchNextMatch() {
       // console.log("suraj")
       try {
-        const response = await fetch('https://tipsinsight.onrender.com/nextmatch/LPL24');
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/nextmatch/LPL24');
         // console.log("again")
         const matchData = await response.json();
         setNextMatch(matchData);
@@ -53,7 +53,7 @@ function Home_Page() {
   useEffect(() => {
     async function fetchupcomingMatch() {
       try {
-        const response = await fetch('https://tipsinsight.onrender.com/upcomingmatches/LPL24');
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/LPL24');
         const matchData = await response.json();
         setUpcomingmatch(matchData);
       } catch (error) {
@@ -67,7 +67,7 @@ function Home_Page() {
   useEffect(() => {
     async function fetchPreviousMatch() {
       try {
-        const response = await fetch('https://tipsinsight.onrender.com/prevmatches/WC24');
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/WC24');
         const matchData = await response.json();
         setPreviousmatch(matchData);
       } catch (error) {
