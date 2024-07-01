@@ -200,7 +200,7 @@ export default function Previousmatches(){
         <>
         <NavBar />
 
-        {/* <Heading heading={previous_heading_lpl24}/>
+        <Heading heading={previous_heading_lpl24}/>
         
         <Resultbar total={totalipl24} tosspassed={tosspassedipl24} matchpassed={matchpassedipl24}/>
 {previouslpl.slice(0, 3).map((item) => (
@@ -213,7 +213,7 @@ export default function Previousmatches(){
     View more matches
   </button>
   </div>
-  </Link> */}
+  </Link>
 
         <Heading heading={previous_heading_wc24}/>
         {/* < Sample total = {totalipl24} tosspassed = {tosspassedipl24} matchpassed = {matchpassedipl24}/> */}

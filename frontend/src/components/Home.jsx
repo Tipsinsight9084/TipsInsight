@@ -30,6 +30,7 @@ function Home_Page() {
   const [upcomingmatch,setUpcomingmatch] = useState(null)
   const [previousmatchbb,setPreviousmatchbb] = useState(null)
   const [previousmatch,setPreviousmatch] = useState(null)
+  const [previousmatchlpl,setPreviousmatchlpl] = useState(null)
   console.log("st")
   const run = useState(null)
 
@@ -79,6 +80,20 @@ function Home_Page() {
   }, []); // Empty dependency array, runs once on component mount
 
   
+  useEffect(() => {
+    async function fetchPreviousMatch() {
+      try {
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/LPL24');
+        const matchData = await response.json();
+        setPreviousmatchlpl(matchData);
+      } catch (error) {
+        console.error('Error fetching next match:', error);
+      }
+    }
+
+    fetchPreviousMatch();
+  }, []); // Empty dependency array, runs once on component mount
+
 
   console.log("next match: ", nextMatch)
   console.log(upcomingmatch)
@@ -168,10 +183,10 @@ function Home_Page() {
 </div>  
 <Heading heading={previous_heading}/>
 {
-  previousmatch && (
+  previousmatchlpl && (
     <>
     
-    <Card prev="true" btn_link = 'prediction' btn_des = {prediction} data={previousmatch[0]} League="Indian Premier League" Year="2024"/>
+    <Card prev="true" btn_link = 'prediction' btn_des = {prediction} data={previousmatchlpl[0]} League="Indian Premier League" Year="2024"/>
       </>
   )
 }
