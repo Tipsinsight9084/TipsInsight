@@ -226,9 +226,9 @@ export default function Previousmatches(){
         <Card prev="true" btn_link = 'prediction' key={item.uniqueId} btn_des={view} data={item} League = "Indian Premier League" Year = "2023"/>
       ))}
 
-<Link to='/previous/LPL24'>
+<Link to='/previous/LPL24' className="no-underline">
 <div className="flex justify-center items-center">
-  <button className="my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-6 md:px-8 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-auto md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
+  <button className="no-underline my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-6 md:px-8 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-auto md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
     View more matches
   </button>
   </div>
@@ -257,7 +257,7 @@ export default function Previousmatches(){
         <Card prev="true" btn_link = 'prediction' key={item.uniqueId} btn_des={view} data={item} League = "Indian Premier League" Year = "2023"/>
       ))}
 
-<Link to='/previous/WC24'>
+<Link to='/previous/WC24' className="no-underline">
 <div className="flex justify-center items-center">
   <button className="my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-6 md:px-8 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-auto md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
     View more matches
@@ -272,7 +272,7 @@ export default function Previousmatches(){
         <Card prev="true" btn_link = 'prediction' key={item.uniqueId} btn_des={view} data={item} League = "Indian Premier League" Year = "2023"/>
       ))}
 
-<Link to='/previous/IPL24'>
+<Link to='/previous/IPL24' className="no-underline">
 <div className="flex justify-center items-center">
   <button className="my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-6 md:px-8 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-auto md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
     View more matches
@@ -287,7 +287,7 @@ export default function Previousmatches(){
         <Card prev="true" btn_link = 'prediction' key={item.uniqueId} btn_des={view} data={item}/>
       ))}
 
-<Link to='/previous/WIvSA24'>
+<Link to='/previous/WIvSA24' className="no-underline">
 <div className="flex justify-center items-center">
   <button className="my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-6 md:px-8 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-auto md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
     View more matches
@@ -303,7 +303,7 @@ export default function Previousmatches(){
       ))}
      
 
-<Link to='/previous/ENGvPAK24'>
+<Link to='/previous/ENGvPAK24' className="no-underline">
 <div className="flex justify-center items-center ">
   <button className="my-4 md:my-8 font-mont  font-bold text-base md:text-xl rounded-3xl px-6 md:px-8 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-auto md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
     View more matches
@@ -319,7 +319,7 @@ export default function Previousmatches(){
       ))}
      
 
-<Link to='/previous/SA24'>
+<Link to='/previous/SA24' className="no-underline">
 <div className="flex justify-center items-center ">
   <button className="my-4 md:my-8 font-mont  font-bold text-base md:text-xl rounded-3xl px-6 md:px-8 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-auto md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
     View more matches
@@ -335,7 +335,7 @@ export default function Previousmatches(){
       ))}
      
 
-<Link to='/previous/Bigbash23'>
+<Link to='/previous/Bigbash23' className="no-underline">
 <div className="flex justify-center items-center ">
   <button className="my-4 md:my-8 font-mont  font-bold text-base md:text-xl rounded-3xl px-6 md:px-8 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-auto md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
     View more matches
@@ -351,7 +351,7 @@ export default function Previousmatches(){
       ))}
      
 
-<Link to='/previous/WC23'>
+<Link to='/previous/WC23' className="no-underline">
 <div className="flex justify-center items-center ">
   <button className="my-4 md:my-8 font-mont  font-bold text-base md:text-xl rounded-3xl px-6 md:px-8 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-auto md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
     View more matches
