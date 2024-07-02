@@ -267,7 +267,7 @@ Logos["T20 World Cup"] = {
     'DS': 'Dambulla Sixers',
     'BLK':'B-Love Kandy',
     'JK':'Jaffana Kings',
-    'GS':'Galle Strikers',
+    'GM':'Galle Marvels',
 
   }
 
