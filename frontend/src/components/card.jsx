@@ -66,6 +66,7 @@ export default function Card(props) {
   const Logos = {}
   const data = props.data;
   console.log("Data here",data)
+  console.log(data.uniqueId)
   let League = data.series
   let Year = data.year
 

@@ -37,6 +37,20 @@ function Home_Page() {
   const [previousmatchlpl,setPreviousmatchlpl] = useState(null)
   const [previousmatchtnpl,setPreviousmatchtnpl] = useState(null)
 
+  function compareDates(first, second) {
+    console.log("first",first)
+    const date1 = new Date(first.matchDate);
+    const date2 = new Date(second.matchDate);
+  
+    if (date1 < date2) {
+      return first
+    } else if (date1 > date2) {
+      return second
+    } else {
+      return first;
+  }
+}
+
   console.log("st")
   const run = useState(null)
 
@@ -145,6 +159,18 @@ function Home_Page() {
     fetchPreviousMatch();
   }, []); 
 
+  let nextMatch
+  if(nextMatchlpl && nextMatchtnpl){
+  nextMatch = compareDates(nextMatchlpl,nextMatchtnpl)
+  }
+
+  let upcomingmatch
+  if(upcomingmatchlpl && upcomingmatchtnpl){
+  upcomingmatch = compareDates(upcomingmatchlpl[1],upcomingmatchtnpl[1])
+  }
+
+  console.log("upcoming",upcomingmatch)
+
 
   console.log("next match: ", nextMatchlpl)
   console.log(upcomingmatchlpl)
@@ -199,43 +225,27 @@ function Home_Page() {
       {/* Render next match data if available */}
       <div className='md:mt-[30vh]'>
       <Heading heading={next_heading} />
-      {nextMatchlpl && (
+      {nextMatch && (
         <>
-         
-        
-          <Countdown date= {nextMatchlpl.matchDate} time={nextMatchlpl.time}/>
-          <Card prev="false" Year="2024" btn_link='buy' btn_des={buy} data={nextMatchlpl} League="Indian Premier League" />
+          <Countdown date= {nextMatch.matchDate} time={nextMatch.time}/>
+          <Card prev="false" Year="2024" btn_link='buy' btn_des={buy} data={nextMatch} League="Indian Premier League" />
         </>
       )}
 
-{nextMatchtnpl && (
-        <>
-         
-        
-          <Countdown date= {nextMatchtnpl.matchDate} time={nextMatchtnpl.time}/>
-          <Card prev="false" Year="2024" btn_link='buy' btn_des={buy} data={nextMatchtnpl} League="Indian Premier League" />
-        </>
-      )}
+
 
       {
-        !nextMatchlpl && <LoadingAnimation/>
+        !nextMatch&& <LoadingAnimation/>
       }
       <Heading heading={upcoming_heading} />
-     {upcomingmatchlpl && (
+     {upcomingmatch && (
         <>
       
-      <Card prev="false" btn_link='buy' btn_des={buy} data={upcomingmatchlpl[1]} League="Indian Premier League" Year="2023"/>
+      <Card prev="false" btn_link='buy' btn_des={buy} data={upcomingmatch} League="Indian Premier League" Year="2023"/>
       </>
   )
 }
 
-{upcomingmatchtnpl && (
-        <>
-      
-      <Card prev="false" btn_link='buy' btn_des={buy} data={upcomingmatchtnpl[0]} League="Indian Premier League" Year="2023"/>
-      </>
-  )
-}
 {
         !upcomingmatchlpl && <LoadingAnimation/>
       }
