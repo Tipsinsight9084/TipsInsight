@@ -9,7 +9,9 @@ import Telegram_floating from "./floating/Telegram_floating";
 
 export default function Upcoming(){
 
-    const [upcoming, setUpcoming] = useState([]);
+    const [upcominglpl, setUpcominglpl] = useState([]);
+    const [upcomingtnpl, setUpcomingtnpl] = useState([]);
+
     let view = "Buy Now"
 
     useEffect(() => {
@@ -18,7 +20,23 @@ export default function Upcoming(){
         try {
           const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/LPL24');
           const data = await response.json();
-          setUpcoming(data); // // Assuming the backend returns an array of events
+          setUpcominglpl(data); // // Assuming the backend returns an array of events
+        } catch (error) {
+          console.error('Error fetching all previous matches:', error);
+        }
+      };
+  
+      // Call the fetchAllEvents function
+      fetchAllupcoming();
+    }, []);
+
+    useEffect(() => {
+      // // Function to fetch all event data from the backend
+      const fetchAllupcoming = async () => {
+        try {
+          const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/TNPL24');
+          const data = await response.json();
+          setUpcomingtnpl(data); // // Assuming the backend returns an array of events
         } catch (error) {
           console.error('Error fetching all previous matches:', error);
         }
@@ -48,9 +66,14 @@ export default function Upcoming(){
     return(
         <>
         <NavBar />
-        <Heading heading={upcoming_heading}/>
-        {upcoming.map((upcoming) => ( 
-                <Card prev="false" btn_link='buy' key={upcoming.uniqueId} btn_des={view} data={upcoming} League="Indian Premier League" Year="2024"/> 
+        <Heading heading="Lanka Premier League 2024"/>
+        {upcominglpl.slice(0,3).map((upcominglpl) => ( 
+                <Card prev="false" btn_link='buy' key={upcominglpl.uniqueId} btn_des={view} data={upcominglpl} League="Indian Premier League" Year="2024"/> 
+      ))}
+
+<Heading heading="Tamil Nadu Premier League"/>
+        {upcomingtnpl.slice(0,3).map((upcomingtnpl) => ( 
+                <Card prev="false" btn_link='buy' key={upcomingtnpl.uniqueId} btn_des={view} data={upcomingtnpl} League="Indian Premier League" Year="2024"/> 
       ))}
       <Footer/>
 

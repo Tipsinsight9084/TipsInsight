@@ -60,6 +60,14 @@ import USA from '../../assets/USA.png'
 import UGA from '../../assets/UGA.png'
 import CAN from '../../assets/CAN.png'
 import NEP from '../../assets/NEP.png'
+import CSG from '../../assets/TNPL/CSG.png'
+import ITT from '../../assets/TNPL/ITT.png'
+import LKK from '../../assets/TNPL/LKK.png'
+import SMP from '../../assets/TNPL/SMP.png'
+import NRK from '../../assets/TNPL/NRK.png'
+import TGC from '../../assets/TNPL/TGC.png'
+import DD from '../../assets/TNPL/DD.png'
+import SS from '../../assets/TNPL/SS.png'
 function BuyPage()  {
 
 
@@ -158,6 +166,17 @@ logos["T20 World Cup"] = {
 'IRE':IRE
 }
 
+logos["Tamil Nadu Premier League"] = {
+  'CSG':CSG,
+  'LKK':LKK,
+  'ITT':ITT,
+  'SMP':SMP,
+  'NRK':NRK,
+  'SS':SS,
+  "DD":DD,
+  'TGC':TGC
+}
+
 
   
   // const full_names = {
@@ -187,7 +206,9 @@ logos["T20 World Cup"] = {
   }
   
   console.log("hey2  ", uniqueId);
-  const [upcomingmatch,setUpcomingmatch] = useState([])
+  const [upcomingmatchlpl,setUpcomingmatchlpl] = useState([])
+  const [upcomingmatchtnpl,setUpcomingmatchtnpl] = useState([])
+
   useEffect(() => {
     // Fetch event details from the backend using uniqueId
     fetch(`https://tips-insight-m7y6-backend.vercel.app/matchdetails/${uniqueId}`,)
@@ -201,7 +222,21 @@ logos["T20 World Cup"] = {
       try {
         const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/LPL24');
         const matchData = await response.json();
-        setUpcomingmatch(matchData);
+        setUpcomingmatchlpl(matchData);
+      } catch (error) {
+        console.error('Error fetching upcoming match:', error);
+      }
+    }
+
+    fetchupcomingMatch();
+  }, []); // 
+
+  useEffect(() => {
+    async function fetchupcomingMatch() {
+      try {
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/TNPL24');
+        const matchData = await response.json();
+        setUpcomingmatchtnpl(matchData);
       } catch (error) {
         console.error('Error fetching upcoming match:', error);
       }
@@ -373,8 +408,14 @@ Buy Now
 
          </div>
          {
-  upcomingmatch &&
-  <Box Matches={upcomingmatch} League="Lanka Premier League" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
+  upcomingmatchlpl &&
+  <Box Matches={upcomingmatchlpl} League="Lanka Premier League" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
+
+ }
+
+{
+  upcomingmatchtnpl &&
+  <Box Matches={upcomingmatchtnpl} League="Tamil Nadu Premier League" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
 
  }
 

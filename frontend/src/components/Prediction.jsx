@@ -43,6 +43,14 @@ import REN from '../assets/REN.png'
 import SCO from '../assets/SCO.png'
 import HEA from '../assets/HEA.png'
 import HUR from '../assets/HUR.png'
+import CSG from '../assets/TNPL/CSG.png'
+import ITT from '../assets/TNPL/ITT.png'
+import LKK from '../assets/TNPL/LKK.png'
+import SMP from '../assets/TNPL/SMP.png'
+import NRK from '../assets/TNPL/NRK.png'
+import TGC from '../assets/TNPL/TGC.png'
+import DD from '../assets/TNPL/DD.png'
+import SS from '../assets/TNPL/SS.png'
 import WI from '../assets/WI.png'
 import PAK from '../assets/PAK.png'
 import SA from '../assets/SA.png'
@@ -179,6 +187,17 @@ Logos["T20 World Cup"] = {
   'IRE':IRE
 }
 
+Logos["Tamil Nadu Premier League"] = {
+  'CSG':CSG,
+  'LKK':LKK,
+  'ITT':ITT,
+  'SMP':SMP,
+  'NRK':NRK,
+  'SS':SS,
+  "DD":DD,
+  'TGC':TGC
+}
+
   const full_names = {}
 
    full_names[undefined] = {
@@ -271,6 +290,15 @@ Logos["T20 World Cup"] = {
 
   }
 
+  full_names["Tamil Nadu Premier League"] = {
+    'CS': 'Colombo Strikers',
+    'DS': 'Dambulla Sixers',
+    'BLK':'B-Love Kandy',
+    'JK':'Jaffana Kings',
+    'GM':'Galle Marvels',
+
+  }
+
   
   // console.log("hey2  ", uniqueId);
   // useEffect(() => {
@@ -291,13 +319,29 @@ Logos["T20 World Cup"] = {
   //   league= "Indian Premier League"
   //   Year = "2024"
   // }
-  const [upcomingmatch,setUpcomingmatch] = useState([]);
+  const [upcomingmatchlpl,setUpcomingmatchlpl] = useState([]);
+  const [upcomingmatchtnpl,setUpcomingmatchtnpl] = useState([]);
+
   useEffect(() => {
     async function fetchupcomingMatch() {
       try {
         const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/LPL24');
         const matchData = await response.json();
-        setUpcomingmatch(matchData);
+        setUpcomingmatchlpl(matchData);
+      } catch (error) {
+        console.error('Error fetching upcoming match:', error);
+      }
+    }
+
+    fetchupcomingMatch();
+  }, []); // 
+
+  useEffect(() => {
+    async function fetchupcomingMatch() {
+      try {
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/TNPL24');
+        const matchData = await response.json();
+        setUpcomingmatchtnpl(matchData);
       } catch (error) {
         console.error('Error fetching upcoming match:', error);
       }
@@ -544,10 +588,17 @@ const date = new Date(newmatchDate);
 
     
  {
-  upcomingmatch &&
-  <Box Matches={upcomingmatch} League="Lanka Premier League" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
+  upcomingmatchlpl &&
+  <Box Matches={upcomingmatchlpl} League="Lanka Premier League" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
 
  }
+
+{
+  upcomingmatchtnpl &&
+  <Box Matches={upcomingmatchtnpl} League="Tamil Nadu Premier League" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
+
+ }
+  
   
 
    <Footer/>

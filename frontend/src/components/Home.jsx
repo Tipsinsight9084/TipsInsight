@@ -26,11 +26,17 @@ function Home_Page() {
   const previous_heading = "Previous Match"
   const buy = "Buy Now";
   const prediction = "View Prediction"
-  const [nextMatch, setNextMatch] = useState(null); // State to hold next match
-  const [upcomingmatch,setUpcomingmatch] = useState(null)
+  const [nextMatchlpl, setNextMatchlpl] = useState(null); // State to hold next match
+  const [nextMatchtnpl, setNextMatchtnpl] = useState(null); // State to hold next match
+
+  const [upcomingmatchlpl,setUpcomingmatchlpl] = useState(null)
+  const [upcomingmatchtnpl,setUpcomingmatchtnpl] = useState(null)
+
   const [previousmatchbb,setPreviousmatchbb] = useState(null)
   const [previousmatch,setPreviousmatch] = useState(null)
   const [previousmatchlpl,setPreviousmatchlpl] = useState(null)
+  const [previousmatchtnpl,setPreviousmatchtnpl] = useState(null)
+
   console.log("st")
   const run = useState(null)
 
@@ -41,7 +47,7 @@ function Home_Page() {
         const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/nextmatch/LPL24');
         // console.log("again")
         const matchData = await response.json();
-        setNextMatch(matchData);
+        setNextMatchlpl(matchData);
         console.log("check time here: ", matchData);
       } catch (error) {
         console.error('Error fetching next match:', error);
@@ -52,11 +58,42 @@ function Home_Page() {
   },[]); // Empty dependency array, runs once on component mount
 
   useEffect(() => {
+    async function fetchNextMatch() {
+      // console.log("suraj")
+      try {
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/nextmatch/TNPL24');
+        // console.log("again")
+        const matchData = await response.json();
+        setNextMatchtnpl(matchData);
+        console.log("check time here: ", matchData);
+      } catch (error) {
+        console.error('Error fetching next match:', error);
+      }
+    }
+
+    fetchNextMatch();
+  },[]);
+
+  useEffect(() => {
     async function fetchupcomingMatch() {
       try {
         const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/LPL24');
         const matchData = await response.json();
-        setUpcomingmatch(matchData);
+        setUpcomingmatchlpl(matchData);
+      } catch (error) {
+        console.error('Error fetching upcoming match:', error);
+      }
+    }
+
+    fetchupcomingMatch();
+  }, []); // 
+
+  useEffect(() => {
+    async function fetchupcomingMatch() {
+      try {
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/TNPL24');
+        const matchData = await response.json();
+        setUpcomingmatchtnpl(matchData);
       } catch (error) {
         console.error('Error fetching upcoming match:', error);
       }
@@ -94,10 +131,24 @@ function Home_Page() {
     fetchPreviousMatch();
   }, []); // Empty dependency array, runs once on component mount
 
+  useEffect(() => {
+    async function fetchPreviousMatch() {
+      try {
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/TNPL24');
+        const matchData = await response.json();
+        setPreviousmatchtnpl(matchData);
+      } catch (error) {
+        console.error('Error fetching next match:', error);
+      }
+    }
 
-  console.log("next match: ", nextMatch)
-  console.log(upcomingmatch)
-  console.log(previousmatch)
+    fetchPreviousMatch();
+  }, []); 
+
+
+  console.log("next match: ", nextMatchlpl)
+  console.log(upcomingmatchlpl)
+  console.log(previousmatchlpl)
   console.log(previousmatchbb)
 
     var total = 207;
@@ -148,28 +199,45 @@ function Home_Page() {
       {/* Render next match data if available */}
       <div className='md:mt-[30vh]'>
       <Heading heading={next_heading} />
-      {nextMatch && (
+      {nextMatchlpl && (
         <>
          
         
-          <Countdown date= {nextMatch.matchDate} time={nextMatch.time}/>
-          <Card prev="false" Year="2024" btn_link='buy' btn_des={buy} data={nextMatch} League="Indian Premier League" />
+          <Countdown date= {nextMatchlpl.matchDate} time={nextMatchlpl.time}/>
+          <Card prev="false" Year="2024" btn_link='buy' btn_des={buy} data={nextMatchlpl} League="Indian Premier League" />
+        </>
+      )}
+
+{nextMatchtnpl && (
+        <>
+         
+        
+          <Countdown date= {nextMatchtnpl.matchDate} time={nextMatchtnpl.time}/>
+          <Card prev="false" Year="2024" btn_link='buy' btn_des={buy} data={nextMatchtnpl} League="Indian Premier League" />
         </>
       )}
 
       {
-        !nextMatch && <LoadingAnimation/>
+        !nextMatchlpl && <LoadingAnimation/>
       }
       <Heading heading={upcoming_heading} />
-     {upcomingmatch && (
+     {upcomingmatchlpl && (
         <>
       
-      <Card prev="false" btn_link='buy' btn_des={buy} data={upcomingmatch[1]} League="Indian Premier League" Year="2023"/>
+      <Card prev="false" btn_link='buy' btn_des={buy} data={upcomingmatchlpl[1]} League="Indian Premier League" Year="2023"/>
+      </>
+  )
+}
+
+{upcomingmatchtnpl && (
+        <>
+      
+      <Card prev="false" btn_link='buy' btn_des={buy} data={upcomingmatchtnpl[0]} League="Indian Premier League" Year="2023"/>
       </>
   )
 }
 {
-        !upcomingmatch && <LoadingAnimation/>
+        !upcomingmatchlpl && <LoadingAnimation/>
       }
 
 
@@ -191,6 +259,16 @@ function Home_Page() {
   )
 }
 
+{/* WHEN 1st match of TNPL is done */}
+{/* {
+  previousmatchtnpl && (
+    <>
+    
+    <Card prev="true" btn_link = 'prediction' btn_des = {prediction} data={previousmatchtnpl[0]} League="Indian Premier League" Year="2024"/>
+      </>
+  )
+} */}
+
 {
         !previousmatch && <LoadingAnimation/>
       }
@@ -205,14 +283,26 @@ function Home_Page() {
 </div>
 
  {
-  upcomingmatch &&
-  <Box Matches={upcomingmatch} League="Lanka Premier League" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
+  upcomingmatchlpl &&
+  <Box Matches={upcomingmatchlpl} League="Lanka Premier League" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
+
+ }
+
+{
+  upcomingmatchtnpl &&
+  <Box Matches={upcomingmatchtnpl} League="Tamil Nadu Premier League" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
 
  }
 
 { previousmatchlpl && 
   <Box Matches={previousmatchlpl} League="Lanka Premier League" Year='2024' State="Previous Matches" btn_link="prediction" btn_des="View"/>
 }
+
+{/* WHEN 1st match of TNPL is done */}
+
+{/* { previousmatchtnpl && 
+  <Box Matches={previousmatchtnpl} League="Tamil Nadu Premier League" Year='2024' State="Previous Matches" btn_link="prediction" btn_des="View"/>
+} */}
 
 { previousmatch && 
   <Box Matches={previousmatch} League="T20 World Cup" Year='2024' State="Previous Matches" btn_link="prediction" btn_des="View"/>

@@ -14,6 +14,8 @@ export default function Previousmatches(){
     const [previousipl, setPreviousipl] = useState([]);
     const [previousbb , setPreviousbb] = useState([]);
     const [previouslpl , setPreviouslpl] = useState([]);
+    const [previoustnpl , setPrevioustnpl] = useState([]);
+
     const [previouswc23 , setPreviouswc23] = useState([]);
     const [previoussa , setPrevioussa] = useState([]);
     const [previouswivssa , setPreviouswivssa] = useState([]);
@@ -159,6 +161,23 @@ export default function Previousmatches(){
       fetchAllPrevious();
     }, []); 
 
+    
+    useEffect(() => {
+      // // Function to fetch all event data from the backend
+      const fetchAllPrevious = async () => {
+        try {
+          const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/TNPL24');
+          // const response = await fetch('http://localhost:3000/prevmatches/');
+          const data = await response.json();
+          setPrevioustnpl(data); // // Assuming the backend returns an array of events
+        } catch (error) {
+          console.error('Error fetching all previous matches:', error);
+        }
+      };
+  
+      // Call the fetchAllEvents function
+      fetchAllPrevious();
+    }, []); 
     if (previousipl.length==0 && previousbb.length==0) {
       return (
         <LoadingAnimation/>
@@ -214,6 +233,22 @@ export default function Previousmatches(){
   </button>
   </div>
   </Link>
+
+{/* WHen 1st match of TNPL is done */}
+  {/* <Heading heading={previous_heading_tnpl24}/>
+        
+        <Resultbar total={totalipl24} tosspassed={tosspassedipl24} matchpassed={matchpassedipl24}/>
+{previoustnpl.slice(0, 3).map((item) => (
+        <Card prev="true" btn_link = 'prediction' key={item.uniqueId} btn_des={view} data={item} League = "Indian Premier League" Year = "2023"/>
+      ))}
+
+<Link to='/previous/TNPL24'>
+<div className="flex justify-center items-center">
+  <button className="my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-6 md:px-8 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-auto md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
+    View more matches
+  </button>
+  </div>
+  </Link> */}
 
         <Heading heading={previous_heading_wc24}/>
         {/* < Sample total = {totalipl24} tosspassed = {tosspassedipl24} matchpassed = {matchpassedipl24}/> */}

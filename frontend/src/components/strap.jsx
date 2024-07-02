@@ -48,6 +48,14 @@ import DS from '../assets/LPL/DS.png'
 import GM from '../assets/LPL/GM.png'
 import JK from '../assets/LPL/JK.png'
 import BLK from '../assets/LPL/BLK.png'
+import CSG from '../assets/TNPL/CSG.png'
+import ITT from '../assets/TNPL/ITT.png'
+import LKK from '../assets/TNPL/LKK.png'
+import SMP from '../assets/TNPL/SMP.png'
+import NRK from '../assets/TNPL/NRK.png'
+import TGC from '../assets/TNPL/TGC.png'
+import DD from '../assets/TNPL/DD.png'
+import SS from '../assets/TNPL/SS.png'
 // import OMA from '../assets/OMG.png'
 
 
@@ -87,6 +95,17 @@ export default function Strap(props) {
     'DS': DS,
     'GM': GM,
     'BLK': BLK,
+  }
+
+  Logos["Tamil Nadu Premier League"] = {
+    'CSG':CSG,
+    'LKK':LKK,
+    'ITT':ITT,
+    'SMP':SMP,
+    'NRK':NRK,
+    'SS':SS,
+    "DD":DD,
+    'TGC':TGC
   }
 
   Logos["Big Bash League"] = {

@@ -9,14 +9,16 @@ import { FaInstagram } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function NavBar(props) {
-  const [previousmatch,setPreviousmatch] = useState(null)
+  const [previousmatchlpl,setPreviousmatchlpl] = useState(null)
+  const [previousmatchtnpl,setPreviousmatchtnpl] = useState(null)
+
 
   useEffect(() => {
     async function fetchPreviousMatch() {
       try {
         const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/LPL24');
         const matchData = await response.json();
-        setPreviousmatch(matchData);
+        setPreviousmatchlpl(matchData);
       } catch (error) {
         console.error('Error fetching next match:', error);
       }
@@ -25,12 +27,26 @@ function NavBar(props) {
     fetchPreviousMatch();
   }, []); // Empty dependency array, runs once on component mount
 
+  useEffect(() => {
+    async function fetchPreviousMatch() {
+      try {
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/TNPL24');
+        const matchData = await response.json();
+        setPreviousmatchtnpl(matchData);
+      } catch (error) {
+        console.error('Error fetching next match:', error);
+      }
+    }
+
+    fetchPreviousMatch();
+  }, []);
+
   var total = 262;
   // var tosspassed = 186;
   var matchpassed = 247;
 
-if(previousmatch) 
-   {previousmatch.forEach(item => {
+if(previousmatchlpl) 
+   {previousmatchlpl.forEach(item => {
       total += 1;
   
       if (item.actualmatchWinner === item.matchWinner) {
@@ -41,6 +57,20 @@ if(previousmatch)
       //     tosspassed += 1;
       // }
   });
+}
+
+if(previousmatchtnpl) 
+  {previousmatchtnpl.forEach(item => {
+     total += 1;
+ 
+     if (item.actualmatchWinner === item.matchWinner) {
+         matchpassed += 1;
+     }
+ 
+     // if (item.actualtossWinner === item.tossWinner) {
+     //     tosspassed += 1;
+     // }
+ });
 }
 
     // const tosspassed = props.tosspassed
