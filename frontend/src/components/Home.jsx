@@ -43,11 +43,11 @@ function Home_Page() {
     const date2 = new Date(second.matchDate);
   
     if (date1 < date2) {
-      return first
+      return [first,second];
     } else if (date1 > date2) {
-      return second
+      return [second,first];
     } else {
-      return first;
+      return [first,second];
   }
 }
 
@@ -159,15 +159,15 @@ function Home_Page() {
     fetchPreviousMatch();
   }, []); 
 
-  let nextMatch
+  let nextMatch,upcomingmatch
   if(nextMatchlpl && nextMatchtnpl){
-  nextMatch = compareDates(nextMatchlpl,nextMatchtnpl)
+  [nextMatch,upcomingmatch] = compareDates(nextMatchlpl,nextMatchtnpl)
   }
 
-  let upcomingmatch
-  if(upcomingmatchlpl && upcomingmatchtnpl){
-  upcomingmatch = compareDates(upcomingmatchlpl[1],upcomingmatchtnpl[1])
-  }
+  // let upcomingmatch
+  // if(upcomingmatchlpl && upcomingmatchtnpl){
+  // upcomingmatch = compareDates(upcomingmatchlpl[1],upcomingmatchtnpl[1])
+  // }
 
   console.log("upcoming",upcomingmatch)
 
