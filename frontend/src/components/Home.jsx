@@ -116,19 +116,7 @@ function Home_Page() {
     fetchupcomingMatch();
   }, []); // 
 
-  useEffect(() => {
-    async function fetchPreviousMatch() {
-      try {
-        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/WC24');
-        const matchData = await response.json();
-        setPreviousmatch(matchData);
-      } catch (error) {
-        console.error('Error fetching next match:', error);
-      }
-    }
-
-    fetchPreviousMatch();
-  }, []); // Empty dependency array, runs once on component mount
+ 
 
   
   useEffect(() => {
@@ -181,19 +169,7 @@ function Home_Page() {
     var tosspassed = 186;
     var matchpassed = 194;
 
-  if(previousmatch) 
-     {previousmatch.forEach(item => {
-        total += 1;
-    
-        if (item.actualmatchWinner === item.matchWinner) {
-            matchpassed += 1;
-        }
-    
-        if (item.actualtossWinner === item.tossWinner) {
-            tosspassed += 1;
-        }
-    });
-  }
+  
 
   let view = "view"
 
@@ -270,18 +246,15 @@ function Home_Page() {
 }
 
 {/* WHEN 1st match of TNPL is done */}
-{/* {
+{
   previousmatchtnpl && (
     <>
     
     <Card prev="true" btn_link = 'prediction' btn_des = {prediction} data={previousmatchtnpl[0]} League="Indian Premier League" Year="2024"/>
       </>
   )
-} */}
+}
 
-{
-        !previousmatch && <LoadingAnimation/>
-      }
 
 <div className="flex justify-center">
 
@@ -314,9 +287,6 @@ function Home_Page() {
   <Box Matches={previousmatchtnpl} League="Tamil Nadu Premier League" Year='2024' State="Previous Matches" btn_link="prediction" btn_des="View"/>
 }
 
-{ previousmatch && 
-  <Box Matches={previousmatch} League="T20 World Cup" Year='2024' State="Previous Matches" btn_link="prediction" btn_des="View"/>
-}
 
 </div>
 
