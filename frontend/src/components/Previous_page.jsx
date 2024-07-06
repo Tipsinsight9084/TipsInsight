@@ -185,21 +185,37 @@ export default function Previousmatches(){
       
     }
 
-    var totalipl24 = 0;
-    var tosspassedipl24 = 0;
-    var matchpassedipl24 = 0;
+    var totallpl24 = 0;
+    var tosspassedlpl24 = 0;
+    var matchpassedlpl24 = 0;
 
     previouslpl.forEach(item => {
-      totalipl24 += 1;
+      totallpl24 += 1;
   
       if (item.actualmatchWinner === item.matchWinner) {
-          matchpassedipl24 += 1;
+          matchpassedlpl24 += 1;
       }
   
       if (item.actualtossWinner === item.tossWinner) {
-          tosspassedipl24 += 1;
+          tosspassedlpl24 += 1;
       }
   });
+
+  var totaltnpl24 = 0;
+  var tosspassedtnpl24 = 0;
+  var matchpassedtnpl24 = 0;
+
+  previoustnpl.forEach(item => {
+    totaltnpl24 += 1;
+
+    if (item.actualmatchWinner === item.matchWinner) {
+        matchpassedtnpl24 += 1;
+    }
+
+    if (item.actualtossWinner === item.tossWinner) {
+        tosspassedtnpl24 += 1;
+    }
+});
 
 
 
@@ -221,7 +237,7 @@ export default function Previousmatches(){
 
         <Heading heading={previous_heading_lpl24}/>
         
-        <Resultbar total={totalipl24} tosspassed={tosspassedipl24} matchpassed={matchpassedipl24}/>
+        <Resultbar total={totallpl24} tosspassed={tosspassedlpl24} matchpassed={matchpassedlpl24}/>
 {previouslpl.slice(0, 3).map((item) => (
         <Card prev="true" btn_link = 'prediction' key={item.uniqueId} btn_des={view} data={item} League = "Indian Premier League" Year = "2023"/>
       ))}
@@ -235,9 +251,9 @@ export default function Previousmatches(){
   </Link>
 
 {/* WHen 1st match of TNPL is done */}
-  {/* <Heading heading={previous_heading_tnpl24}/>
+  <Heading heading={previous_heading_tnpl24}/>
         
-        <Resultbar total={totalipl24} tosspassed={tosspassedipl24} matchpassed={matchpassedipl24}/>
+        <Resultbar total={totaltnpl24} tosspassed={tosspassedtnpl24} matchpassed={matchpassedtnpl24}/>
 {previoustnpl.slice(0, 3).map((item) => (
         <Card prev="true" btn_link = 'prediction' key={item.uniqueId} btn_des={view} data={item} League = "Indian Premier League" Year = "2023"/>
       ))}
@@ -248,7 +264,7 @@ export default function Previousmatches(){
     View more matches
   </button>
   </div>
-  </Link> */}
+  </Link>
 
         <Heading heading={previous_heading_wc24}/>
         {/* < Sample total = {totalipl24} tosspassed = {tosspassedipl24} matchpassed = {matchpassedipl24}/> */}

@@ -291,12 +291,14 @@ Logos["Tamil Nadu Premier League"] = {
   }
 
   full_names["Tamil Nadu Premier League"] = {
-    'CS': 'Colombo Strikers',
-    'DS': 'Dambulla Sixers',
-    'BLK':'B-Love Kandy',
-    'JK':'Jaffana Kings',
-    'GM':'Galle Marvels',
-
+   'LKK':"Lyca Kovai Kings",
+   'CSG':"Chepauk Super Gillies",
+   'DD':"Dindigul Dragons",
+   "SS":"Salem Spartans",
+   "SMP":"Siechem Madurai Panthers",
+   'NRR':"Nellai Royal Kings",
+   "ITT":"Idream Tiruppur Tamizhans",
+   "TGC":"Trichy Grand Cholas"
   }
 
   

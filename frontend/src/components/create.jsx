@@ -12,8 +12,8 @@ import React, { useState } from 'react';
 // const teams =[ "IND","SA",'AUS','PAK','NED','ENG','NZ','BAN','SL','AFG','WI',
 // 'UGA','SCOT','NEP','PAP','NAM','OMA','CAN','USA','IRE']
 
-const teams = ["BLK",'CS','DS','GM','JK'];
-// const teams = ["LKK","CSG",'SS','DD','SMP','TGC','ITT','NRK']
+// const teams = ["BLK",'CS','DS','GM','JK'];
+const teams = ["LKK","CSG",'SS','DD','SMP','TGC','ITT','NRK']
 
 function MatchForm() {
   const [formData, setFormData] = useState({
@@ -23,17 +23,17 @@ function MatchForm() {
     matchDate: '2024-07-07',
     time: '07:30',
     matchDate: '2024-07-07',
-    time: '23:00',
+    time: '19:15',
     venue: '',
     tossWinner: '',
     // tossDate: '2024-02-10',
     tossDate: '2024-07-07',
     tossTime: '05:00',
     tossDate: '2024-07-07',
-    tossTime: '05:00',
+    tossTime: '17:00',
     matchWinner: '',
     matchwinnerDate: '2024-07-07',
-    matchwinnerTime: '07:10',
+    matchwinnerTime: '19:00',
     matchNumber: '02',
     team1Run: '1',
     team1Wicket: '1',
@@ -100,12 +100,12 @@ function MatchForm() {
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     const matchNumber = formData.matchNumber.toString().padStart(2, '0');
-    const uniqueId = `LPL24_${matchNumber}`;
+    const uniqueId = `TNPL24_${matchNumber}`;
     console.log(formData)
 
     try {
       console.log({ ...formData, uniqueId })
-      const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/create/LPL24', {
+      const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/create/TNPL24', {
       // const response = await fetch('http://localhost:3000/create/bigbash23', {
         method: 'POST',
         headers: {

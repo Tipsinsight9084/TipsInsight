@@ -310,9 +310,9 @@ function Home_Page() {
 
 {/* WHEN 1st match of TNPL is done */}
 
-{/* { previousmatchtnpl && 
+{ previousmatchtnpl && 
   <Box Matches={previousmatchtnpl} League="Tamil Nadu Premier League" Year='2024' State="Previous Matches" btn_link="prediction" btn_des="View"/>
-} */}
+}
 
 { previousmatch && 
   <Box Matches={previousmatch} League="T20 World Cup" Year='2024' State="Previous Matches" btn_link="prediction" btn_des="View"/>
