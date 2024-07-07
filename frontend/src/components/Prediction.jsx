@@ -296,7 +296,7 @@ Logos["Tamil Nadu Premier League"] = {
    'DD':"Dindigul Dragons",
    "SS":"Salem Spartans",
    "SMP":"Siechem Madurai Panthers",
-   'NRR':"Nellai Royal Kings",
+   'NRK':"Nellai Royal Kings",
    "ITT":"Idream Tiruppur Tamizhans",
    "TGC":"Trichy Grand Cholas"
   }
