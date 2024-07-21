@@ -9,23 +9,11 @@ import { FaInstagram } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function NavBar(props) {
-  const [previousmatchlpl,setPreviousmatchlpl] = useState(null)
+  // const [previousmatchlpl,setPreviousmatchlpl] = useState(null)
   const [previousmatchtnpl,setPreviousmatchtnpl] = useState(null)
 
 
-  useEffect(() => {
-    async function fetchPreviousMatch() {
-      try {
-        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/LPL24');
-        const matchData = await response.json();
-        setPreviousmatchlpl(matchData);
-      } catch (error) {
-        console.error('Error fetching next match:', error);
-      }
-    }
-
-    fetchPreviousMatch();
-  }, []); // Empty dependency array, runs once on component mount
+  
 
   useEffect(() => {
     async function fetchPreviousMatch() {
@@ -41,23 +29,11 @@ function NavBar(props) {
     fetchPreviousMatch();
   }, []);
 
-  var total = 262;
+  var total = 286;
   // var tosspassed = 186;
-  var matchpassed = 247;
+  var matchpassed = 271;
 
-if(previousmatchlpl) 
-   {previousmatchlpl.forEach(item => {
-      total += 1;
-  
-      if (item.actualmatchWinner === item.matchWinner) {
-          matchpassed += 1;
-      }
-  
-      // if (item.actualtossWinner === item.tossWinner) {
-      //     tosspassed += 1;
-      // }
-  });
-}
+
 
 if(previousmatchtnpl) 
   {previousmatchtnpl.forEach(item => {

@@ -321,22 +321,10 @@ Logos["Tamil Nadu Premier League"] = {
   //   league= "Indian Premier League"
   //   Year = "2024"
   // }
-  const [upcomingmatchlpl,setUpcomingmatchlpl] = useState([]);
+  // const [upcomingmatchlpl,setUpcomingmatchlpl] = useState([]);
   const [upcomingmatchtnpl,setUpcomingmatchtnpl] = useState([]);
 
-  useEffect(() => {
-    async function fetchupcomingMatch() {
-      try {
-        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/LPL24');
-        const matchData = await response.json();
-        setUpcomingmatchlpl(matchData);
-      } catch (error) {
-        console.error('Error fetching upcoming match:', error);
-      }
-    }
-
-    fetchupcomingMatch();
-  }, []); // 
+ 
 
   useEffect(() => {
     async function fetchupcomingMatch() {
@@ -588,12 +576,12 @@ const date = new Date(newmatchDate);
             
     </div>
 
-    
+{/*     
  {
   upcomingmatchlpl &&
   <Box Matches={upcomingmatchlpl} League="Lanka Premier League" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
 
- }
+ } */}
 
 {
   upcomingmatchtnpl &&

@@ -217,19 +217,7 @@ logos["Tamil Nadu Premier League"] = {
     .catch((error) => console.error('Error fetching event details:', error));
   }, [uniqueId]);
 
-  useEffect(() => {
-    async function fetchupcomingMatch() {
-      try {
-        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/LPL24');
-        const matchData = await response.json();
-        setUpcomingmatchlpl(matchData);
-      } catch (error) {
-        console.error('Error fetching upcoming match:', error);
-      }
-    }
-
-    fetchupcomingMatch();
-  }, []); // 
+  
 
   useEffect(() => {
     async function fetchupcomingMatch() {
@@ -407,11 +395,7 @@ Buy Now
 
 
          </div>
-         {
-  upcomingmatchlpl &&
-  <Box Matches={upcomingmatchlpl} League="Lanka Premier League" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
-
- }
+   
 
 {
   upcomingmatchtnpl &&

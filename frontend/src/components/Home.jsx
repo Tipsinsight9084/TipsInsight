@@ -26,14 +26,13 @@ function Home_Page() {
   const previous_heading = "Previous Match"
   const buy = "Buy Now";
   const prediction = "View Prediction"
-  const [nextMatchlpl, setNextMatchlpl] = useState(null); // State to hold next match
+  
   const [nextMatchtnpl, setNextMatchtnpl] = useState(null); // State to hold next match
 
-  const [upcomingmatchlpl,setUpcomingmatchlpl] = useState(null)
+ 
   const [upcomingmatchtnpl,setUpcomingmatchtnpl] = useState(null)
 
   const [previousmatchbb,setPreviousmatchbb] = useState(null)
-  const [previousmatch,setPreviousmatch] = useState(null)
   const [previousmatchlpl,setPreviousmatchlpl] = useState(null)
   const [previousmatchtnpl,setPreviousmatchtnpl] = useState(null)
 
@@ -54,22 +53,6 @@ function Home_Page() {
   console.log("st")
   const run = useState(null)
 
-  useEffect(() => {
-    async function fetchNextMatch() {
-      // console.log("suraj")
-      try {
-        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/nextmatch/LPL24');
-        // console.log("again")
-        const matchData = await response.json();
-        setNextMatchlpl(matchData);
-        console.log("check time here: ", matchData);
-      } catch (error) {
-        console.error('Error fetching next match:', error);
-      }
-    }
-
-    fetchNextMatch();
-  },[]); // Empty dependency array, runs once on component mount
 
   useEffect(() => {
     async function fetchNextMatch() {
@@ -87,20 +70,6 @@ function Home_Page() {
 
     fetchNextMatch();
   },[]);
-
-  useEffect(() => {
-    async function fetchupcomingMatch() {
-      try {
-        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/LPL24');
-        const matchData = await response.json();
-        setUpcomingmatchlpl(matchData);
-      } catch (error) {
-        console.error('Error fetching upcoming match:', error);
-      }
-    }
-
-    fetchupcomingMatch();
-  }, []); // 
 
   useEffect(() => {
     async function fetchupcomingMatch() {
@@ -148,9 +117,15 @@ function Home_Page() {
   }, []); 
 
   let nextMatch,upcomingmatch
-  if(nextMatchlpl && nextMatchtnpl){
-  [nextMatch,upcomingmatch] = compareDates(nextMatchlpl,nextMatchtnpl)
+  nextMatch = nextMatchtnpl;
+
+  if(upcomingmatchtnpl){
+
+    upcomingmatch = upcomingmatchtnpl[1]
   }
+  // if(nextMatchlpl && nextMatchtnpl){
+  // [nextMatch,upcomingmatch] = compareDates(nextMatchlpl,nextMatchtnpl)
+  // }
 
   // let upcomingmatch
   // if(upcomingmatchlpl && upcomingmatchtnpl){
@@ -158,12 +133,6 @@ function Home_Page() {
   // }
 
   console.log("upcoming",upcomingmatch)
-
-
-  console.log("next match: ", nextMatchlpl)
-  console.log(upcomingmatchlpl)
-  console.log(previousmatchlpl)
-  console.log(previousmatchbb)
 
     var total = 207;
     var tosspassed = 186;
@@ -223,7 +192,7 @@ function Home_Page() {
 }
 
 {
-        !upcomingmatchlpl && <LoadingAnimation/>
+        !upcomingmatch && <LoadingAnimation/>
       }
 
 
@@ -265,11 +234,11 @@ function Home_Page() {
 </Link>
 </div>
 
- {
+ {/* {
   upcomingmatchlpl &&
   <Box Matches={upcomingmatchlpl} League="Lanka Premier League" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
 
- }
+ } */}
 
 {
   upcomingmatchtnpl &&
