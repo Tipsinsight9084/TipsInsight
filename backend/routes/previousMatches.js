@@ -8,7 +8,7 @@ const ENGvPAK24 = require('../model/ENGvPAK24');
 const WIvSA24 = require('../model/WIvSA24');
 const WC24 = require('../model/WC24');
 const LPL24 = require('../model/LPL24');
-const TH24 = require('..model/TH24')
+const TH24 = require('../model/TH24')
 const TNPL24 = require('../model/TNPL24');
 
 const moment = require('moment-timezone');
