@@ -9,6 +9,7 @@ const ENGvPAK24 = require('../model/ENGvPAK24');
 const WIvSA24 = require('../model/WIvSA24');
 const LPL24 = require('../model/LPL24');
 const TNPL24 = require('../model/TNPL24')
+const TH24 = require('../model/TH24')
 
 
 
@@ -19,7 +20,7 @@ router.get('/:uniqueId', async (req, res) => {
       console.log(uniqueId)
 
        // Define an array of collections to search
-       const collections = [Match, Bigbash, WC23, SA24, ENGvPAK24, WIvSA24, WC24,LPL24,TNPL24]; // Assuming Match and Bigbash are Mongoose models
+       const collections = [Match, Bigbash, WC23, SA24, ENGvPAK24, WIvSA24, WC24,LPL24,TNPL24,TH24]; // Assuming Match and Bigbash are Mongoose models
 
        let match = null;
        

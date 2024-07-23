@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Prediction_Page from './components/Prediction';
 import Home_Page from './components/Home';
 import Create from './components/create';
+import Create2 from './components/create2'
 import BuyPage from './components/buyPage/buyPage';
 import {SpeedInsights} from '@vercel/speed-insights/react'
 import Previous from './components/previous';
@@ -39,6 +40,7 @@ function App() {
         <Route path='/previousmatches' element={<Previousmatches/>}></Route>
         <Route path='/contact' element={<ContactUs/>}></Route>
         <Route path='/create' element={<Create/>}></Route>
+        <Route path='/create2' element={<Create2/>}></Route>
         <Route path='/upcoming' element={<Upcoming/>}></Route>
         <Route path='/buy/:uniqueId' element = {<BuyPage/>}></Route>
         <Route path='/sample/sample' element = {<Sample/>}></Route>

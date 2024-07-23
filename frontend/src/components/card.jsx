@@ -55,6 +55,15 @@ import NRK from '../assets/TNPL/NRK.png'
 import TGC from '../assets/TNPL/TGC.png'
 import DD from '../assets/TNPL/DD.png'
 import SS from '../assets/TNPL/SS.png'
+import WF from '../assets/TH/WF.png'
+import TR from '../assets/TH/TR.png'
+import SB from '../assets/TH/SB.png'
+import BP from '../assets/TH/BP.png'
+import NSC from '../assets/TH/NSC.png'
+import OI from '../assets/TH/OI.png'
+import MO from '../assets/TH/MO.png'
+import LS from '../assets/TH/LS.png'
+
 
 // import OMA from '../assets/OMG.png'
 
@@ -174,6 +183,17 @@ Logos["T20 World Cup"] = {
   'NEP':NEP,
   'IRE':IRE
 }
+
+Logos["The Hundred Mens"] = {
+  'BP-M':BP,
+  'LS-M':LS,
+  'WF-M':WF,
+  'NSC-M':NSC,
+  'TR-M':TR,
+  'SB-M':SB,
+  'OI-M':OI,
+  'MO-M':MO,
+ }
 
 
   const link = '/' + props.btn_link +'/' + data.uniqueId

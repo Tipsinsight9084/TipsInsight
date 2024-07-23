@@ -5,9 +5,10 @@ const router = express.Router();
 const LPL24= require('../model/LPL24')
 const moment = require('moment-timezone');
 const TNPL24 = require('../model/TNPL24')
+const TH24 = require('../model/TH24')
 
 
-router.get('/LPL24', async (req, res) => {
+router.get('/TH24', async (req, res) => {
   try {
     const today = moment().tz('Asia/Kolkata');
     console.log("next today: ", today.format());
@@ -17,7 +18,7 @@ router.get('/LPL24', async (req, res) => {
       
       // Find the next upcoming match by sorting matches by matchDate in ascending order
       // and limiting the result to 1 match
-      const nextMatch = await LPL24.findOne({ matchDate: { $gt: today.format() } }).sort({ matchDate: 1 }).limit(1).maxTimeMS(20000);
+      const nextMatch = await TH24.findOne({ matchDate: { $gt: today.format() } }).sort({ matchDate: 1 }).limit(1).maxTimeMS(20000);
       
       if (nextMatch) {
         res.json(nextMatch);

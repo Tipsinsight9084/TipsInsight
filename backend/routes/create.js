@@ -8,7 +8,7 @@ const ENGvPAK24 = require('../model/ENGvPAK24');
 const WIvSA24 = require('../model/WIvSA24');
 const WC24 = require('../model/WC24');
 const LPL24 = require('../model/LPL24');
-
+const TH24 = require('../model/TH24')
 const TNPL24 = require('../model/TNPL24');
 
 // Create a new match
@@ -385,6 +385,49 @@ router.post('/TNPL24', async (req, res) => {
     await newWC24.save();
 
     res.status(201).json({ message: 'TNPL Match created successfully.' });
+  } catch (err) {
+    res.status(400).json({ message: err + 'error in' });
+  }
+});
+
+router.post('/TH24', async (req, res) => {
+  console.log("workinfg",req.body);
+  try {
+    const { team1, team2, matchDate, time, venue, tossWinner, tossDate, tossTime, matchWinner, matchwinnerDate, matchwinnerTime, uniqueId, team1Run , team1Wicket, team1Over, team2Run , team2Wicket, team2Over, actualmatchWinner, actualtossWinner, highlight, series, year} = req.body;
+
+    const newWC24 = new TH24({
+      team1,
+      team2,
+      matchDate,
+      time,
+      venue,
+      tossWinner,
+      tossDate,
+      tossTime,
+      matchWinner,
+      matchwinnerDate,
+      matchwinnerTime,
+      uniqueId,
+      team1Run ,
+      team1Wicket,
+      team1Over, 
+      team2Run , 
+      team2Wicket, 
+      team2Over,
+      actualmatchWinner,
+      actualtossWinner,
+      highlight,
+      series,
+      year,
+    });
+
+    console.log(req.body)
+    console.log("QI")
+    console.log("TH24",newWC24)
+    // const 
+    await newWC24.save();
+
+    res.status(201).json({ message: 'TH Match created successfully.' });
   } catch (err) {
     res.status(400).json({ message: err + 'error in' });
   }

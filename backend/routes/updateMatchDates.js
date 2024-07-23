@@ -27,10 +27,6 @@ router.get('/', async (req, res) => {
       ]);
 
     // await cursor.forEach(async doc => {
-    //   // Update matchDate to 19:30:00
-    //   const updatedDate = doc.matchDate.replace('T00:00:00', 'T19:30:00');
-    //   await collection.updateOne({ _id: doc._id }, { $set: { matchDate: updatedDate } });
-    // });
       
       console.log("working....")
     } catch (err) {
