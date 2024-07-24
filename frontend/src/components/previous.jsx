@@ -99,6 +99,12 @@ export default function Previous(){
       matchpassed = 53
     }
 
+    else if(league==="LPL24"){
+      total = 24;
+      tosspassed = 24
+      matchpassed = 24;
+    }
+
     else{
 
     var total = 0;

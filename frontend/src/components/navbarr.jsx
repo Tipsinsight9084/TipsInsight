@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 function NavBar(props) {
   // const [previousmatchlpl,setPreviousmatchlpl] = useState(null)
   const [previousmatchtnpl,setPreviousmatchtnpl] = useState(null)
+  const [previousmatchTH,setPreviousmatchTH] = useState(null)
 
 
   
@@ -21,6 +22,20 @@ function NavBar(props) {
         const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/TNPL24');
         const matchData = await response.json();
         setPreviousmatchtnpl(matchData);
+      } catch (error) {
+        console.error('Error fetching next match:', error);
+      }
+    }
+
+    fetchPreviousMatch();
+  }, []);
+
+  useEffect(() => {
+    async function fetchPreviousMatch() {
+      try {
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/TH24');
+        const matchData = await response.json();
+        setPreviousmatchTH(matchData);
       } catch (error) {
         console.error('Error fetching next match:', error);
       }
@@ -42,12 +57,20 @@ if(previousmatchtnpl)
      if (item.actualmatchWinner === item.matchWinner) {
          matchpassed += 1;
      }
- 
-     // if (item.actualtossWinner === item.tossWinner) {
-     //     tosspassed += 1;
-     // }
  });
 }
+
+
+if(previousmatchTH) 
+  {previousmatchTH.forEach(item => {
+     total += 1;
+ 
+     if (item.actualmatchWinner === item.matchWinner) {
+         matchpassed += 1;
+     }
+ });
+}
+
 
     // const tosspassed = props.tosspassed
     // const percentage = 99

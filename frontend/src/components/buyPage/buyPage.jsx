@@ -68,6 +68,14 @@ import NRK from '../../assets/TNPL/NRK.png'
 import TGC from '../../assets/TNPL/TGC.png'
 import DD from '../../assets/TNPL/DD.png'
 import SS from '../../assets/TNPL/SS.png'
+import WF from '../../assets/TH/WF(2).png'
+import TR from '../../assets/TH/TR.png'
+import SB from '../../assets/TH/SB.png'
+import BP from '../../assets/TH/BP.png'
+import NSC from '../../assets/TH/NSC(2).png'
+import OI from '../../assets/TH/OI.png'
+import MO from '../../assets/TH/MO(2).png'
+import LS from '../../assets/TH/LS(2).png'
 function BuyPage()  {
 
 
@@ -109,6 +117,17 @@ function BuyPage()  {
     'HUR':HUR,
     'SCO':SCO,
     'STR':STR
+ }
+
+ logos["The Hundred Mens"] = {
+  'BP-M':BP,
+  'LS-M':LS,
+  'WF-M':WF,
+  'NSC-M':NSC,
+  'TR-M':TR,
+  'SB-M':SB,
+  'OI-M':OI,
+  'MO-M':MO,
  }
 
  logos["WI vs SA T20"] = {
@@ -178,20 +197,6 @@ logos["Tamil Nadu Premier League"] = {
 }
 
 
-  
-  // const full_names = {
-  //   'MI': "Mumbai Indians",
-  //   'RCB': "Royal Challengers Banglore",
-  //   'SRH': "Sunrisers Hyderabad",
-  //   'KKR': "Kolkata Knight Riders",
-  //   'LSG': "Lucknow Supergiants",
-  //   'DC': "Delhi Capitals",
-  //   'RR': "Rajasthan Royals",
-  //   'PBKS': "Punjab Kings",
-  //   'GT': "Gujarat Titans",
-  //   'CSK': "Chennai Super Kings",
-  // }
-
   let league = uniqueId.substring(0,3)
   let Year = "2023";
 
@@ -206,7 +211,7 @@ logos["Tamil Nadu Premier League"] = {
   }
   
   console.log("hey2  ", uniqueId);
-  const [upcomingmatchlpl,setUpcomingmatchlpl] = useState([])
+  const [upcomingmatchTH,setUpcomingmatchTH] = useState([])
   const [upcomingmatchtnpl,setUpcomingmatchtnpl] = useState([])
 
   useEffect(() => {
@@ -217,7 +222,21 @@ logos["Tamil Nadu Premier League"] = {
     .catch((error) => console.error('Error fetching event details:', error));
   }, [uniqueId]);
 
-  
+   
+
+  useEffect(() => {
+    async function fetchupcomingMatch() {
+      try {
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/TH24');
+        const matchData = await response.json();
+        setUpcomingmatchTH(matchData);
+      } catch (error) {
+        console.error('Error fetching upcoming match:', error);
+      }
+    }
+
+    fetchupcomingMatch();
+  }, []); // 
 
   useEffect(() => {
     async function fetchupcomingMatch() {
@@ -396,7 +415,11 @@ Buy Now
 
          </div>
    
+         {
+  upcomingmatchTH &&
+  <Box Matches={upcomingmatchTH} League="The Hundred Mens" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
 
+ }
 {
   upcomingmatchtnpl &&
   <Box Matches={upcomingmatchtnpl} League="Tamil Nadu Premier League" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>

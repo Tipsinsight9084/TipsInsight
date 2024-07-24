@@ -15,7 +15,7 @@ export default function Previousmatches(){
     const [previousbb , setPreviousbb] = useState([]);
     const [previouslpl , setPreviouslpl] = useState([]);
     const [previoustnpl , setPrevioustnpl] = useState([]);
-
+    const [previousTH, setPreviousTH] = useState([])
     const [previouswc23 , setPreviouswc23] = useState([]);
     const [previoussa , setPrevioussa] = useState([]);
     const [previouswivssa , setPreviouswivssa] = useState([]);
@@ -178,6 +178,23 @@ export default function Previousmatches(){
       // Call the fetchAllEvents function
       fetchAllPrevious();
     }, []); 
+
+    useEffect(() => {
+      // // Function to fetch all event data from the backend
+      const fetchAllPrevious = async () => {
+        try {
+          const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/TH24');
+          // const response = await fetch('http://localhost:3000/prevmatches/');
+          const data = await response.json();
+          setPreviousTH(data); // // Assuming the backend returns an array of events
+        } catch (error) {
+          console.error('Error fetching all previous matches:', error);
+        }
+      };
+  
+      // Call the fetchAllEvents function
+      fetchAllPrevious();
+    }, []); 
     if (previousipl.length==0 && previousbb.length==0) {
       return (
         <LoadingAnimation/>
@@ -185,19 +202,19 @@ export default function Previousmatches(){
       
     }
 
-    var totallpl24 = 0;
-    var tosspassedlpl24 = 0;
-    var matchpassedlpl24 = 0;
+    var totalTH24 = 0;
+    var tosspassedTH24 = 0;
+    var matchpassedTH24 = 0;
 
-    previouslpl.forEach(item => {
-      totallpl24 += 1;
+    previousTH.forEach(item => {
+      totalTH24 += 1;
   
       if (item.actualmatchWinner === item.matchWinner) {
-          matchpassedlpl24 += 1;
+          matchpassedTH24 += 1;
       }
   
       if (item.actualtossWinner === item.tossWinner) {
-          tosspassedlpl24 += 1;
+          tosspassedTH24 += 1;
       }
   });
 
@@ -231,18 +248,19 @@ export default function Previousmatches(){
     let previous_heading_wc24 = "T2O World Cup 2024"    
     let previous_heading_lpl24 = "Lanka Premier League 2024"
     let previous_heading_tnpl24 = "Tamil Nadu Premier League 2024"
+    let previous_heading_TH24 = "The Hundred Mens 2024"
     return(
         <>
         <NavBar />
 
-        <Heading heading={previous_heading_lpl24}/>
+        <Heading heading={previous_heading_TH24}/>
         
-        <Resultbar total={totallpl24} tosspassed={tosspassedlpl24} matchpassed={matchpassedlpl24}/>
-{previouslpl.slice(0, 3).map((item) => (
+        <Resultbar total={totalTH24} tosspassed={tosspassedTH24} matchpassed={matchpassedTH24}/>
+{previousTH.slice(0, 3).map((item) => (
         <Card prev="true" btn_link = 'prediction' key={item.uniqueId} btn_des={view} data={item} League = "Indian Premier League" Year = "2023"/>
       ))}
 
-<Link to='/previous/LPL24' className="no-underline">
+<Link to='/previous/TH24' className="no-underline">
 <div className="flex justify-center items-center">
   <button className="no-underline my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-6 md:px-8 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-auto md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
     View more matches
@@ -258,9 +276,24 @@ export default function Previousmatches(){
         <Card prev="true" btn_link = 'prediction' key={item.uniqueId} btn_des={view} data={item} League = "Indian Premier League" Year = "2023"/>
       ))}
 
-<Link to='/previous/TNPL24'>
+<Link to='/previous/TNPL24' className="no-underline">
 <div className="flex justify-center items-center">
-  <button className="my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-6 md:px-8 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-auto md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
+  <button className="no-underline my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-6 md:px-8 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-auto md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
+    View more matches
+  </button>
+  </div>
+  </Link>
+
+  <Heading heading={previous_heading_lpl24}/>
+        
+        <Resultbar total={24} tosspassed={24} matchpassed={24}/>
+{previouslpl.slice(0, 3).map((item) => (
+        <Card prev="true" btn_link = 'prediction' key={item.uniqueId} btn_des={view} data={item} League = "Indian Premier League" Year = "2023"/>
+      ))}
+
+<Link to='/previous/LPL24' className="no-underline">
+<div className="flex justify-center items-center">
+  <button className="no-underline my-4 md:my-8 font-mont font-bold text-base md:text-xl rounded-3xl px-6 md:px-8 py-2 md:py-2 text-white bg-gradient-to-r from-customRed to-customBrown w-auto md:w-auto hover:transform hover:scale-110 transition duration-300 ease-in-out">
     View more matches
   </button>
   </div>

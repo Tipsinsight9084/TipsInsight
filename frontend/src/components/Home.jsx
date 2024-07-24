@@ -31,10 +31,12 @@ function Home_Page() {
 
  
   const [upcomingmatchtnpl,setUpcomingmatchtnpl] = useState(null)
+  const [upcomingmatchTH,setUpcomingmatchTH] = useState(null)
 
-  const [previousmatchbb,setPreviousmatchbb] = useState(null)
+  const [nextMatchTH,setNextMatchTH] = useState(null);
   const [previousmatchlpl,setPreviousmatchlpl] = useState(null)
   const [previousmatchtnpl,setPreviousmatchtnpl] = useState(null)
+  const [previousmatchTH,setPreviousmatchTH] = useState(null)
 
   function compareDates(first, second) {
     console.log("first",first)
@@ -72,6 +74,23 @@ function Home_Page() {
   },[]);
 
   useEffect(() => {
+    async function fetchNextMatch() {
+      // console.log("suraj")
+      try {
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/nextmatch/TH24');
+        // console.log("again")
+        const matchData = await response.json();
+        setNextMatchTH(matchData);
+        console.log("check time here: ", matchData);
+      } catch (error) {
+        console.error('Error fetching next match:', error);
+      }
+    }
+
+    fetchNextMatch();
+  },[]);
+
+  useEffect(() => {
     async function fetchupcomingMatch() {
       try {
         const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/TNPL24');
@@ -85,6 +104,19 @@ function Home_Page() {
     fetchupcomingMatch();
   }, []); // 
 
+  useEffect(() => {
+    async function fetchupcomingMatch() {
+      try {
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/TH24');
+        const matchData = await response.json();
+        setUpcomingmatchTH(matchData);
+      } catch (error) {
+        console.error('Error fetching upcoming match:', error);
+      }
+    }
+
+    fetchupcomingMatch();
+  }, []); // 
  
 
   
@@ -116,21 +148,30 @@ function Home_Page() {
     fetchPreviousMatch();
   }, []); 
 
+  useEffect(() => {
+    async function fetchPreviousMatch() {
+      try {
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/TH24');
+        const matchData = await response.json();
+        setPreviousmatchTH(matchData);
+      } catch (error) {
+        console.error('Error fetching next match:', error);
+      }
+    }
+
+    fetchPreviousMatch();
+  }, []); 
+
   let nextMatch,upcomingmatch
-  nextMatch = nextMatchtnpl;
+  // nextMatch = nextMatchtnpl;
 
-  if(upcomingmatchtnpl){
+  // if(upcomingmatchtnpl){
 
-    upcomingmatch = upcomingmatchtnpl[1]
+  //   upcomingmatch = upcomingmatchtnpl[1]
+  // }
+  if(nextMatchTH && nextMatchtnpl){
+  [nextMatch,upcomingmatch] = compareDates(nextMatchTH,nextMatchtnpl)
   }
-  // if(nextMatchlpl && nextMatchtnpl){
-  // [nextMatch,upcomingmatch] = compareDates(nextMatchlpl,nextMatchtnpl)
-  // }
-
-  // let upcomingmatch
-  // if(upcomingmatchlpl && upcomingmatchtnpl){
-  // upcomingmatch = compareDates(upcomingmatchlpl[1],upcomingmatchtnpl[1])
-  // }
 
   console.log("upcoming",upcomingmatch)
 
@@ -206,10 +247,10 @@ function Home_Page() {
 </div>  
 <Heading heading={previous_heading}/>
 {
-  previousmatchlpl && (
+  previousmatchTH && (
     <>
     
-    <Card prev="true" btn_link = 'prediction' btn_des = {prediction} data={previousmatchlpl[0]} League="Indian Premier League" Year="2024"/>
+    <Card prev="true" btn_link = 'prediction' btn_des = {prediction} data={previousmatchTH[0]} League="Indian Premier League" Year="2024"/>
       </>
   )
 }
@@ -246,8 +287,14 @@ function Home_Page() {
 
  }
 
-{ previousmatchlpl && 
-  <Box Matches={previousmatchlpl} League="Lanka Premier League" Year='2024' State="Previous Matches" btn_link="prediction" btn_des="View"/>
+{
+  upcomingmatchTH &&
+  <Box Matches={upcomingmatchTH} League="The Hundred Mens" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
+
+ }
+
+{ previousmatchTH && 
+  <Box Matches={previousmatchTH} League="The Hundred Mens" Year='2024' State="Previous Matches" btn_link="prediction" btn_des="View"/>
 }
 
 {/* WHEN 1st match of TNPL is done */}

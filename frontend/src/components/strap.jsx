@@ -56,6 +56,14 @@ import NRK from '../assets/TNPL/NRK.png'
 import TGC from '../assets/TNPL/TGC.png'
 import DD from '../assets/TNPL/DD.png'
 import SS from '../assets/TNPL/SS.png'
+import WF from '../assets/TH/WF(2).png'
+import TR from '../assets/TH/TR.png'
+import SB from '../assets/TH/SB.png'
+import BP from '../assets/TH/BP.png'
+import NSC from '../assets/TH/NSC(2).png'
+import OI from '../assets/TH/OI.png'
+import MO from '../assets/TH/MO(2).png'
+import LS from '../assets/TH/LS(2).png'
 // import OMA from '../assets/OMG.png'
 
 
@@ -88,6 +96,16 @@ export default function Strap(props) {
     'GT': GT,
     'CSK': CSK,
   }
+  Logos["The Hundred Mens"] = {
+    'BP-M':BP,
+    'LS-M':LS,
+    'WF-M':WF,
+    'NSC-M':NSC,
+    'TR-M':TR,
+    'SB-M':SB,
+    'OI-M':OI,
+    'MO-M':MO,
+   }
 
   Logos["Lanka Premier League"] = {
     'CS': CS,

@@ -61,6 +61,14 @@ import NZ from '../assets/NZ.png'
 import SL from '../assets/SL.png'
 import NED from '../assets/NED.png'
 import AFG from '../assets/AFG.png'
+import WF from '../assets/TH/WF(2).png'
+import TR from '../assets/TH/TR.png'
+import SB from '../assets/TH/SB.png'
+import BP from '../assets/TH/BP.png'
+import NSC from '../assets/TH/NSC(2).png'
+import OI from '../assets/TH/OI.png'
+import MO from '../assets/TH/MO(2).png'
+import LS from '../assets/TH/LS(2).png'
 import Footer from './footer.jsx';
 import LoadingAnimation from './Loader/Loader.jsx';
 import Whatsapp_floating from './floating/Whatsapp_floating.jsx';
@@ -111,6 +119,17 @@ function Prediction_Page() {
     'GT': GT,
     'CSK': CSK,
   }
+
+  Logos["The Hundred Mens"] = {
+    'BP-M':BP,
+    'LS-M':LS,
+    'WF-M':WF,
+    'NSC-M':NSC,
+    'TR-M':TR,
+    'SB-M':SB,
+    'OI-M':OI,
+    'MO-M':MO,
+   }
 
   Logos["Big Bash League"] = {
     'SIX':SIX,
@@ -225,6 +244,17 @@ Logos["Tamil Nadu Premier League"] = {
      "REN" : 'Renegades'
   }
 
+  full_names["The Hundred Mens"] = {
+    'BP-M':"Birmingham Phoenix Men",
+    'LS-M':"London Spirit Men",
+    'WF-M':"Welsh Fire Men",
+    'NSC-M':"Northern SuperChargers Men",
+    'TR-M':"Trent Rockets Men",
+    'SB-M':"Southern Brave Men",
+    'OI-M':"Oval Invincibles Men",
+    'MO-M':"Manchester Originals Men",
+  }
+
   full_names["WI vs SA T20"] = {
     'WI' : "West Indies",
     'SA' : 'South Africa'
@@ -303,27 +333,9 @@ Logos["Tamil Nadu Premier League"] = {
 
   
   // console.log("hey2  ", uniqueId);
-  // useEffect(() => {
-  //   // Fetch event details from the backend using uniqueId
-  //  fetch(`https://tips-insight-m7y6-backend.vercel.app/matchdetails/${uniqueId}`,)
-  // //  fetch(`http://localhost:3000/matchdetails/${uniqueId}`,)
-  //     .then((response) => response.json())
-  //     .then((data) => setDetails(data))
-  //     .catch((error) => console.error('Error fetching event details:', error));
-  // }, [uniqueId]);
-
-  // let league = Details.series
-  // let Year = Details.year
-
-  // // let league = "suraj"
-
-  // if(league===undefined){
-  //   league= "Indian Premier League"
-  //   Year = "2024"
-  // }
-  // const [upcomingmatchlpl,setUpcomingmatchlpl] = useState([]);
+  
   const [upcomingmatchtnpl,setUpcomingmatchtnpl] = useState([]);
-
+  const [upcomingmatchTH,setUpcomingmatchTH] = useState([]);
  
 
   useEffect(() => {
@@ -338,7 +350,22 @@ Logos["Tamil Nadu Premier League"] = {
     }
 
     fetchupcomingMatch();
+  }, []); //
+  
+  useEffect(() => {
+    async function fetchupcomingMatch() {
+      try {
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/TH24');
+        const matchData = await response.json();
+        setUpcomingmatchTH(matchData);
+      } catch (error) {
+        console.error('Error fetching upcoming match:', error);
+      }
+    }
+
+    fetchupcomingMatch();
   }, []); // 
+
 
 
   if (!Details) {
@@ -576,12 +603,13 @@ const date = new Date(newmatchDate);
             
     </div>
 
-{/*     
- {
-  upcomingmatchlpl &&
-  <Box Matches={upcomingmatchlpl} League="Lanka Premier League" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
 
- } */}
+
+{
+  upcomingmatchTH &&
+  <Box Matches={upcomingmatchTH} League="The Hundred Mens" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
+
+ }
 
 {
   upcomingmatchtnpl &&
@@ -589,6 +617,7 @@ const date = new Date(newmatchDate);
 
  }
   
+
   
 
    <Footer/>
