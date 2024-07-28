@@ -1,6 +1,7 @@
 import React from "react";
 import LPL_package from '/LPL_package.jpg'
 import TNPL_package from '/TNPL_package.jpg'
+import TH_package from '/TH_package.jpg'
 import {Link} from 'react-router-dom'
 import Footer from "../footer";
 
@@ -16,6 +17,10 @@ export default function Buypackage(props){
 
   if(League==="Tamil Nadu Premier League"){
     packages = TNPL_package
+  }
+
+  if(League==="The Hundred Men"){
+    packages = TH_package
   }
 
   function redirectToWhatsApp() {
