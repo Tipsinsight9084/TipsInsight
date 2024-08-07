@@ -415,16 +415,17 @@ Buy Now
 
          </div>
    
-         {/* {
+         { 
   upcomingmatchTH &&
   <Box Matches={upcomingmatchTH} League="The Hundred Mens" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
 
  }
+  {/* /*
 {
   upcomingmatchtnpl &&
   <Box Matches={upcomingmatchtnpl} League="Tamil Nadu Premier League" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
 
- } */}
+ } */ }
 
          <div className='md:mt-10 mt-16'>
           <p className='w-[80%] md:mt-10 m-auto text-sm md:text-xl text-center font-semibold'>We strictly secure your identity with each and every detail like your Name, Contact details and all other details which we have.</p>
