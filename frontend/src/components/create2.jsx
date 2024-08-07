@@ -56,10 +56,7 @@ function MatchForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // const oldDate = formData.matchDate;
-    // const oldTime = formData.time;
-
-    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
+    
 
     const CorrectDate = formData.matchDate;
     const CorrectTime = formData.time;

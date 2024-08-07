@@ -224,17 +224,17 @@ function Home_Page() {
         !nextMatch&& <LoadingAnimation/>
       }
       <Heading heading={upcoming_heading} />
-     {upcomingmatch && (
+     {/* {upcomingmatch && (
         <>
       
       <Card prev="false" btn_link='buy' btn_des={buy} data={upcomingmatch} League="Indian Premier League" Year="2023"/>
       </>
   )
-}
+} */}
 
-{
+{/* {
         !upcomingmatch && <LoadingAnimation/>
-      }
+      } */}
 
 
 <div className='flex justify-center'>
@@ -281,17 +281,17 @@ function Home_Page() {
 
  } */}
 
-{
+{/* {
   upcomingmatchtnpl &&
   <Box Matches={upcomingmatchtnpl} League="Tamil Nadu Premier League" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
 
- }
+ } */}
 
-{
+{/* {
   upcomingmatchTH &&
   <Box Matches={upcomingmatchTH} League="The Hundred Mens" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
 
- }
+ } */}
 
 { previousmatchTH && 
   <Box Matches={previousmatchTH} League="The Hundred Mens" Year='2024' State="Previous Matches" btn_link="prediction" btn_des="View"/>
