@@ -11,7 +11,7 @@ return (
     <Navbar/>
     <Heading heading="Buy Packages"/>
     <Buypackage league="The Hundred Men" year="2024" />
-    <Buypackage league="Tamil Nadu Premier League" year="2024" />
+    {/* <Buypackage league="Tamil Nadu Premier League" year="2024" /> */}
     <div className='md:mt-10 mt-16'>
           <p className='w-[80%] md:mt-10 m-auto text-sm md:text-xl text-center font-semibold'>We strictly secure your identity with each and every detail like your Name, Contact details and all other details which we have.</p>
 

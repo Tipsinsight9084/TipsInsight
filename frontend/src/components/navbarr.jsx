@@ -14,21 +14,6 @@ function NavBar(props) {
   const [previousmatchTH,setPreviousmatchTH] = useState(null)
 
 
-  
-
-  useEffect(() => {
-    async function fetchPreviousMatch() {
-      try {
-        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/TNPL24');
-        const matchData = await response.json();
-        setPreviousmatchtnpl(matchData);
-      } catch (error) {
-        console.error('Error fetching next match:', error);
-      }
-    }
-
-    fetchPreviousMatch();
-  }, []);
 
   useEffect(() => {
     async function fetchPreviousMatch() {
@@ -44,9 +29,9 @@ function NavBar(props) {
     fetchPreviousMatch();
   }, []);
 
-  var total = 286;
+  var total = 318;
   // var tosspassed = 186;
-  var matchpassed = 271;
+  var matchpassed = 303;
 
 
 

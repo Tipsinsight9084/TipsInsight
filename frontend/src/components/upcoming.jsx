@@ -16,21 +16,7 @@ export default function Upcoming(){
 
    
 
-    useEffect(() => {
-      // // Function to fetch all event data from the backend
-      const fetchAllupcoming = async () => {
-        try {
-          const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/TNPL24');
-          const data = await response.json();
-          setUpcomingtnpl(data); // // Assuming the backend returns an array of events
-        } catch (error) {
-          console.error('Error fetching all previous matches:', error);
-        }
-      };
-  
-      // Call the fetchAllEvents function
-      fetchAllupcoming();
-    }, []);
+   
 
     useEffect(() => {
       // // Function to fetch all event data from the backend
@@ -58,23 +44,16 @@ export default function Upcoming(){
 
     let upcoming_heading = "UPCOMING MATCHES"
 
-    if(upcomingtnpl.length==0){
-      return (
-      <LoadingAnimation/>
-      )
-    }
+    
     return(
         <>
         <NavBar />
        
 
-<Heading heading="Tamil Nadu Premier League"/>
-        {upcomingtnpl.slice(0,3).map((upcomingtnpl) => ( 
-                <Card prev="false" btn_link='buy' key={upcomingtnpl.uniqueId} btn_des={view} data={upcomingtnpl} League="Indian Premier League" Year="2024"/> 
-      ))}
+
 
       <Heading heading="The Hundred"/>
-        {upcomingTH.slice(0,3).map((upcomingTH) => ( 
+        {upcomingTH.map((upcomingTH) => ( 
                 <Card prev="false" btn_link='buy' key={upcomingTH.uniqueId} btn_des={view} data={upcomingTH} League="Indian Premier League" Year="2024"/> 
       ))}
       <Footer/>
