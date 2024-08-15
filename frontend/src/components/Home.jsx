@@ -165,8 +165,15 @@ function Home_Page() {
   let nextMatch ,upcomingmatch  // nextMatch = nextMatchtnpl;
 
   if(upcomingmatchTH){
-    upcomingmatch = upcomingmatchTH[1]
+
+    if(upcomingmatchTH.length<2){
+    upcomingmatch = upcomingmatchTH[0]
+    }
+
+    else{ upcomingmatch = upcomingmatchTH[1];}
   }
+
+  
   if(nextMatchTH){
  nextMatch = nextMatchTH
   }
