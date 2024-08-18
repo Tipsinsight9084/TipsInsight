@@ -94,9 +94,9 @@ const matchSchema = new mongoose.Schema({
     type: String,
     default: null
   }
-}, {collection: 'LPL24'});
+}, {collection: 'KSCA24'});
 
 
-const LPL24 = mongoose.model('LPL24', matchSchema);
+const KSCA24 = mongoose.model('KSCA24', matchSchema);
 
-module.exports = LPL24;
+module.exports = KSCA24;

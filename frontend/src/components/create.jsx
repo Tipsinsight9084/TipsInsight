@@ -13,27 +13,27 @@ import React, { useState } from 'react';
 // 'UGA','SCOT','NEP','PAP','NAM','OMA','CAN','USA','IRE']
 
 // const teams = ["BLK",'CS','DS','GM','JK'];
-const teams = ["LKK","CSG",'SS','DD','SMP','TGC','ITT','NRK']
+const teams = ["BB","GM",'HT','MD','MW','SL']
 
 function MatchForm() {
   const [formData, setFormData] = useState({
     team1: '',
     team2: '',
     // matchDate: '2024-02-10',
-    matchDate: '2024-07-07',
+    matchDate: '2024-08-07',
     time: '07:30',
-    matchDate: '2024-07-07',
-    time: '19:15',
+    matchDate: '2024-08-07',
+    time: '19:00',
     venue: '',
     tossWinner: '',
     // tossDate: '2024-02-10',
-    tossDate: '2024-07-07',
+    tossDate: '2024-08-07',
     tossTime: '05:00',
-    tossDate: '2024-07-07',
+    tossDate: '2024-08-07',
     tossTime: '17:00',
     matchWinner: '',
-    matchwinnerDate: '2024-07-07',
-    matchwinnerTime: '19:00',
+    matchwinnerDate: '2024-08-07',
+    matchwinnerTime: '18:40',
     matchNumber: '02',
     team1Run: '1',
     team1Wicket: '1',
@@ -44,7 +44,7 @@ function MatchForm() {
     actualmatchWinner: '',
     actualtossWinner: '',
     highlight: 'NULL',
-    series: 'Tamil Nadu Premier League',
+    series: 'Maharaja T20',
     year: '2024'
   });
 
@@ -105,7 +105,7 @@ function MatchForm() {
 
     try {
       console.log({ ...formData, uniqueId })
-      const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/create/TNPL24', {
+      const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/create/KSCA24', {
       // const response = await fetch('http://localhost:3000/create/bigbash23', {
         method: 'POST',
         headers: {

@@ -10,6 +10,8 @@ const WC24 = require('../model/WC24');
 const LPL24 = require('../model/LPL24');
 const TH24 = require('../model/TH24')
 const TNPL24 = require('../model/TNPL24');
+const KSCA24 = require('../model/KSCA24')
+
 
 const moment = require('moment-timezone');
 
@@ -297,6 +299,26 @@ router.get('/TH24', async (req, res) => {
     // today.setHours(0,0, 0, 0);
     // console.log("after today: ", today)
     const previousMatches = await TH24.find({ matchDate: { $lt: today.format() } }).sort({ matchDate: -1 });
+    res.send(previousMatches);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+router.get('/KSCA24', async (req, res) => {
+  try {
+    // const today = new Date();
+    // const today = "May, 10, 2023, 24:00";
+
+    const today = moment().tz('Asia/Kolkata');
+
+
+
+    console.log("1st today : ", today.format());
+    console.log("2nd today : ", today)
+    // today.setHours(0,0, 0, 0);
+    // console.log("after today: ", today)
+    const previousMatches = await KSCA24.find({ matchDate: { $lt: today.format() } }).sort({ matchDate: -1 });
     res.send(previousMatches);
   } catch (err) {
     res.status(500).json({ message: err.message });

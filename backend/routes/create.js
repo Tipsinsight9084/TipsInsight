@@ -10,7 +10,7 @@ const WC24 = require('../model/WC24');
 const LPL24 = require('../model/LPL24');
 const TH24 = require('../model/TH24')
 const TNPL24 = require('../model/TNPL24');
-
+const KSCA24 = require('../model/KSCA24')
 // Create a new match
 router.post('/IPL', async (req, res) => {
   try {
@@ -347,12 +347,12 @@ router.post('/LPL24', async (req, res) => {
   }
 });
 
-router.post('/TNPL24', async (req, res) => {
+router.post('/KSCA24', async (req, res) => {
   console.log("workinfg",req.body);
   try {
     const { team1, team2, matchDate, time, venue, tossWinner, tossDate, tossTime, matchWinner, matchwinnerDate, matchwinnerTime, uniqueId, team1Run , team1Wicket, team1Over, team2Run , team2Wicket, team2Over, actualmatchWinner, actualtossWinner, highlight, series, year} = req.body;
 
-    const newWC24 = new TNPL24({
+    const newWC24 = new KSCA24({
       team1,
       team2,
       matchDate,
@@ -380,11 +380,11 @@ router.post('/TNPL24', async (req, res) => {
 
     console.log(req.body)
     console.log("QI")
-    console.log("TNPL24",newWC24)
+    console.log("KSCA24",newWC24)
     // const 
     await newWC24.save();
 
-    res.status(201).json({ message: 'TNPL Match created successfully.' });
+    res.status(201).json({ message: 'KSCA24 Match created successfully.' });
   } catch (err) {
     res.status(400).json({ message: err + 'error in' });
   }
