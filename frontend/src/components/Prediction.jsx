@@ -18,7 +18,7 @@ import NAM from '../assets/NAM.png'
 import BAN from '../assets/BAN.png'
 import CS from '../assets/LPL/CS.png'
 import DS from '../assets/LPL/DS.png'
-import GM from '../assets/LPL/GM.png'
+import GMLPL from '../assets/LPL/GM.png'
 import JK from '../assets/LPL/JK.png'
 import BLK from '../assets/LPL/BLK.png'
 import USA from '../assets/USA.png'
@@ -69,6 +69,12 @@ import NSC from '../assets/TH/NSC(2).png'
 import OI from '../assets/TH/OI.png'
 import MO from '../assets/TH/MO(2).png'
 import LS from '../assets/TH/LS(2).png'
+import MW from '../assets/KSCA24/MW.jpeg'
+import MD from '../assets/KSCA24/MD.png'
+import HT from '../assets/KSCA24/HT.png'
+import BB from '../assets/KSCA24/BB.jpeg'
+import GM from '../assets/KSCA24/GM.webp'
+import SLKSCA from '../assets/KSCA24/SL.webp'
 import Footer from './footer.jsx';
 import LoadingAnimation from './Loader/Loader.jsx';
 import Whatsapp_floating from './floating/Whatsapp_floating.jsx';
@@ -174,11 +180,20 @@ Logos["SA T20 League"] = {
   'MICT':MICT
  }
 
+ Logos["Maharaja T20"] = {
+  'MD': MD,
+  'MW': MW,
+  'HT': HT,
+  'BB': BB,
+  'SL': SLKSCA,
+  'GM': GM
+}
+
  Logos["Lanka Premier League"] = {
   'CS': CS,
   'JK': JK,
   'DS': DS,
-  'GM': GM,
+  'GM': GMLPL,
   'BLK': BLK,
 }
 
@@ -311,6 +326,15 @@ Logos["Tamil Nadu Premier League"] = {
      'PC': 'Pretoria Capitals'
   }
 
+  full_names["Maharaja T20"]={
+    'BB': 'Bengaluru Blasters',
+     'MD': 'Mangaluru Dragons',
+     'MW': 'Mysuru Warriors',
+     'HT':'Hubli Tigers',
+     'GM':'Gulbarga Mystics',
+     'SL': 'Shivamogga Lions'
+  }
+
   full_names["Lanka Premier League"] = {
     'CS': 'Colombo Strikers',
     'DS': 'Dambulla Sixers',
@@ -334,16 +358,16 @@ Logos["Tamil Nadu Premier League"] = {
   
   // console.log("hey2  ", uniqueId);
   
-  const [upcomingmatchtnpl,setUpcomingmatchtnpl] = useState([]);
+  const [upcomingmatchKSCA,setUpcomingmatchKSCA] = useState([]);
   const [upcomingmatchTH,setUpcomingmatchTH] = useState([]);
  
 
   useEffect(() => {
     async function fetchupcomingMatch() {
       try {
-        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/TNPL24');
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/KSCA24');
         const matchData = await response.json();
-        setUpcomingmatchtnpl(matchData);
+        setUpcomingmatchKSCA(matchData);
       } catch (error) {
         console.error('Error fetching upcoming match:', error);
       }
@@ -603,13 +627,13 @@ const date = new Date(newmatchDate);
             
     </div>
 
-
-
- {
-  upcomingmatchTH &&
-  <Box Matches={upcomingmatchTH} League="The Hundred Mens" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
+    {
+  upcomingmatchKSCA &&
+  <Box Matches={upcomingmatchKSCA} League="Maharaja T20" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
 
  }
+
+ 
 
 {/* {
   upcomingmatchtnpl &&

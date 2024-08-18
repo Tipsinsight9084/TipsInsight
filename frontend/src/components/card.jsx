@@ -44,7 +44,7 @@ import CAN from '../assets/CAN.png'
 import NEP from '../assets/NEP.png'
 import CS from '../assets/LPL/CS.png'
 import DS from '../assets/LPL/DS.png'
-import GM from '../assets/LPL/GM.png'
+import GMLPL from '../assets/LPL/GM.png'
 import JK from '../assets/LPL/JK.png'
 import BLK from '../assets/LPL/BLK.png'
 import CSG from '../assets/TNPL/CSG.png'
@@ -63,9 +63,15 @@ import NSC from '../assets/TH/NSC(2).png'
 import OI from '../assets/TH/OI.png'
 import MO from '../assets/TH/MO(2).png'
 import LS from '../assets/TH/LS(2).png'
+import MW from '../assets/KSCA24/MW.jpeg'
+import MD from '../assets/KSCA24/MD.png'
+import HT from '../assets/KSCA24/HT.png'
+import BB from '../assets/KSCA24/BB.jpeg'
+import GM from '../assets/KSCA24/GM.webp'
+import SLKSCA from '../assets/KSCA24/SL.webp'
 
 
-// import OMA from '../assets/OMG.png'
+
 
 
 import { Link } from 'react-router-dom'
@@ -99,6 +105,15 @@ export default function Card(props) {
     'CSK': CSK,
   }
 
+  Logos["Maharaja T20"] = {
+    'MD': MD,
+    'MW': MW,
+    'HT': HT,
+    'BB': BB,
+    'SL': SLKSCA,
+    'GM': GM
+  }
+
   Logos["Tamil Nadu Premier League"] = {
     'CSG':CSG,
     'LKK':LKK,
@@ -114,7 +129,7 @@ export default function Card(props) {
     'CS': CS,
     'JK': JK,
     'DS': DS,
-    'GM': GM,
+    'GM': GMLPL,
     'BLK': BLK,
   }
 

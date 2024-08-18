@@ -100,7 +100,7 @@ function MatchForm() {
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     const matchNumber = formData.matchNumber.toString().padStart(2, '0');
-    const uniqueId = `TNPL24_${matchNumber}`;
+    const uniqueId = `KSCA24_${matchNumber}`;
     console.log(formData)
 
     try {

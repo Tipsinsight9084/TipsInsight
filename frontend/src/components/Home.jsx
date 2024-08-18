@@ -27,16 +27,17 @@ function Home_Page() {
   const buy = "Buy Now";
   const prediction = "View Prediction"
   
-  const [nextMatchtnpl, setNextMatchtnpl] = useState(null); // State to hold next match
-
- 
-  const [upcomingmatchtnpl,setUpcomingmatchtnpl] = useState(null)
   const [upcomingmatchTH,setUpcomingmatchTH] = useState(null)
+  const [upcomingmatchKSCA,setUpcomingmatchKSCA] = useState(null)
 
-  const [nextMatchTH,setNextMatchTH] = useState(null);
-  const [previousmatchlpl,setPreviousmatchlpl] = useState(null)
+  const [nextMatchKSCA,setNextMatchKSCA] = useState(null);
+
+  
   const [previousmatchtnpl,setPreviousmatchtnpl] = useState(null)
   const [previousmatchTH,setPreviousmatchTH] = useState(null)
+  const [previousmatchKSCA,setPreviousmatchKSCA] = useState(null)
+
+
 
   function compareDates(first, second) {
     console.log("first",first)
@@ -60,10 +61,10 @@ function Home_Page() {
     async function fetchNextMatch() {
       // console.log("suraj")
       try {
-        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/nextmatch/TNPL24');
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/nextmatch/KSCA24');
         // console.log("again")
         const matchData = await response.json();
-        setNextMatchtnpl(matchData);
+        setNextMatchKSCA(matchData);
         console.log("check time here: ", matchData);
       } catch (error) {
         console.error('Error fetching next match:', error);
@@ -73,80 +74,7 @@ function Home_Page() {
     fetchNextMatch();
   },[]);
 
-  useEffect(() => {
-    async function fetchNextMatch() {
-      // console.log("suraj")
-      try {
-        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/nextmatch/TH24');
-        // console.log("again")
-        const matchData = await response.json();
-        setNextMatchTH(matchData);
-        console.log("check time here: ", matchData);
-      } catch (error) {
-        console.error('Error fetching next match:', error);
-      }
-    }
 
-    fetchNextMatch();
-  },[]);
-
-  useEffect(() => {
-    async function fetchupcomingMatch() {
-      try {
-        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/TNPL24');
-        const matchData = await response.json();
-        setUpcomingmatchtnpl(matchData);
-      } catch (error) {
-        console.error('Error fetching upcoming match:', error);
-      }
-    }
-
-    fetchupcomingMatch();
-  }, []); // 
-
-  useEffect(() => {
-    async function fetchupcomingMatch() {
-      try {
-        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/TH24');
-        const matchData = await response.json();
-        setUpcomingmatchTH(matchData);
-      } catch (error) {
-        console.error('Error fetching upcoming match:', error);
-      }
-    }
-
-    fetchupcomingMatch();
-  }, []); // 
- 
-
-  
-  useEffect(() => {
-    async function fetchPreviousMatch() {
-      try {
-        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/LPL24');
-        const matchData = await response.json();
-        setPreviousmatchlpl(matchData);
-      } catch (error) {
-        console.error('Error fetching next match:', error);
-      }
-    }
-
-    fetchPreviousMatch();
-  }, []); // Empty dependency array, runs once on component mount
-
-  useEffect(() => {
-    async function fetchPreviousMatch() {
-      try {
-        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/TNPL24');
-        const matchData = await response.json();
-        setPreviousmatchtnpl(matchData);
-      } catch (error) {
-        console.error('Error fetching next match:', error);
-      }
-    }
-
-    fetchPreviousMatch();
-  }, []); 
 
   useEffect(() => {
     async function fetchPreviousMatch() {
@@ -162,46 +90,60 @@ function Home_Page() {
     fetchPreviousMatch();
   }, []); 
 
-  let nextMatch ,upcomingmatch  // nextMatch = nextMatchtnpl;
-
-  if(upcomingmatchTH){
-
-    if(upcomingmatchTH.length<2){
-    upcomingmatch = upcomingmatchTH[0]
+  useEffect(() => {
+    async function fetchPreviousMatch() {
+      try {
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/KSCA24');
+        const matchData = await response.json();
+        setUpcomingmatchKSCA(matchData);
+      } catch (error) {
+        console.error('Error fetching next match:', error);
+      }
     }
 
-    else{ upcomingmatch = upcomingmatchTH[1];}
+    fetchPreviousMatch();
+  }, []); 
+
+  useEffect(() => {
+    async function fetchPreviousMatch() {
+      try {
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/KSCA24');
+        const matchData = await response.json();
+        setPreviousmatchKSCA(matchData);
+      } catch (error) {
+        console.error('Error fetching next match:', error);
+      }
+    }
+
+    fetchPreviousMatch();
+  }, []); 
+
+  let nextMatch ,upcomingmatch  // nextMatch = nextMatchtnpl;
+
+  if(upcomingmatchKSCA){
+
+    if(upcomingmatchKSCA.length<2){
+    upcomingmatch = upcomingmatchKSCA[0]
+    }
+
+    else{ upcomingmatch = upcomingmatchKSCA[1];}
   }
 
   
-  if(nextMatchTH){
- nextMatch = nextMatchTH
+  if(nextMatchKSCA){
+ nextMatch = nextMatchKSCA
   }
 
   console.log("upcoming",upcomingmatch)
 
-    var total = 207;
-    var tosspassed = 186;
-    var matchpassed = 194;
-
-  
-
+   
   let view = "view"
-
-  // if (!nextMatch) {
-  //   return (
-  //     <LoadingAnimation/>
-  //   );
-    
-  // }
-
-
 
   return (
     <>
     <div className='parent-div'>
 
-      <NavBar total={total} tosspassed={tosspassed} matchpassed={matchpassed}/>
+      <NavBar/>
       <div className='flex  justify-center'>
       <div className='mt-4 animate-combined bg-gradient-to-r from-customRed via-customBrown to-orange-500 bg-clip-text text-transparent text-2xl font-black mb-0 py-0'>
   { "Welcome to Tipsinsight" }
@@ -252,20 +194,20 @@ function Home_Page() {
 </div>  
 <Heading heading={previous_heading}/>
 {
-  previousmatchTH && (
+  previousmatchKSCA && (
     <>
     
-    <Card prev="true" btn_link = 'prediction' btn_des = {prediction} data={previousmatchTH[0]} League="Indian Premier League" Year="2024"/>
+    <Card prev="true" btn_link = 'prediction' btn_des = {prediction} data={previousmatchKSCA[0]} League="Indian Premier League" Year="2024"/>
       </>
   )
 }
 
 {/* WHEN 1st match of TNPL is done */}
 {
-  previousmatchtnpl && (
+  previousmatchTH && (
     <>
     
-    <Card prev="true" btn_link = 'prediction' btn_des = {prediction} data={previousmatchtnpl[0]} League="Indian Premier League" Year="2024"/>
+    <Card prev="true" btn_link = 'prediction' btn_des = {prediction} data={previousmatchTH[0]} League="Indian Premier League" Year="2024"/>
       </>
   )
 }
@@ -293,19 +235,19 @@ function Home_Page() {
  } */}
 
 {
-  upcomingmatchTH &&
-  <Box Matches={upcomingmatchTH} League="The Hundred Mens" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
+  upcomingmatchKSCA &&
+  <Box Matches={upcomingmatchKSCA} League="Maharaja T20" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
 
  }
 
-{ previousmatchTH && 
-  <Box Matches={previousmatchTH} League="The Hundred Mens" Year='2024' State="Previous Matches" btn_link="prediction" btn_des="View"/>
+{ previousmatchKSCA && 
+  <Box Matches={previousmatchKSCA} League="Maharaja T20" Year='2024' State="Previous Matches" btn_link="prediction" btn_des="View"/>
 }
 
 {/* WHEN 1st match of TNPL is done */}
 
-{ previousmatchtnpl && 
-  <Box Matches={previousmatchtnpl} League="Tamil Nadu Premier League" Year='2024' State="Previous Matches" btn_link="prediction" btn_des="View"/>
+{ previousmatchTH && 
+  <Box Matches={previousmatchTH} League="The Hundred Mens" Year='2024' State="Previous Matches" btn_link="prediction" btn_des="View"/>
 }
 
 

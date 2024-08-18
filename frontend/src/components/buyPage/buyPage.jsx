@@ -13,7 +13,7 @@ import Whatsapp_floating from '../floating/Whatsapp_floating';
 import Telegram_floating from '../floating/Telegram_floating';
 import CS from '../../assets/LPL/CS.png'
 import DS from '../../assets/LPL/DS.png'
-import GM from '../../assets/LPL/GM.png'
+import GMLPL from '../../assets/LPL/GM.png'
 import JK from '../../assets/LPL/JK.png'
 import BLK from '../../assets/LPL/BLK.png'
 import CSK from '../../assets/CSK.png'
@@ -76,6 +76,13 @@ import NSC from '../../assets/TH/NSC(2).png'
 import OI from '../../assets/TH/OI.png'
 import MO from '../../assets/TH/MO(2).png'
 import LS from '../../assets/TH/LS(2).png'
+
+import MW from '../../assets/KSCA24/MW.jpeg'
+import MD from '../../assets/KSCA24/MD.png'
+import HT from '../../assets/KSCA24/HT.png'
+import BB from '../../assets/KSCA24/BB.jpeg'
+import GM from '../../assets/KSCA24/GM.webp'
+import SLKSCA from '../../assets/KSCA24/SL.webp'
 function BuyPage()  {
 
 
@@ -129,6 +136,16 @@ function BuyPage()  {
   'OI-M':OI,
   'MO-M':MO,
  }
+
+ logos["Maharaja T20"] = {
+  'MD': MD,
+  'MW': MW,
+  'HT': HT,
+  'BB': BB,
+  'SL': SLKSCA,
+  'GM': GM
+}
+
 
  logos["WI vs SA T20"] = {
   'WI':WI,
@@ -213,6 +230,7 @@ logos["Tamil Nadu Premier League"] = {
   console.log("hey2  ", uniqueId);
   const [upcomingmatchTH,setUpcomingmatchTH] = useState([])
   const [upcomingmatchtnpl,setUpcomingmatchtnpl] = useState([])
+  const [upcomingmatchKSCA,setUpcomingmatchKSCA] = useState([])
 
   useEffect(() => {
     // Fetch event details from the backend using uniqueId
@@ -238,19 +256,21 @@ logos["Tamil Nadu Premier League"] = {
     fetchupcomingMatch();
   }, []); // 
 
+  
+
   useEffect(() => {
     async function fetchupcomingMatch() {
       try {
-        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/TNPL24');
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/KSCA24');
         const matchData = await response.json();
-        setUpcomingmatchtnpl(matchData);
+        setUpcomingmatchKSCA(matchData);
       } catch (error) {
         console.error('Error fetching upcoming match:', error);
       }
     }
 
     fetchupcomingMatch();
-  }, []); // 
+  }, []); //
   
   if (!Details) {
     return (
@@ -414,12 +434,14 @@ Buy Now
 
 
          </div>
-   
-         { 
-  upcomingmatchTH &&
-  <Box Matches={upcomingmatchTH} League="The Hundred Mens" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
 
- }
+         { 
+  upcomingmatchKSCA &&
+  <Box Matches={upcomingmatchKSCA} League="Maharaja T20" Year='2024' State="Upcoming Matches" btn_link="buy" btn_des="Buy"/>
+
+ } 
+   
+      
   {/* /*
 {
   upcomingmatchtnpl &&

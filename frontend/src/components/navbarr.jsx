@@ -8,19 +8,19 @@ import { FaTelegram } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-function NavBar(props) {
+function NavBar() {
   // const [previousmatchlpl,setPreviousmatchlpl] = useState(null)
   const [previousmatchtnpl,setPreviousmatchtnpl] = useState(null)
-  const [previousmatchTH,setPreviousmatchTH] = useState(null)
+  const [previousmatchKSCA,setPreviousmatchKSCA] = useState(null)
 
 
 
   useEffect(() => {
     async function fetchPreviousMatch() {
       try {
-        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/TH24');
+        const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/prevmatches/KSCA24');
         const matchData = await response.json();
-        setPreviousmatchTH(matchData);
+        setPreviousmatchKSCA(matchData);
       } catch (error) {
         console.error('Error fetching next match:', error);
       }
@@ -29,14 +29,12 @@ function NavBar(props) {
     fetchPreviousMatch();
   }, []);
 
-  var total = 318;
+  var total = 352;
   // var tosspassed = 186;
-  var matchpassed = 303;
+  var matchpassed = 335;
 
-
-
-if(previousmatchtnpl) 
-  {previousmatchtnpl.forEach(item => {
+if(previousmatchKSCA) 
+  {previousmatchKSCA.forEach(item => {
      total += 1;
  
      if (item.actualmatchWinner === item.matchWinner) {
@@ -46,19 +44,6 @@ if(previousmatchtnpl)
 }
 
 
-if(previousmatchTH) 
-  {previousmatchTH.forEach(item => {
-     total += 1;
- 
-     if (item.actualmatchWinner === item.matchWinner) {
-         matchpassed += 1;
-     }
- });
-}
-
-
-    // const tosspassed = props.tosspassed
-    // const percentage = 99
     const percentage = ((matchpassed/total) *100).toFixed(0);
 
 

@@ -10,11 +10,29 @@ import Telegram_floating from "./floating/Telegram_floating";
 export default function Upcoming(){
 
     const [upcomingTH, setUpcomingTH] = useState([]);
-    const [upcomingtnpl, setUpcomingtnpl] = useState([]);
+    const [upcomingKSCA,setUpcomingKSCA] = useState([]);
 
     let view = "Buy Now"
 
    
+   
+
+    useEffect(() => {
+      // // Function to fetch all event data from the backend
+      const fetchAllupcoming = async () => {
+        try {
+          const response = await fetch('https://tips-insight-m7y6-backend.vercel.app/upcomingmatches/KSCA24');
+          const data = await response.json();
+          setUpcomingKSCA(data); // // Assuming the backend returns an array of events
+        } catch (error) {
+          console.error('Error fetching all previous matches:', error);
+        }
+      };
+  
+      // Call the fetchAllEvents function
+      fetchAllupcoming();
+    }, []);
+    
 
    
 
@@ -33,13 +51,9 @@ export default function Upcoming(){
       // Call the fetchAllEvents function
       fetchAllupcoming();
     }, []);
+
     
-    // if (upcoming.length===0) {
-    //   return (
-    //     <LoadingAnimation/>
-    //   );
-      
-    // }
+ 
   
 
     let upcoming_heading = "UPCOMING MATCHES"
@@ -48,14 +62,16 @@ export default function Upcoming(){
     return(
         <>
         <NavBar />
+
+
        
-
-
-
-      <Heading heading="The Hundred"/>
-        {upcomingTH.map((upcomingTH) => ( 
-                <Card prev="false" btn_link='buy' key={upcomingTH.uniqueId} btn_des={view} data={upcomingTH} League="Indian Premier League" Year="2024"/> 
+        <Heading heading="Majaraja T20"/>
+        {upcomingKSCA.map((upcomingKSCA) => ( 
+                <Card prev="false" btn_link='buy' key={upcomingKSCA.uniqueId} btn_des={view} data={upcomingKSCA} League="Indian Premier League" Year="2024"/> 
       ))}
+
+
+     
       <Footer/>
 
       <div className='md:h-[32vh] h-[8vh]'></div>
